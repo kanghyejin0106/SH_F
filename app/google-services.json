@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "149973966188",
+    "firebase_url": "https://shfdatabase.firebaseio.com",
+    "project_id": "shfdatabase",
+    "storage_bucket": "shfdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149973966188:android:8f10bcf59917bff3",
+        "android_client_info": {
+          "package_name": "com.example.home.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149973966188-9hg4tgv2i41jqu8d51ct9jkes6ndvrd8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.home.myapplication",
+            "certificate_hash": "7c8b603d87f53eb717527981ed375bb4ccae4594"
+          }
+        },
+        {
+          "client_id": "149973966188-ihf3iv5fu74t9cokng02coqih6v5hdd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpFRcOoci4I2zSBtiNnb0AJGxg_QBaqlA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149973966188-ihf3iv5fu74t9cokng02coqih6v5hdd6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
