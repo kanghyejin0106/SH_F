@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Question">
+        <activity android:name=".Zero">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".First"></activity>
+        <activity android:name=".Question"></activity>
         <activity
             android:name=".Second"
             android:label="개인 정보 입력"></activity>
