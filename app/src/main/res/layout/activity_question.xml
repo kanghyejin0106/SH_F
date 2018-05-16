@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/bg"
     android:orientation="vertical"
     android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="개인정보 수집, 이용 및 제공 동의서" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/agree"
+        android:textColor="#753E2D"
+        android:layout_centerHorizontal="true"
+        android:text="개인정보 수집, 이용 및 제공 동의서" />
 
-        <CheckBox
-            android:id="@+id/agree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="개인 정보 제공에 동의합니다." />
+    <CheckBox
+        android:id="@+id/agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/bg"
+        android:textColor="#753E2D"
+        android:layout_above="@+id/next"
+        android:text="개인 정보 제공에 동의합니다." />
 
-        <Button
-            android:id="@+id/next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="다음 단계"
-            android:visibility="gone"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="다음 단계"
+        android:textColor="#753E2D"
+        android:background="@color/bar"
+        android:visibility="gone" />
+    </RelativeLayout>
