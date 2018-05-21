@@ -8,10 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 
 public class Zero extends AppCompatActivity {
-    String id_s, pw_s, phone_s;
-    EditText id, pw, phone;
+    String id_s, pw_s, phone_s , email_s;
+    EditText id, pw, phone,email;
     TextView text;
 
     @Override
@@ -20,20 +24,16 @@ public class Zero extends AppCompatActivity {
         setContentView(R.layout.activity_zero);
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
-
-    }
-
-    public void SignUp(View view) {
-
         id = (EditText)findViewById(R.id.ID);
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
+        email = (EditText)findViewById(R.id.name);
 
         //text = (TextView)findViewById(R.id.texttext);
 
         text = (TextView)findViewById(R.id.txt_Join);
 
-
+        email_s = email.getText().toString();
         id_s = id.getText().toString();
         pw_s = pw.getText().toString();
         phone_s = phone.getText().toString();
@@ -43,6 +43,18 @@ public class Zero extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try{
+                    GMailSender gMailSender = new GMailSender("shp.Shouse@gmail.com","tksguqvm1!");
+                    gMailSender.sendMail("ddd","ddd",email_s);
+                    Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
+                }catch (SendFailedException e){
+
+                }catch(MessagingException e){
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                
                 Intent intent = new Intent(Zero.this, First.class);
                 intent.putExtra("Userid",id_s);
                 intent.putExtra("Userpw",pw_s);
@@ -51,5 +63,11 @@ public class Zero extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c02420a96a4ce6544960e538058558aaba9fbd7
     }
+
+
 }
