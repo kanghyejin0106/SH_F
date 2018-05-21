@@ -17,13 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Intro">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Intro"></activity>
         <activity android:name=".First" />
         <activity android:name=".Question" />
         <activity
@@ -31,7 +25,14 @@
             android:label="개인 정보 입력" />
         <activity android:name=".Third" />
         <activity android:name=".Zero" />
-        <activity android:name=".Activity_login"></activity>
+        <activity android:name=".Activity_login" />
+        <activity android:name=".Intro_logo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
