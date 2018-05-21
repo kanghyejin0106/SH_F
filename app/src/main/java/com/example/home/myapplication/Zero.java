@@ -8,10 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import javax.mail.MessagingException;
-import javax.mail.SendFailedException;
 
 public class Zero extends AppCompatActivity {
     String id_s, pw_s, phone_s;
@@ -48,6 +44,7 @@ public class Zero extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
                 try{
                     GMailSender gMailSender = new GMailSender("shp.Shouse@gmail.com","tksguqvm1!");
                     gMailSender.sendMail("ddd","ddd",email_s);
@@ -60,6 +57,8 @@ public class Zero extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+=======
+>>>>>>> 34f4ade5d8bfbc33c6e9e40903141302d9b82565
                 Intent intent = new Intent(Zero.this, First.class);
                 intent.putExtra("Userid",id_s);
                 intent.putExtra("Userpw",pw_s);
@@ -68,7 +67,10 @@ public class Zero extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 34f4ade5d8bfbc33c6e9e40903141302d9b82565
     }
 }
