@@ -30,7 +30,8 @@
         android:background="#FFFFFF"
         android:inputType="textPersonName"
         android:padding="8dp"
-        android:text="NAME"
+        android:hint="NAME"
+        android:textColorHint="@color/bar"
         android:textAlignment="center"
         android:textColor="@color/bar" />
 
@@ -71,7 +72,8 @@
         android:background="#FFFFFF"
         android:inputType="textEmailAddress"
         android:padding="8dp"
-        android:text="ID"
+        android:hint="ID"
+        android:textColorHint="@color/bar"
         android:textAlignment="center"
         android:textColor="@color/bar" />
 
@@ -85,7 +87,8 @@
         android:background="#FFFFFF"
         android:inputType="textPassword"
         android:padding="8dp"
-        android:text="PassWord"
+        android:hint="PassWord"
+        android:textColorHint="@color/bar"
         android:textAlignment="center"
         android:textColor="@color/bar" />
 
@@ -100,8 +103,9 @@
         android:background="#FFFFFF"
         android:inputType="phone"
         android:padding="8dp"
-        android:text="Phone Num"
+        android:hint="Phone Num"
         android:textAlignment="center"
+        android:textColorHint="@color/bar"
         android:textColor="@color/bar" />
 
     <Button
