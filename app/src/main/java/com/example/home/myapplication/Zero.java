@@ -8,10 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 
 public class Zero extends AppCompatActivity {
-    String id_s, pw_s, phone_s;
-    EditText id, pw, phone;
+    String id_s, pw_s, phone_s,email_s;
+    EditText id, pw, phone,email;
     TextView text;
 
     @Override
@@ -21,15 +25,12 @@ public class Zero extends AppCompatActivity {
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
 
-    }
-
-    public void SignUp(View view) {
 
         id = (EditText)findViewById(R.id.ID);
-        
+
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
-
+        email = (EditText)findViewById(R.id.name);
         //text = (TextView)findViewById(R.id.texttext);
 
         text = (TextView)findViewById(R.id.txt_Join);
@@ -38,13 +39,14 @@ public class Zero extends AppCompatActivity {
         id_s = id.getText().toString();
         pw_s = pw.getText().toString();
         phone_s = phone.getText().toString();
+        email_s = email.getText().toString();
 
         Button btn = (Button)findViewById(R.id.btn_Submit);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-<<<<<<< HEAD
+
                 try{
                     GMailSender gMailSender = new GMailSender("shp.Shouse@gmail.com","tksguqvm1!");
                     gMailSender.sendMail("ddd","ddd",email_s);
@@ -57,8 +59,7 @@ public class Zero extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-=======
->>>>>>> 34f4ade5d8bfbc33c6e9e40903141302d9b82565
+
                 Intent intent = new Intent(Zero.this, First.class);
                 intent.putExtra("Userid",id_s);
                 intent.putExtra("Userpw",pw_s);
@@ -67,10 +68,7 @@ public class Zero extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 34f4ade5d8bfbc33c6e9e40903141302d9b82565
     }
+
 }
