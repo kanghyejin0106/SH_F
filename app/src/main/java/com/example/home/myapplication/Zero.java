@@ -35,8 +35,6 @@ public class Zero extends AppCompatActivity {
 
         text = (TextView)findViewById(R.id.txt_Join);
 
-        text = (TextView)findViewById(R.id.txt_Join);
-
 
         id_s = id.getText().toString();
         pw_s = pw.getText().toString();
