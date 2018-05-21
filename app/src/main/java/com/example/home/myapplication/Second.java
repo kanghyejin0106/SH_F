@@ -19,7 +19,6 @@ public class Second extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         Button submit = findViewById(R.id.submit);
-        final RadioGroup gender = findViewById(R.id.gender);
         final RadioGroup pet = findViewById(R.id.pet);
         final RadioGroup money = findViewById(R.id.money);
         final RadioGroup period = findViewById(R.id.period);
@@ -41,15 +40,7 @@ public class Second extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Third.class);
-                int selectedId = gender.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "성별을 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("gender", selectedId);
-                }
-
-                selectedId = period.getCheckedRadioButtonId();
+                int selectedId = period.getCheckedRadioButtonId();
                 if(selectedId == -1) {
                     Toast.makeText(getApplicationContext(), "희망 거주 기간을 입력해주세요", Toast.LENGTH_SHORT).show();
                     return;
