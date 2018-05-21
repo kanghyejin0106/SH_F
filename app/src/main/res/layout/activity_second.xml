@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/bg"
     tools:context=".Second">
 
     <ScrollView
@@ -28,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:text="이름"
+            android:textColor="#753E2D"
             android:textSize="10pt" />
 
         <EditText
@@ -46,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="성별"
             android:textSize="10pt" />
 
@@ -59,12 +62,16 @@
                 android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="남자" />
 
             <RadioButton
                 android:id="@+id/female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="여자" />
 
         </RadioGroup>
@@ -81,6 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="희망 임대인"
             android:textSize="10pt" />
 
@@ -95,6 +103,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="할머니" />
 
             <CheckBox
@@ -102,6 +112,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="할아버지" />
 
             <CheckBox
@@ -109,6 +121,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="노부부" />
         </RadioGroup>
     </LinearLayout>
@@ -123,6 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="희망 주택 유형"
             android:textSize="10pt" />
 
@@ -136,30 +151,40 @@
                 android:id="@+id/home1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="단독주택" />
 
             <CheckBox
                 android:id="@+id/home2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="아파트" />
 
             <CheckBox
                 android:id="@+id/home3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="연립주택" />
 
             <CheckBox
                 android:id="@+id/home4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="다가구 주택" />
 
             <CheckBox
                 android:id="@+id/home5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="다세대 주택" />
 
             <LinearLayout
@@ -171,6 +196,8 @@
                 android:id="@+id/home6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="기타" />
 
             <EditText
@@ -193,6 +220,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="계약 희망 개월 수"
             android:textSize="10pt" />
 
@@ -206,18 +234,24 @@
                 android:id="@+id/ms4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="4개월" />
 
             <RadioButton
                 android:id="@+id/ms6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="6개월" />
 
             <RadioButton
                 android:id="@+id/ms66"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="6개월 이상" />
         </RadioGroup>
     </LinearLayout>
@@ -232,6 +266,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="희망 임차료"
             android:textSize="10pt" />
 
@@ -245,24 +280,32 @@
                 android:id="@+id/min20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="20만원 이내" />
 
             <RadioButton
                 android:id="@+id/min25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="25만원 이내" />
 
             <RadioButton
                 android:id="@+id/min30"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="30만원 이내" />
 
             <RadioButton
                 android:id="@+id/min35"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="35만원 이내" />
 
         </RadioGroup>
@@ -277,6 +320,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#753E2D"
             android:text="종교"
             android:textSize="10pt" />
 
@@ -289,30 +333,40 @@
                 android:id="@+id/reli1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="기독교" />
 
             <RadioButton
                 android:id="@+id/reli2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="불교" />
 
             <RadioButton
                 android:id="@+id/reli3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="천주교" />
 
             <RadioButton
                 android:id="@+id/reli4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="이슬람교" />
 
             <RadioButton
                 android:id="@+id/reli5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="없음" />
 
             <LinearLayout
@@ -324,6 +378,8 @@
                     android:id="@+id/reli6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
                     android:text="기타">
                 </RadioButton>
 
@@ -347,6 +403,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="애완 동물"
             android:textSize="10pt" />
 
@@ -360,12 +417,16 @@
                 android:id="@+id/pc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="가능" />
 
             <RadioButton
                 android:id="@+id/pc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="불가능" />
 
             <LinearLayout
@@ -377,6 +438,8 @@
                     android:id="@+id/pc3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
                     android:text="기타">
                 </RadioButton>
 
@@ -400,6 +463,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="흡연 여부"
             android:textSize="10pt" />
 
@@ -413,12 +477,16 @@
                 android:id="@+id/cdo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="한다" />
 
             <RadioButton
                 android:id="@+id/cdo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="안 한다" />
 
             <LinearLayout
@@ -430,6 +498,8 @@
                     android:id="@+id/cd3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
                     android:text="기타">
                 </RadioButton>
 
@@ -454,6 +524,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="음주 여부"
             android:textSize="10pt" />
 
@@ -466,12 +537,16 @@
                 android:id="@+id/ddo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="한다" />
 
             <RadioButton
                 android:id="@+id/ddo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="안 한다" />
 
             <LinearLayout
@@ -483,6 +558,8 @@
                     android:id="@+id/ddo3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
                     android:text="기타">
                 </RadioButton>
 
@@ -506,6 +583,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="아침 여부"
             android:textSize="10pt" />
 
@@ -518,12 +596,16 @@
                 android:id="@+id/bdo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="먹는다" />
 
             <RadioButton
                 android:id="@+id/bdo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bar2"
+                android:buttonTint="@color/bar2"
                 android:text="안 먹는다" />
 
             <LinearLayout
@@ -535,6 +617,8 @@
                     android:id="@+id/bdo3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
                     android:text="기타">
                 </RadioButton>
 
@@ -558,6 +642,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="중요하게 생각하는 순위"
+            android:textColor="#753E2D"
             android:textSize="10pt" />
 
         <LinearLayout
@@ -570,6 +655,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:textColor="#753E2D"
                 android:text="1순위"
                 android:textSize="10pt" />
 
@@ -583,30 +669,40 @@
                         android:id="@+id/first1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="종교" />
 
                     <RadioButton
                         android:id="@+id/first2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="애완 동물" />
 
                     <RadioButton
                         android:id="@+id/first3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="흡연 여부" />
 
                     <RadioButton
                         android:id="@+id/first4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="음주 여부" />
 
                     <RadioButton
                         android:id="@+id/first5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="아침 여부" />
 
             </RadioGroup>
@@ -622,6 +718,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:textColor="#753E2D"
                 android:text="2순위"
                 android:textSize="10pt" />
 
@@ -635,30 +732,40 @@
                         android:id="@+id/second1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="종교" />
 
                     <RadioButton
                         android:id="@+id/second2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="애완 동물" />
 
                     <RadioButton
                         android:id="@+id/second3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="흡연 여부" />
 
                     <RadioButton
                         android:id="@+id/second4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="음주 여부" />
 
                     <RadioButton
                         android:id="@+id/second5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="아침 여부" />
 
             </RadioGroup>
@@ -674,6 +781,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:textColor="#753E2D"
                 android:text="3순위"
                 android:textSize="10pt" />
 
@@ -687,30 +795,40 @@
                         android:id="@+id/third1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="종교" />
 
                     <RadioButton
                         android:id="@+id/third2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="애완 동물" />
 
                     <RadioButton
                         android:id="@+id/third3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="흡연 여부" />
 
                 <RadioButton
                         android:id="@+id/third4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
                         android:text="음주 여부" />
 
                     <RadioButton
                         android:id="@+id/third5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
                         android:text="아침 여부" />
 
             </RadioGroup>
@@ -727,6 +845,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textColor="#753E2D"
             android:text="자기소개"
             android:textSize="10pt" />
 
@@ -750,6 +869,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        android:background="@color/bar"
+        android:textColor="#753E2D"
         android:text="제출" />
         </LinearLayout>
 

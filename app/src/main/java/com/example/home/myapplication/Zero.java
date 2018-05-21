@@ -25,7 +25,20 @@ public class Zero extends AppCompatActivity {
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
 
+<<<<<<< HEAD
         //text = (TextView)findViewById(R.id.texttext);
+=======
+<<<<<<< HEAD
+
+        //text = (TextView)findViewById(R.id.texttext);
+
+        text = (TextView)findViewById(R.id.txt_Join);
+
+=======
+        //text = (TextView)findViewById(R.id.texttext);
+        text = (TextView)findViewById(R.id.txt_Join);
+>>>>>>> 388c98d592150fb774a384aaf24ac352e27097fe
+>>>>>>> e67b83d3f6c4b992f5d943f851304e1032006564
 
         id_s = id.getText().toString();
         pw_s = pw.getText().toString();
