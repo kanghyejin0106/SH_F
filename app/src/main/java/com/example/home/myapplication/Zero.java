@@ -51,7 +51,5 @@ public class Zero extends AppCompatActivity {
             }
         });
 
-
-
     }
 }
