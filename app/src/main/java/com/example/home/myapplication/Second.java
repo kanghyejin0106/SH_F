@@ -29,11 +29,10 @@ public class Second extends AppCompatActivity {
         final RadioGroup first = findViewById(R.id.first);
         final RadioGroup second = findViewById(R.id.second);
         final RadioGroup th = findViewById(R.id.third);
-        final EditText name = findViewById(R.id.name);
+        final EditText school = findViewById(R.id.school);
         final EditText intro = findViewById(R.id.intro);
-        final CheckBox granym = findViewById(R.id.granym);
+        final CheckBox gran = findViewById(R.id.granm);
         final CheckBox home1 = findViewById(R.id.home1);
-//        final CheckBox granym = findViewById(R.id.granym);
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +41,7 @@ public class Second extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Third.class);
                 int selectedId = period.getCheckedRadioButtonId();
                 if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "희망 거주 기간을 입력해주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter desired contract period.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     intent.putExtra("period", selectedId);
@@ -110,12 +109,12 @@ public class Second extends AppCompatActivity {
                     intent.putExtra("th", selectedId);
                 }
 
-                boolean checked = granym.isChecked();
+                boolean checked = gran.isChecked();
                 if(!checked) {
                     Toast.makeText(getApplicationContext(), "거주 희망자를 입력하세요.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    intent.putExtra("grany", selectedId);
+                    intent.putExtra("gran", selectedId);
                 }
 
                 checked = home1.isChecked();
@@ -126,13 +125,13 @@ public class Second extends AppCompatActivity {
                     intent.putExtra("home", selectedId);
                 }
 
-                String ttedId = name.getText().toString();
+                String ttedId = school.getText().toString();
 
                 if(ttedId.equals("")) {
-                    Toast.makeText(getApplicationContext(), "이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter your school.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    intent.putExtra("name", ttedId);
+                    intent.putExtra("school", ttedId);
                 }
 
                 ttedId = intro.getText().toString();
