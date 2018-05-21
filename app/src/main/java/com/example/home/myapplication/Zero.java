@@ -35,48 +35,6 @@ public class Zero extends AppCompatActivity {
 
         female = (Button)findViewById(R.id.Female);
         male = (Button)findViewById(R.id.Male);
-        /*
-
-        female.setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()){
-                    case MotionEvent.ACTION_DOWN:{
-                        female.setBackgroundColor(R.color.Clicked);
-                        //male.setBackgroundColor(R.color.Male);
-                        v.setPressed(true);
-                        }
-                    case MotionEvent.ACTION_UP:{
-                        female.setBackgroundColor(R.color.Female);
-                        //male.setBackgroundColor(R.color.Clicked);
-                        v.setPressed(false);
-                        break;}
-                }
-                return false;
-            }
-        });
-
-        male.setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()){
-                    case MotionEvent.ACTION_DOWN:{
-                        male.setBackgroundColor(R.color.Clicked);
-                        //female.setBackgroundColor(R.color.Female);
-                        v.setPressed(true);
-                        break;}
-                    case MotionEvent.ACTION_UP:{
-                        //female.setBackgroundColor(R.color.Clicked);
-                        male.setBackgroundColor(R.color.Male);
-                        v.setPressed(false);
-                        break;}
-                }
-                return false;
-            }
-        });*/
-
 
         female.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -108,12 +66,10 @@ public class Zero extends AppCompatActivity {
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
 
-<<<<<<< HEAD
         //text = (TextView)findViewById(R.id.texttext);
-=======
+
         email = (EditText)findViewById(R.id.Email);
 
->>>>>>> 8410f9a61fafe54c8a7b4a613878c6fadc626c1c
         text = (TextView)findViewById(R.id.txt_Join);
 
 
