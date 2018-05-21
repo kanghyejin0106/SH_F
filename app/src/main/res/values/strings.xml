@@ -3,6 +3,7 @@
     <color name="bg">#F3F1EC</color>
     <color name="bar">#E8DCC1</color>
     <color name="bar2">#A0A991</color>
+    <color name="clicked">#DBDBDB</color>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
