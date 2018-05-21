@@ -51,8 +51,8 @@ public class Zero extends AppCompatActivity {
             public void onClick(View view) {
 
                 try{
-                    GMailSender gMailSender = new GMailSender("shp.Shouse@gmail.com","tksguqvm1!");
-                    gMailSender.sendMail("ddd","ddd",email_s);
+                    GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
+                    gMailSender.sendMail("ddd","ddd",email.getText().toString());
                     Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
                 }catch (SendFailedException e){
 
