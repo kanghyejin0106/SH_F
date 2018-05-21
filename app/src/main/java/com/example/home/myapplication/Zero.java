@@ -25,6 +25,7 @@ public class Zero extends AppCompatActivity {
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
         id = (EditText)findViewById(R.id.ID);
+        
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
         email = (EditText)findViewById(R.id.name);
@@ -54,7 +55,7 @@ public class Zero extends AppCompatActivity {
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-                
+
                 Intent intent = new Intent(Zero.this, First.class);
                 intent.putExtra("Userid",id_s);
                 intent.putExtra("Userpw",pw_s);
