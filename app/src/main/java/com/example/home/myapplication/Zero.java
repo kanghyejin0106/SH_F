@@ -51,10 +51,5 @@ public class Zero extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> parent of 7c02420... dd
     }
 }
