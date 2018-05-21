@@ -9,11 +9,11 @@
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="20mm">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="2mm"
+        android:layout_margin="16mm"
         android:layout_above="@+id/agree"
         android:textColor="#753E2D"
         android:layout_centerHorizontal="true"
