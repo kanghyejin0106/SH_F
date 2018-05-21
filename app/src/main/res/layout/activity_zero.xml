@@ -7,7 +7,7 @@
     android:background="@color/bg"
     android:orientation="vertical"
     tools:context="com.example.user.season.MainActivity">
-
+,
     <TextView
         android:id="@+id/txt_Join"
         android:layout_width="match_parent"
