@@ -2,6 +2,7 @@ package com.example.home.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,9 @@ public class Zero extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zero);
+
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
+
     }
 
     public void SignUp(View view) {
@@ -38,15 +42,16 @@ public class Zero extends AppCompatActivity {
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                Intent intent = new Intent(Zero.this, First.class);
+                intent.putExtra("Userid",id_s);
+                intent.putExtra("Userpw",pw_s);
+                intent.putExtra("Userph",phone_s);
+                startActivity(intent);
             }
         });
 
-        Intent intent = new Intent(this, First.class);
-        intent.putExtra("Userid",id_s);
-        intent.putExtra("Userpw",pw_s);
-        intent.putExtra("Userph",phone_s);
-        startActivity(intent);
+
 
     }
 }

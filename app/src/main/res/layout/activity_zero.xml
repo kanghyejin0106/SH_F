@@ -30,7 +30,7 @@
         android:background="#FFFFFF"
         android:inputType="textPersonName"
         android:padding="8dp"
-        android:hint="NAME"
+        android:hint="E-Mail"
         android:textColorHint="@color/bar"
         android:textAlignment="center"
         android:textColor="@color/bar" />
