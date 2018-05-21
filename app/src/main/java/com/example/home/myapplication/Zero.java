@@ -14,8 +14,8 @@ import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 
 public class Zero extends AppCompatActivity {
-    String id_s, pw_s, phone_s , email_s;
-    EditText id, pw, phone,email;
+    String id_s, pw_s, phone_s;
+    EditText id, pw, phone;
     TextView text;
 
     @Override
@@ -24,17 +24,21 @@ public class Zero extends AppCompatActivity {
         setContentView(R.layout.activity_zero);
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
+
+    }
+
+    public void SignUp(View view) {
+
         id = (EditText)findViewById(R.id.ID);
         
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
-        email = (EditText)findViewById(R.id.name);
 
         //text = (TextView)findViewById(R.id.texttext);
 
         text = (TextView)findViewById(R.id.txt_Join);
 
-        email_s = email.getText().toString();
+
         id_s = id.getText().toString();
         pw_s = pw.getText().toString();
         phone_s = phone.getText().toString();
@@ -65,7 +69,6 @@ public class Zero extends AppCompatActivity {
         });
 
 
+
     }
-
-
 }
