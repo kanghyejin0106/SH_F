@@ -17,12 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Intro"></activity>
+        <activity android:name=".Intro" />
         <activity android:name=".First" />
         <activity android:name=".Question" />
         <activity
-            android:name=".Second"
-            android:label="개인 정보 입력" />
+            android:name=".Second"/>
+        <activity android:name=".Second2"/>
         <activity android:name=".Third" />
         <activity android:name=".Zero" />
         <activity android:name=".Activity_login" />

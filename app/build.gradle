@@ -27,21 +27,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-<<<<<<< HEAD
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
-=======
-<<<<<<< HEAD
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
-=======
-    implementation files('/Users/sonhyejin/Downloads/activation.jar')
-    implementation files('/Users/sonhyejin/Downloads/mail.jar')
-    implementation files('/Users/sonhyejin/Downloads/additionnal.jar')
->>>>>>> 46d395ffda7761bfde7ef75bd2c275925ae97546
->>>>>>> ca2b9e80a6e01c687c394f29cd246ecb83b36128
 }
 
 

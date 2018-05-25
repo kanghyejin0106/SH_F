@@ -2,18 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:background="@color/bg"
     android:orientation="vertical"
     android:gravity="center">
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="20mm">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16mm"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_margin="3dp"
         android:layout_above="@+id/agree"
         android:textColor="#753E2D"
         android:layout_centerHorizontal="true"
