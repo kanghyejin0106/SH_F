@@ -31,7 +31,7 @@
             android:label="개인 정보 입력" />
         <activity android:name=".Third" />
         <activity android:name=".Zero" />
-        <activity android:name=".Activity_login"></activity>
+        <activity android:name=".Activity_login" />
     </application>
 
 </manifest>
