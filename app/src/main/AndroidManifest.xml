@@ -20,9 +20,9 @@
         <activity android:name=".Intro" />
         <activity android:name=".First" />
         <activity android:name=".Question" />
-        <activity
-            android:name=".Second"/>
-        <activity android:name=".Second2"/>
+        <activity android:name=".Second" />
+        <activity android:name=".Second2" />
+        <activity android:name=".Second3" />
         <activity android:name=".Third" />
         <activity android:name=".Zero" />
         <activity android:name=".Activity_login" />
@@ -33,6 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Second4" />
+        <activity android:name=".Second5"></activity>
     </application>
 
 </manifest>

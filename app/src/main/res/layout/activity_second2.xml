@@ -299,6 +299,59 @@
                     </RadioGroup>
                 </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="#753E2D"
+                            android:text="Invite?"
+                            android:textSize="10pt" />
+
+                        <RadioGroup
+                            android:id="@+id/in"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/in1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/bar2"
+                                android:buttonTint="@color/bar2"
+                                android:text="Invite someone more than once a month." />
+
+                            <RadioButton
+                                android:id="@+id/in2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/bar2"
+                                android:buttonTint="@color/bar2"
+                                android:text="Invite someone more than once every two month." />
+
+                            <RadioButton
+                                android:id="@+id/in3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/bar2"
+                                android:buttonTint="@color/bar2"
+                                android:text="Invite someone more than once every three months." />
+
+                            <RadioButton
+                                android:id="@+id/in4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/bar2"
+                                android:buttonTint="@color/bar2"
+                                android:text="Do not invite anyone." />
+                        </RadioGroup>
+                    </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -314,7 +367,7 @@
                     android:textColor="#753E2D"
                     android:text="next" />
                 </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
+        </LinearLayout>
      </ScrollView>
-    </LinearLayout>
+</LinearLayout>

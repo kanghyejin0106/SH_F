@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center_horizontal">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3mm">
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_margin="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_above="@+id/agree"
         android:textColor="#753E2D"
-        android:layout_centerHorizontal="true"
         android:text="As an applicant for the Seoul Metropolitan Government's one-room generation sympathy project, I agree with the following. 1. Personal Information Collection and User : Seoul Metropolitan Government (metropolitan government) 2. The purpose of personal information collection and utilization is to manage the status of the project and to select the business owner (monitoring) 3. However, the business end date (when the lease period expires or is canceled) shall be kept and used only to the extent necessary for settlement of disputes, handling of civil affairs, and compliance with legal obligations. 5. I inform you that I can refuse to accept the following statements and can not participate in the business without them : 6. For the above business, I shall collect and use data containing my own unique identification. " />
 
     </ScrollView>
@@ -23,7 +23,6 @@
         android:id="@+id/agree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:background="@color/bg"
         android:textColor="#753E2D"
         android:layout_above="@+id/next"
@@ -33,9 +32,8 @@
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:text="Next"
         android:textColor="#753E2D"
         android:background="@color/bar"
         android:visibility="gone" />
-    </RelativeLayout>
+    </LinearLayout>
