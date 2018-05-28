@@ -12,24 +12,32 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 
 public class Zero extends AppCompatActivity {
+    DatabaseReference table;
     String name_s, pw_s, phone_s,email_s;
     EditText name, pw, phone,email;
     TextView text;
     boolean status = true;
     Button female;
     Button male;
-
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zero);
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
+
+        table = FirebaseDatabase.getInstance().getReference("student");
+
 
         final boolean Status[]={true, false};
 
@@ -61,15 +69,19 @@ public class Zero extends AppCompatActivity {
             }
         });
 
+
         name = (EditText)findViewById(R.id.Name);
 
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
 
+<<<<<<< HEAD
         //text = (TextView)findViewById(R.id.texttext);
 
+=======
+>>>>>>> 0d6f3fa72331543ab7b88e307e77778ca7ac68cc
         email = (EditText)findViewById(R.id.Email);
-
+        //email_Encode=EncodeString(email.getText().toString());
         text = (TextView)findViewById(R.id.txt_Join);
 
 
@@ -83,7 +95,19 @@ public class Zero extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                table.child("dsa").setValue("dafdsf");
+                regiUser();
+                table.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
                 try{
                     GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
                     gMailSender.sendMail("ddd","ddd",email.getText().toString());
@@ -103,5 +127,16 @@ public class Zero extends AppCompatActivity {
 
 
     }
-
+    public void regiUser(){
+        //DB
+        table = FirebaseDatabase.getInstance().getReference("student");
+        String str=EncodeString(email.getText().toString());
+        User newUser = new User(str,pw.getText().toString());
+        table.child(str).setValue(newUser);
+        email.setText("");
+        pw.setText("");
+    }
+    public static String EncodeString(String string) {
+        return string.replace(".", ",");
+    }
 }

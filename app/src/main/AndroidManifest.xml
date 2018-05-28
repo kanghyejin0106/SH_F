@@ -17,13 +17,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Intro">
+        <activity android:name=".Intro" />
+        <activity android:name=".First" />
+        <activity android:name=".Question" />
+        <activity android:name=".Second" />
+        <activity android:name=".Second2" />
+        <activity android:name=".Second3" />
+        <activity android:name=".Third" />
+        <activity android:name=".Zero" />
+        <activity android:name=".Activity_login" />
+        <activity android:name=".Intro_logo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".First" />
         <activity android:name=".Question" />
         <activity
@@ -32,6 +42,10 @@
         <activity android:name=".Third" />
         <activity android:name=".Zero" />
         <activity android:name=".Activity_login" />
+=======
+        <activity android:name=".Second4" />
+        <activity android:name=".Second5"></activity>
+>>>>>>> 0d6f3fa72331543ab7b88e307e77778ca7ac68cc
     </application>
 
 </manifest>
