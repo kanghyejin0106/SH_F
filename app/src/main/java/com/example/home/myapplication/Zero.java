@@ -1,9 +1,11 @@
 package com.example.home.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,15 +26,49 @@ public class Zero extends AppCompatActivity {
     String name_s, pw_s, phone_s,email_s;
     EditText name, pw, phone,email;
     TextView text;
-
-
+    boolean status = true;
+    Button female;
+    Button male;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zero);
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
+
         table = FirebaseDatabase.getInstance().getReference("student");
+
+
+        final boolean Status[]={true, false};
+
+        female = (Button)findViewById(R.id.Female);
+        male = (Button)findViewById(R.id.Male);
+
+        female.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                status = true;
+                if(status==true) {
+                    female.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.Clicked));
+                    female.setTextColor(getApplicationContext().getResources().getColor(R.color.White));
+                    male.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.Male));
+                    male.setTextColor(getApplicationContext().getResources().getColor(R.color.Black));
+                }
+            }
+        });
+        male.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                status = false;
+                if(status==false) {
+                    male.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.Clicked));
+                    male.setTextColor(getApplicationContext().getResources().getColor(R.color.White));
+                    female.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.Male));
+                    female.setTextColor(getApplicationContext().getResources().getColor(R.color.Black));
+                }
+            }
+        });
+
 
         name = (EditText)findViewById(R.id.Name);
 
@@ -79,11 +115,7 @@ public class Zero extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-
                 Intent intent = new Intent(Zero.this, First.class);
-                intent.putExtra("Userid",name_s);
-                intent.putExtra("Userpw",pw_s);
-                intent.putExtra("Userph",phone_s);
                 startActivity(intent);
             }
         });

@@ -3,6 +3,7 @@
     <color name="bg">#F3F1EC</color>
     <color name="bar">#E8DCC1</color>
     <color name="bar2">#A0A991</color>
+    <color name="clicked">#DBDBDB</color>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
@@ -17,4 +18,57 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string-array name="wake">
+        <item>05:00~06:00</item>
+        <item>06:00~07:00</item>
+        <item>07:00~08:00</item>
+        <item>08:00~09:00</item>
+        <item>09:00~10:00</item>
+        <item>10:00~11:00</item>
+        <item>11:00~12:00</item>
+    </string-array>
+
+    <string-array name="sleep">
+        <item>Before 21:00</item>
+        <item>21:00~23:00</item>
+        <item>23:00~01:00</item>
+        <item>01:00~03:00</item>
+        <item>After 03:00</item>
+    </string-array>
+
+    <string-array name="comeback">
+        <item>Before 18:00</item>
+        <item>18:00~21:00</item>
+        <item>21:00~24:00</item>
+        <item>24:00~03:00</item>
+        <item>After 03:00</item>
+    </string-array>
+
+    <string-array name="call">
+        <item>Before 18:00</item>
+        <item>18:00~21:00</item>
+        <item>21:00~24:00</item>
+        <item>24:00~03:00</item>
+        <item>After 03:00</item>
+    </string-array>
+
+    <string-array name="bath_m">
+        <item>05:00~06:00</item>
+        <item>06:00~07:00</item>
+        <item>07:00~08:00</item>
+        <item>08:00~09:00</item>
+        <item>09:00~10:00</item>
+        <item>10:00~11:00</item>
+        <item>11:00~12:00</item>
+    </string-array>
+
+    <string-array name="bath_n">
+        <item>Before 19:00</item>
+        <item>19:00~21:00</item>
+        <item>21:00~23:00</item>
+        <item>23:00~01:00</item>
+        <item>01:00~03:00</item>
+        <item>After 03:00</item>
+    </string-array>
 </resources>
