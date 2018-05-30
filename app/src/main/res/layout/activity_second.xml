@@ -66,7 +66,7 @@
             android:text="What kind of lessor do you want?"
             android:textSize="10pt" />
 
-        <RadioGroup
+        <LinearLayout
             android:id="@+id/gran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,14 +91,14 @@
                 android:text="Grandpa" />
 
             <CheckBox
-                android:id="@+id/granyp"
+                android:id="@+id/granc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:textColor="@color/bar2"
                 android:buttonTint="@color/bar2"
                 android:text="Old couple" />
-        </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -320,7 +320,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/Next"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
