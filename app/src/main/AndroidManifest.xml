@@ -33,19 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".First" />
-        <activity android:name=".Question" />
-        <activity
-            android:name=".Second"
-            android:label="개인 정보 입력" />
-        <activity android:name=".Third" />
-        <activity android:name=".Zero" />
-        <activity android:name=".Activity_login" />
-=======
-        <activity android:name=".Second4" />
-        <activity android:name=".Second5"></activity>
->>>>>>> 0d6f3fa72331543ab7b88e307e77778ca7ac68cc
+
+
     </application>
 
 </manifest>
