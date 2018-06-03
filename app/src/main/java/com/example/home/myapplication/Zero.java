@@ -76,12 +76,14 @@ public class Zero extends AppCompatActivity {
         phone = (EditText)findViewById(R.id.Phone);
 
 
+
         //text = (TextView)findViewById(R.id.texttext);
 
 
 
+
+
         email = (EditText)findViewById(R.id.Email);
-        //email_Encode=EncodeString(email.getText().toString());
         text = (TextView)findViewById(R.id.txt_Join);
 
 
