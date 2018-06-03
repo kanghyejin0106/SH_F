@@ -24,6 +24,8 @@
         <activity android:name=".Second2" />
         <activity android:name=".Second3" />
         <activity android:name=".Third" />
+        <activity android:name=".Second4" />
+        <activity android:name=".Second5"/>
         <activity android:name=".Zero" />
         <activity android:name=".Activity_login" />
         <activity android:name=".Intro_logo">
@@ -33,9 +35,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".Second4" />
         <activity android:name=".Second5" />
         <activity android:name=".Senior_addroom"></activity>
+=======
+
+
+>>>>>>> 6dd6a11b829372b45ea94b56c53c3ea19652534d
     </application>
 
 </manifest>

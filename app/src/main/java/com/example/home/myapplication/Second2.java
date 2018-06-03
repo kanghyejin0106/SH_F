@@ -17,6 +17,7 @@ public class Second2 extends AppCompatActivity {
         setContentView(R.layout.activity_second2);
 
         Button next = findViewById(R.id.next);
+
         final RadioGroup smoky = findViewById(R.id.smoky);
         final RadioGroup pet = findViewById(R.id.pet);
         final RadioGroup reli = findViewById(R.id.reli);
@@ -26,10 +27,10 @@ public class Second2 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Third.class);
+                Intent intent = new Intent(Second2.this, Second3.class);
                 int selectedId = reli.getCheckedRadioButtonId();
                 if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "종교를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter your Religion.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     intent.putExtra("reli", selectedId);
@@ -37,7 +38,7 @@ public class Second2 extends AppCompatActivity {
 
                 selectedId = pet.getCheckedRadioButtonId();
                 if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "애완 동물 여부를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter about pet.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     intent.putExtra("pet", selectedId);
@@ -45,14 +46,14 @@ public class Second2 extends AppCompatActivity {
 
                 selectedId = smoky.getCheckedRadioButtonId();
                 if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "흡연 여부를 체크해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter about smoking", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     intent.putExtra("smoky", selectedId);
                 }
                 selectedId = drunken.getCheckedRadioButtonId();
                 if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "음주 여부를 체크해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter about drinking alcohol.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     intent.putExtra("drunken", selectedId);
@@ -60,11 +61,13 @@ public class Second2 extends AppCompatActivity {
 
                 selectedId = bf.getCheckedRadioButtonId();
                 if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "아침 여부를 체크해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter about breakfast.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     intent.putExtra("bf", selectedId);
                 }
+
+                startActivity(intent);
 
             }
         });
