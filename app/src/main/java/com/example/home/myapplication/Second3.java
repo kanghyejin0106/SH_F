@@ -31,7 +31,7 @@ public class Second3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Second3.this, Second4.class);
-                int selectedId = wakeup.CheckedArrayId();
+  /*              int selectedId = wakeup.CheckedArrayId();
                 if(selectedId == -1) {
                     Toast.makeText(getApplicationContext(), "Enter your Religion.", Toast.LENGTH_SHORT).show();
                     return;
@@ -69,7 +69,7 @@ public class Second3 extends AppCompatActivity {
                 } else {
                     intent.putExtra("bf", selectedId);
                 }
-
+*/
                 startActivity(intent);
 
             }
