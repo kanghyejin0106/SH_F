@@ -27,7 +27,7 @@ public class Intro extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intro.this, Question.class);
+                Intent intent = new Intent(Intro.this, Senior_addroom.class);
                 startActivity(intent);
             }
         });

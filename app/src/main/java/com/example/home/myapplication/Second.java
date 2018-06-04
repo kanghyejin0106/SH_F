@@ -3,6 +3,7 @@ package com.example.home.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,141 +12,171 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Second extends AppCompatActivity {
 
+  DatabaseReference table;
+    EditText school;
+
+    String email;
+    int checkmoney;
+    int checkPeriod;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        Button next = findViewById(R.id.next);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle!=null){
+           email = bundle.getString("email");
+            Toast.makeText(getApplicationContext(),email,Toast.LENGTH_LONG).show();
+        }
 
-        Button submit = findViewById(R.id.submit);
-        final RadioGroup pet = findViewById(R.id.pet);
-        final RadioGroup money = findViewById(R.id.money);
-        final RadioGroup period = findViewById(R.id.period);
-        final RadioGroup smoky = findViewById(R.id.smoky);
-        final RadioGroup reli = findViewById(R.id.reli);
-        final RadioGroup drunken = findViewById(R.id.drunken);
-        final RadioGroup fest = findViewById(R.id.fest);
-        final RadioGroup first = findViewById(R.id.first);
-        final RadioGroup second = findViewById(R.id.second);
-        final RadioGroup th = findViewById(R.id.third);
-        final EditText school = findViewById(R.id.school);
-        final EditText intro = findViewById(R.id.intro);
-        final CheckBox gran = findViewById(R.id.granm);
+       RadioGroup money = (RadioGroup) findViewById(R.id.money);
+       RadioGroup period =  (RadioGroup)findViewById(R.id.period);
+
+       school = (EditText) findViewById(R.id.school);
+
+
+        final CheckBox granm = findViewById(R.id.granm);
+        final CheckBox granf = findViewById(R.id.granf);
+        final CheckBox granc = findViewById(R.id.granc);
         final CheckBox home1 = findViewById(R.id.home1);
-
-
-        submit.setOnClickListener(new View.OnClickListener() {
+        final CheckBox home2 = findViewById(R.id.home2);
+        final CheckBox home3 = findViewById(R.id.home3);
+        final CheckBox home4 = findViewById(R.id.home4);
+        period.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Third.class);
-                int selectedId = period.getCheckedRadioButtonId();
-                if(selectedId == -1) {
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == -1) {
                     Toast.makeText(getApplicationContext(), "Enter desired contract period.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    intent.putExtra("period", selectedId);
+                    switch (i){
+                        case R.id.ms4:
+                            checkPeriod=1;
+                            break;
+                        case R.id.ms6:
+                            checkPeriod=2;
+                            break;
+                        case R.id.ms66:
+                            checkPeriod=3;
+                            break;
+                    }
+                }
+            }
+        });
+       // Toast.makeText(getApplicationContext(),checkPeriod,Toast.LENGTH_SHORT).show();
+        money.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == -1) {
+                    Toast.makeText(getApplicationContext(), "Enter desired rent.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    switch (i){
+                        case R.id.min15:
+                            checkmoney=1;
+                            break;
+                        case R.id.min20:
+                            checkmoney=2;
+                            break;
+                        case R.id.min25:
+                            checkmoney=3;
+                            break;
+                        case R.id.min30:
+                            checkmoney=4;
+                            break;
+                        case R.id.min35:
+                            checkmoney=5;
+                            break;
+                    }
+                }
+            }
+        });
+        //Toast.makeText(getApplicationContext(),checkmoney,Toast.LENGTH_SHORT).show();
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Second2.class);
+
+
+                intent.putExtra("period", checkPeriod);
+
+
+                boolean checked0 = granm.isChecked();
+                boolean checked1 = granf.isChecked();
+                boolean checked2 = granc.isChecked();
+                if (!checked0 && !checked1 && !checked2) {
+                    Toast.makeText(getApplicationContext(), "Enter type of house order.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    if (checked0)
+                        intent.putExtra("granm", checked0);
+                    if (checked1)
+                        intent.putExtra("granf", checked1);
+                    if (checked2)
+                        intent.putExtra("granc", checked2);
                 }
 
-                selectedId = reli.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "종교를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                boolean home1Checked = home1.isChecked();
+                boolean home2Checked = home2.isChecked();
+                boolean home3Checked = home3.isChecked();
+                boolean home4Checked = home4.isChecked();
+                if (!home1Checked && home2Checked && home3Checked && home4Checked) {
+                    Toast.makeText(getApplicationContext(), "Enter type of house.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    intent.putExtra("reli", selectedId);
-                }
-
-                selectedId = pet.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "애완 동물 여부를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("pet", selectedId);
-                }
-
-                selectedId = smoky.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "흡연 여부를 체크해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("smoky", selectedId);
-                }
-                selectedId = drunken.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "음주 여부를 체크해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("drunken", selectedId);
-                }
-                selectedId = fest.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "아침 여부를 체크해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("fest", selectedId);
-                }
-
-                selectedId = first.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "1순위를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("first", selectedId);
-                }
-
-                selectedId = second.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "2순위를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("second", selectedId);
-                }
-
-                selectedId = th.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "3순위를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("th", selectedId);
-                }
-
-                boolean checked = gran.isChecked();
-                if(!checked) {
-                    Toast.makeText(getApplicationContext(), "거주 희망자를 입력하세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("gran", selectedId);
-                }
-
-                checked = home1.isChecked();
-                if(!checked) {
-                    Toast.makeText(getApplicationContext(), "입력 안 된 문항이 있습니다.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("home", selectedId);
+                    if (home1Checked)
+                        intent.putExtra("home1", home1Checked);
+                    if (home2Checked)
+                        intent.putExtra("home2", home2Checked);
+                    if (home3Checked)
+                        intent.putExtra("home3", home3Checked);
+                    if (home4Checked)
+                        intent.putExtra("home4", home4Checked);
                 }
 
                 String ttedId = school.getText().toString();
 
-                if(ttedId.equals("")) {
+                if (ttedId.equals("")) {
                     Toast.makeText(getApplicationContext(), "Enter your school.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     intent.putExtra("school", ttedId);
                 }
 
-                ttedId = intro.getText().toString();
-                if(ttedId.equals("")) {
-                    Toast.makeText(getApplicationContext(), "자기 소개를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    intent.putExtra("intro", ttedId);
-                    startActivity(intent);
-                }
 
+
+                regQ();
+                table.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+                startActivity(intent);
 
             }
         });
-
     }
+
+    public void regQ(){
+          table= FirebaseDatabase.getInstance().getReference("student").child(email);
+          table.child("period").setValue(checkPeriod);
+          table.child("school").setValue(school.getText().toString());
+          table.child("money").setValue(checkmoney);
+    }
+
+
 }
