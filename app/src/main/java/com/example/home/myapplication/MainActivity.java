@@ -1,6 +1,11 @@
 package com.example.home.myapplication;
 
-import android.app.FragmentManager;
+import android.app.Fragment;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
+import android.app.FragmentTransaction;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,9 +21,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-    static final int TAKE_PHOTO =2;
-    boolean change =false;
+
+        implements map.OnFragmentInteractionListener,
+        list.OnFragmentInteractionListener,
+        NavigationView.OnNavigationItemSelectedListener {
+    boolean change = false;
+    static final int TAKE_PHOTO=2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +35,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager = getSupportFragmentManager();
+
+
         manager.beginTransaction().replace(R.id.content_main,new map()).commit();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -34,7 +45,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                FragmentManager manager = getFragmentManager();
+
+
+                FragmentManager manager = getSupportFragmentManager();
                 if(change==false){
                     manager.beginTransaction().replace(R.id.content_main,new list()).commit();
                     Snackbar.make(view, "Change to list mode", Snackbar.LENGTH_LONG)
@@ -46,6 +59,7 @@ public class MainActivity extends AppCompatActivity
                             .setAction("Action", null).show();
                     change = false;
                 }
+
             }
         });
 
@@ -57,9 +71,22 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        View nav_header_view =navigationView.getHeaderView(0);
-        ///
+
+        View nav_header_view = navigationView.getHeaderView(0);
+
     }
+
+    public void onFragmentInteraction(){
+        //FragmentManager fragmentManager = getFragmentManager();
+        //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        //list list_fragment = new list();
+        //fragmentTransaction.replace(R.id.content_main,list_fragment).commit();
+
+    }
+
+       // View nav_header_view =navigationView.getHeaderView(0);
+
+
 
     @Override
     public void onBackPressed() {

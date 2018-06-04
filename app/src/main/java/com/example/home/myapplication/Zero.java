@@ -23,6 +23,7 @@ import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 
 public class Zero extends AppCompatActivity {
+    String str;
     DatabaseReference table;
     String name_s, pw_s, phone_s,email_s;
     EditText name, pw, phone,email;
@@ -75,6 +76,7 @@ public class Zero extends AppCompatActivity {
 
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
+<<<<<<< HEAD
 
 
         //text = (TextView)findViewById(R.id.texttext);
@@ -83,9 +85,10 @@ public class Zero extends AppCompatActivity {
 
 
 
+=======
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
         email = (EditText)findViewById(R.id.Email);
         text = (TextView)findViewById(R.id.txt_Join);
-
 
         name_s = name.getText().toString();
         pw_s = pw.getText().toString();
@@ -97,7 +100,7 @@ public class Zero extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                table.child("dsa").setValue("dafdsf");
+                //table.child("dsa").setValue("dafdsf");
                 regiUser();
 
 //                Messenger messenger = new Messenger(getApplicationContext());
@@ -130,8 +133,7 @@ public class Zero extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Intent intent = new Intent(Zero.this, First.class);
-                startActivity(intent);
+
             }
         });
 
@@ -140,11 +142,19 @@ public class Zero extends AppCompatActivity {
     public void regiUser(){
         //DB
         table = FirebaseDatabase.getInstance().getReference("student");
-        String str=EncodeString(email.getText().toString());
-        User newUser = new User(str,pw.getText().toString());
+        str=EncodeString(email.getText().toString());
+        User newUser = new User(str,pw.getText().toString(),name.getText().toString(),phone.getText().toString(),status,0,0,null);
         table.child(str).setValue(newUser);
+
+        Intent intent = new Intent(Zero.this, First.class);
+        intent.putExtra("email",str);
+        startActivity(intent);
+
         email.setText("");
         pw.setText("");
+        name.setText("");
+        phone.setText("");
+        status=true;
     }
     public static String EncodeString(String string) {
         return string.replace(".", ",");

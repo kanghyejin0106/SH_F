@@ -34,14 +34,28 @@
         <activity android:name=".Senior_addroom"/>
         <activity android:name=".Activity_login" />
         <activity
-            android:name=".Splash"
-            android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        android:name=".Splash"
+        android:theme="@style/SplashTheme">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
+<<<<<<< HEAD
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+=======
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+        </activity>
+</application>
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
 
 </manifest>
