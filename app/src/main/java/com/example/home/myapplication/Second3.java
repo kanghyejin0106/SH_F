@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -18,21 +20,37 @@ public class Second3 extends AppCompatActivity {
 
         Button next = findViewById(R.id.next);
 
+        final String[] data = getResources().getStringArray(R.array.wake);
+
         final Spinner wakeup = findViewById(R.id.wakeup);
-        final Spinner sleep = findViewById(R.id.sleep);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, data);
+
+        wakeup.setAdapter(adapter);
+
+        wakeup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), data[i], Toast.LENGTH_LONG).show();
+            }
+        });
+
+/*        final Spinner sleep = findViewById(R.id.sleep);
         final Spinner comeback = findViewById(R.id.comeback);
         final Spinner call = findViewById(R.id.call);
         final RadioGroup bath = findViewById(R.id.bath);
         final Spinner bath_m = findViewById(R.id.bath_m);
         final Spinner bath_n = findViewById(R.id.bath_n);
         final RadioGroup weekend = findViewById(R.id.weekend);
-        /*
-
+*/
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Second3.this, Second4.class);
+<<<<<<< HEAD
                int selectedId = wakeup.CheckedArrayId();
+=======
+/*                int selectedId = wakeup.CheckedArrayId();
+>>>>>>> 63cdd2c6f1ab9f93d08c704c6ed4db230bf3e519
                 if(selectedId == -1) {
                     Toast.makeText(getApplicationContext(), "Enter your Religion.", Toast.LENGTH_SHORT).show();
                     return;
@@ -69,12 +87,21 @@ public class Second3 extends AppCompatActivity {
                     return;
                 } else {
                     intent.putExtra("bf", selectedId);
+<<<<<<< HEAD
                 }
+=======
+                }*/
+>>>>>>> 63cdd2c6f1ab9f93d08c704c6ed4db230bf3e519
 
                 startActivity(intent);
 
             }
+<<<<<<< HEAD
         }); */
+=======
+        });
+
+>>>>>>> 63cdd2c6f1ab9f93d08c704c6ed4db230bf3e519
     }
 
 }
