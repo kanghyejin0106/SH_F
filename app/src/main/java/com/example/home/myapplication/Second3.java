@@ -12,9 +12,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class Second3 extends AppCompatActivity {
-
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second3);
 
@@ -34,23 +35,23 @@ public class Second3 extends AppCompatActivity {
             }
         });
 
-/*        final Spinner sleep = findViewById(R.id.sleep);
+        final Spinner sleep = findViewById(R.id.sleep);
         final Spinner comeback = findViewById(R.id.comeback);
         final Spinner call = findViewById(R.id.call);
         final RadioGroup bath = findViewById(R.id.bath);
         final Spinner bath_m = findViewById(R.id.bath_m);
         final Spinner bath_n = findViewById(R.id.bath_n);
         final RadioGroup weekend = findViewById(R.id.weekend);
-*/
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Second3.this, Second4.class);
-<<<<<<< HEAD
+
                int selectedId = wakeup.CheckedArrayId();
-=======
-/*                int selectedId = wakeup.CheckedArrayId();
->>>>>>> 63cdd2c6f1ab9f93d08c704c6ed4db230bf3e519
+
+               int selectedId = wakeup.CheckedArrayId();
+
                 if(selectedId == -1) {
                     Toast.makeText(getApplicationContext(), "Enter your Religion.", Toast.LENGTH_SHORT).show();
                     return;
@@ -87,21 +88,19 @@ public class Second3 extends AppCompatActivity {
                     return;
                 } else {
                     intent.putExtra("bf", selectedId);
-<<<<<<< HEAD
+
                 }
-=======
-                }*/
->>>>>>> 63cdd2c6f1ab9f93d08c704c6ed4db230bf3e519
+
+                }
 
                 startActivity(intent);
 
             }
-<<<<<<< HEAD
-        }); */
-=======
+
         });
 
->>>>>>> 63cdd2c6f1ab9f93d08c704c6ed4db230bf3e519
-    }
+        });
+
+    }*/
 
 }
