@@ -26,6 +26,7 @@ public class Second3 extends AppCompatActivity {
         final Spinner bath_m = findViewById(R.id.bath_m);
         final Spinner bath_n = findViewById(R.id.bath_n);
         final RadioGroup weekend = findViewById(R.id.weekend);
+        /*
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +75,7 @@ public class Second3 extends AppCompatActivity {
 
             }
         });
+        */
 
     }
 }
