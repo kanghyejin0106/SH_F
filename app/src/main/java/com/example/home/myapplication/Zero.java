@@ -76,6 +76,7 @@ public class Zero extends AppCompatActivity {
 
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
+
         email = (EditText)findViewById(R.id.Email);
         text = (TextView)findViewById(R.id.txt_Join);
 

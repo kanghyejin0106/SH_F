@@ -39,6 +39,12 @@
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
+<<<<<<< HEAD
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+=======
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
@@ -50,5 +56,6 @@
 
         </activity>
 </application>
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
 
 </manifest>
