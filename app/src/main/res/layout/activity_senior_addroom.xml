@@ -6,10 +6,11 @@
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -25,64 +26,58 @@
             android:layout_marginTop="20dp"
             android:text="Please register pictures of your house"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Bedroom"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Bedroom"/>
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/iv_bedroom"/>
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            android:background="@color/Gray"
+            android:id="@+id/iv_bedroom"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/add_bedroom"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginVertical="20dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="add room" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_bedroom"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginVertical="20dp"
+            android:text="add picture" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-<<<<<<< HEAD
-=======
-        android:background="@color/bar2"
-        android:text="+ Room"
->>>>>>> 1cb0a4c4633025e9c6b83674435380e3005d472e
-        android:textSize="20dp"
-        android:text="Living room"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Living room"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"/>
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/iv_livingroom"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/add_livingroom"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginVertical="20dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="add room" />
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            android:src="@color/Gray"
+            android:id="@+id/iv_livingroom"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_livingroom"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginVertical="20dp"
+            android:text="add picture" />
 
         <TextView
             android:layout_width="match_parent"
@@ -98,7 +93,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:scaleType="fitXY"
-            android:src="@mipmap/ic_launcher"
+            android:src="@color/Gray"
             android:id="@+id/iv_kitchen"/>
 
         <Button
@@ -108,7 +103,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:layout_marginVertical="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="add room" />
+            android:text="add picture" />
 </LinearLayout>
 </ScrollView>

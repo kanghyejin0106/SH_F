@@ -37,18 +37,16 @@
         <activity android:name=".Zero" />
         <activity android:name=".Senior_addroom"/>
         <activity android:name=".Activity_login" />
-        <activity android:name=".Intro_logo">
+        <activity
+            android:name=".Splash"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".Senior_addroom"></activity>
 
-=======
->>>>>>> 1cb0a4c4633025e9c6b83674435380e3005d472e
     </application>
 
 </manifest>
