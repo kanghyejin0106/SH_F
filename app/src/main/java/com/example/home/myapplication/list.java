@@ -9,6 +9,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class list extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -18,6 +24,9 @@ public class list extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ListView listView;
+    SingerAdapter adapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -44,7 +53,29 @@ public class list extends Fragment {
 
     }
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_list, container, false);
+        listView = (ListView)v.findViewById(R.id.list_room) ;
 
+        adapter = new SingerAdapter();
+        adapter.addItem(new Room("aa","dd","ee"));
+        adapter.addItem(new Room("bb","ee","ee"));
+        adapter.addItem(new Room("cc","rr","ee"));
+
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Room item = (Room)adapter.getItem(position);
+                Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getRoomname(),Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+        return v;
+    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -67,5 +98,35 @@ public class list extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction();//Uri uri);
 
+    }
+    class SingerAdapter extends BaseAdapter {
+
+        ArrayList<Room> items = new ArrayList<Room>();
+        @Override
+        public int getCount() {
+            return items.size();
+        }
+        public void addItem (Room item){
+            items.add(item);
+        }
+        @Override
+        public Object getItem(int position) {
+            return items.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            roomView itemView = new roomView(getActivity().getApplicationContext());///////
+            Room item = items.get(position);
+            itemView.setName(item.getRoomname());
+            itemView.setlocate(item.getRoomlocate());
+            itemView.setmoney(item.getRoommoney());
+            return itemView;
+        }
     }
 }
