@@ -34,9 +34,6 @@ public class map extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        /*
-
-        */
         try{
             mListener = (OnFragmentInteractionListener)getContext();
 

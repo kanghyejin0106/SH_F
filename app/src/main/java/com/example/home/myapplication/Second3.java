@@ -148,11 +148,11 @@ public class Second3 extends AppCompatActivity {
                     intent.putExtra("bf", selectedId);
                 }*/
 
+
                 startActivity(intent);
 
             }
         });
-
 
     }
 }

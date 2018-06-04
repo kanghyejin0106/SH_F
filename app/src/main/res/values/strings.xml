@@ -4,6 +4,7 @@
     <color name="bar">#E8DCC1</color>
     <color name="bar2">#A0A991</color>
     <color name="clicked">#DBDBDB</color>
+    <color name="Gray">#D5D5D5</color>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
