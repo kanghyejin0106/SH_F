@@ -16,7 +16,7 @@
         android:layout_marginHorizontal="80dp"
         android:layout_marginTop="20dp"
         android:background="@color/bar2"
-        android:text="STUDENT"
+        android:text="+ Room"
         android:textSize="20dp"
         />
 

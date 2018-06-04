@@ -31,6 +31,7 @@
         <activity android:name=".Second4" />
         <activity android:name=".Second5" />
         <activity android:name=".Zero" />
+        <activity android:name=".Senior_addroom"/>
         <activity android:name=".Activity_login" />
         <activity android:name=".Intro_logo">
             <intent-filter>
@@ -39,14 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
-=======
-
->>>>>>> a43175fa083c54ec8a6dec3d3314d1dd1ded32ed
     </application>
 
 </manifest>
