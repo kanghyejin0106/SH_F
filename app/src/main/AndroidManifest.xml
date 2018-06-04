@@ -4,11 +4,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera2" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -29,8 +33,9 @@
         <activity android:name=".Second3" />
         <activity android:name=".Third" />
         <activity android:name=".Second4" />
-        <activity android:name=".Second5"/>
+        <activity android:name=".Second5" />
         <activity android:name=".Zero" />
+        <activity android:name=".Senior_addroom"/>
         <activity android:name=".Activity_login" />
         <activity android:name=".Intro_logo">
             <intent-filter>
@@ -39,8 +44,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".Senior_addroom"></activity>
 
+=======
+>>>>>>> 1cb0a4c4633025e9c6b83674435380e3005d472e
     </application>
 
 </manifest>

@@ -57,6 +57,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="20dp"
+<<<<<<< HEAD
+=======
+        android:background="@color/bar2"
+        android:text="+ Room"
+>>>>>>> 1cb0a4c4633025e9c6b83674435380e3005d472e
         android:textSize="20dp"
         android:text="Living room"/>
 

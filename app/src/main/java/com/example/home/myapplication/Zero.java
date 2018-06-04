@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -75,6 +76,17 @@ public class Zero extends AppCompatActivity {
         pw = (EditText)findViewById(R.id.Password);
         phone = (EditText)findViewById(R.id.Phone);
 
+<<<<<<< HEAD
+=======
+
+
+        //text = (TextView)findViewById(R.id.texttext);
+
+
+
+
+
+>>>>>>> 1cb0a4c4633025e9c6b83674435380e3005d472e
         email = (EditText)findViewById(R.id.Email);
         text = (TextView)findViewById(R.id.txt_Join);
 
@@ -91,6 +103,10 @@ public class Zero extends AppCompatActivity {
             public void onClick(View view) {
                 table.child("dsa").setValue("dafdsf");
                 regiUser();
+
+//                Messenger messenger = new Messenger(getApplicationContext());
+ //               messenger.sendMessageTo(phone.getText().toString());
+
                 table.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -102,10 +118,14 @@ public class Zero extends AppCompatActivity {
 
                     }
                 });
+
                 try{
                     GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
-                    gMailSender.sendMail("ddd","ddd",email.getText().toString());
+                    gMailSender.sendMail("ddd","ddd",email_s);
                     Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
+
+//                    Messenger messenger = new Messenger(getApplicationContext());
+//                   messenger.sendMessageTo(phone_s);
                 }catch (SendFailedException e){
 
                 }catch(MessagingException e){
@@ -133,4 +153,9 @@ public class Zero extends AppCompatActivity {
     public static String EncodeString(String string) {
         return string.replace(".", ",");
     }
+
+/*    private void sendSMS(String phoneNumber, String message) {
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(phoneNumber, null, message, null, null);
+    } */
 }
