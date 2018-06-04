@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 
 public class Zero extends AppCompatActivity {
+    String str;
     DatabaseReference table;
     String name_s, pw_s, phone_s,email_s;
     EditText name, pw, phone,email;
@@ -97,8 +99,12 @@ public class Zero extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                table.child("dsa").setValue("dafdsf");
+                //table.child("dsa").setValue("dafdsf");
                 regiUser();
+
+//                Messenger messenger = new Messenger(getApplicationContext());
+ //               messenger.sendMessageTo(phone.getText().toString());
+
                 table.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -110,10 +116,14 @@ public class Zero extends AppCompatActivity {
 
                     }
                 });
+
                 try{
                     GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
-                    gMailSender.sendMail("ddd","ddd",email.getText().toString());
+                    gMailSender.sendMail("ddd","ddd",email_s);
                     Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
+
+//                    Messenger messenger = new Messenger(getApplicationContext());
+//                   messenger.sendMessageTo(phone_s);
                 }catch (SendFailedException e){
 
                 }catch(MessagingException e){
@@ -122,8 +132,7 @@ public class Zero extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Intent intent = new Intent(Zero.this, First.class);
-                startActivity(intent);
+
             }
         });
 
@@ -132,13 +141,26 @@ public class Zero extends AppCompatActivity {
     public void regiUser(){
         //DB
         table = FirebaseDatabase.getInstance().getReference("student");
-        String str=EncodeString(email.getText().toString());
-        User newUser = new User(str,pw.getText().toString());
+        str=EncodeString(email.getText().toString());
+        User newUser = new User(str,pw.getText().toString(),name.getText().toString(),phone.getText().toString(),status,0,0,null);
         table.child(str).setValue(newUser);
+
+        Intent intent = new Intent(Zero.this, First.class);
+        intent.putExtra("email",str);
+        startActivity(intent);
+
         email.setText("");
         pw.setText("");
+        name.setText("");
+        phone.setText("");
+        status=true;
     }
     public static String EncodeString(String string) {
         return string.replace(".", ",");
     }
+
+/*    private void sendSMS(String phoneNumber, String message) {
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(phoneNumber, null, message, null, null);
+    } */
 }
