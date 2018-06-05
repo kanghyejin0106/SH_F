@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Senior_question1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="#753E2D"
+                    android:text="Which student living your room?"
+                    android:textSize="10pt" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/fe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="Female" />
+
+                    <CheckBox
+                        android:id="@+id/m"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="Male" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="#753E2D"
+                    android:text="Do you intend to provide furniture for students?"
+                    android:textSize="10pt" />
+
+                <RadioGroup
+                    android:id="@+id/provide_fur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/pf_y"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="Yes"
+                        android:layout_marginRight="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/pf_n"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="No" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/furniture"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="#753E2D"
+                    android:text="What kind of furniture do you have? (Redundant Responses)"
+                    android:textSize="10pt" />
+
+                <CheckBox
+                    android:id="@+id/fur1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Bed" />
+
+                <CheckBox
+                    android:id="@+id/fur2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Desk" />
+
+                <CheckBox
+                    android:id="@+id/fur3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Closet" />
+
+                <CheckBox
+                    android:id="@+id/fur4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Shelves" />
+
+                <CheckBox
+                    android:id="@+id/fur5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Shoe rack" />
+
+                <CheckBox
+                    android:id="@+id/fur6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Sink" />
+
+                <CheckBox
+                    android:id="@+id/fur7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Washing machine" />
+
+                <CheckBox
+                    android:id="@+id/fur8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Fan" />
+
+                <CheckBox
+                    android:id="@+id/fur9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Air conditioner" />
+
+                <CheckBox
+                    android:id="@+id/fur10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Basin" />
+
+                <CheckBox
+                    android:id="@+id/fur11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Shower" />
+
+                <CheckBox
+                    android:id="@+id/fur12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Boiler" />
+
+                <CheckBox
+                    android:id="@+id/fur13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Induction" />
+
+                <CheckBox
+                    android:id="@+id/fur14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bar2"
+                    android:buttonTint="@color/bar2"
+                    android:text="Refrigerator" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="#753E2D"
+                    android:text="What security facilities do you have?"
+                    android:textSize="10pt" />
+
+                <RadioGroup
+                    android:id="@+id/security"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/security1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="Doorlock" />
+
+                    <RadioButton
+                        android:id="@+id/security2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="Keys" />
+
+                    <RadioButton
+                        android:id="@+id/security3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="Keys + Shackles" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#753E2D"
+                    android:text="I can provide the Internet(Wi-Fi-)."
+                    android:textSize="10pt" />
+
+                <RadioGroup
+                    android:id="@+id/wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/wifi_y"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="Yes"
+                        android:layout_marginRight="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/wifi_n"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="No" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#753E2D"
+                    android:text="Students will be paid rent even if they do not live during the vacation."
+                    android:textSize="10pt" />
+
+                <RadioGroup
+                    android:id="@+id/vacation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/vacation_y"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="Yes"
+                        android:layout_marginRight="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/vacation_n"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/bar2"
+                        android:buttonTint="@color/bar2"
+                        android:text="No" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@color/bar"
+                android:textColor="#753E2D"
+                android:text="Next" />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
