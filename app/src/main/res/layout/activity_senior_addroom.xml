@@ -29,8 +29,16 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+<<<<<<< HEAD
+                android:background="@color/White"
+                android:layout_marginRight="1dp"
                 android:gravity="center"
                 android:textSize="25dp"
+                android:textColor="@color/bold_bar"
+=======
+                android:gravity="center"
+                android:textSize="25dp"
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
                 android:textStyle="bold"
                 android:text="Bedroom"/>
 
@@ -38,8 +46,16 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+<<<<<<< HEAD
+                android:background="@color/White"
+                android:layout_marginLeft="1dp"
                 android:gravity="center"
                 android:text="Living room"
+                android:textColor="@color/bold_bar"
+=======
+                android:gravity="center"
+                android:text="Living room"
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
                 android:textStyle="bold"
                 android:textSize="25dp"/>
 
@@ -105,6 +121,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:layout_marginTop="10dp"
+=======
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
             android:orientation="horizontal">
 
             <TextView
@@ -113,6 +133,13 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="25dp"
+<<<<<<< HEAD
+                android:background="@color/White"
+                android:layout_marginRight="1dp"
+                android:textStyle="bold"
+                android:textColor="@color/bold_bar"
+=======
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
                 android:text="Kitchen"/>
 
             <TextView
@@ -121,6 +148,13 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Bath room"
+<<<<<<< HEAD
+                android:layout_marginLeft="1dp"
+                android:background="@color/White"
+                android:textColor="@color/bold_bar"
+                android:textStyle="bold"
+=======
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
                 android:textSize="25dp"/>
 
         </LinearLayout>
@@ -153,6 +187,43 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+<<<<<<< HEAD
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:id="@+id/add_kitchen"
+                android:background="@color/bar"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/White"
+                android:layout_marginRight="1dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="add picture" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:id="@+id/add_bathroom"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:background="@color/bar"
+                android:layout_marginLeft="1dp"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"
+                android:text="add picture" />
+
+        </LinearLayout>
+
+
+
+
+
+
+=======
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
 
             <Button
                 android:layout_width="0dp"
@@ -162,6 +233,13 @@
                 android:layout_gravity="center_horizontal"
                 android:text="add picture" />
 
+<<<<<<< HEAD
+
+
+
+</LinearLayout>
+</ScrollView>
+=======
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -184,3 +262,4 @@
 
     </LinearLayout>
 </ScrollView>
+>>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
