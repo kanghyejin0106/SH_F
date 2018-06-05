@@ -37,6 +37,7 @@
                             android:textColor="#753E2D"
                             android:text="The average wake up time is"
                             android:textSize="10pt" >
+                        </TextView>
 
                             <Spinner
                                 android:id="@+id/wakeup"
@@ -45,7 +46,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
                             </Spinner>
-                            </TextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -61,6 +61,7 @@
                             android:textColor="#753E2D"
                             android:text="The average sleep time is"
                             android:textSize="10pt" >
+                        </TextView>
 
                             <Spinner
                                 android:id="@+id/sleep"
@@ -69,7 +70,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
                             </Spinner>
-                        </TextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -85,6 +85,7 @@
                             android:textColor="#753E2D"
                             android:text="The average comeback time is"
                             android:textSize="10pt" >
+                        </TextView>
 
                             <Spinner
                                 android:id="@+id/comeback"
@@ -93,7 +94,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
                             </Spinner>
-                        </TextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -109,6 +109,7 @@
                             android:textColor="#753E2D"
                             android:text="I have call time on"
                             android:textSize="10pt" >
+                        </TextView>
 
                             <Spinner
                                 android:id="@+id/call"
@@ -117,7 +118,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
                             </Spinner>
-                        </TextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -180,6 +180,7 @@
                             android:textColor="#753E2D"
                             android:text="I have to use the bathroom in the morning on "
                             android:textSize="10pt" >
+                        </TextView>
 
                             <Spinner
                                 android:id="@+id/bath_m"
@@ -188,7 +189,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
                             </Spinner>
-                        </TextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -204,6 +204,7 @@
                         android:textColor="#753E2D"
                         android:text="I have to use the bathroom in the night on "
                         android:textSize="10pt" >
+                    </TextView>
 
                         <Spinner
                             android:id="@+id/bath_n"
@@ -212,7 +213,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                         </Spinner>
-                    </TextView>
                 </LinearLayout>
 
                     <LinearLayout

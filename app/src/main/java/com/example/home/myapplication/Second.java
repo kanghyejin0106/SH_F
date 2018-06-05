@@ -50,6 +50,7 @@ public class Second extends AppCompatActivity {
         final CheckBox home2 = findViewById(R.id.home2);
         final CheckBox home3 = findViewById(R.id.home3);
         final CheckBox home4 = findViewById(R.id.home4);
+
         period.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -71,6 +72,7 @@ public class Second extends AppCompatActivity {
                 }
             }
         });
+
        // Toast.makeText(getApplicationContext(),checkPeriod,Toast.LENGTH_SHORT).show();
         money.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
