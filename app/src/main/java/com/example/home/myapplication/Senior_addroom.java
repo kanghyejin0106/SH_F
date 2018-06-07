@@ -22,16 +22,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 
-////////////////
-
 public class Senior_addroom extends AppCompatActivity {
 
     private Button btn;
     private Button btn2;
     private Button btn3;
+    private Button btn4;
     private ImageView imageview;
     private ImageView imageview2;
     private ImageView imageview3;
+    private ImageView imageview4;
     int num = 0;
     private static final String IMAGE_DIRECTORY = "/demonuts";
     private int GALLERY = 1, CAMERA = 2;
@@ -48,6 +48,8 @@ public class Senior_addroom extends AppCompatActivity {
         imageview2 = (ImageView) findViewById(R.id.iv_livingroom);
         btn3 = (Button) findViewById(R.id.add_kitchen);
         imageview3 = (ImageView) findViewById(R.id.iv_kitchen);
+        btn4 = (Button) findViewById(R.id.add_bathroom);
+        imageview4 = (ImageView) findViewById(R.id.iv_bathroom);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +69,13 @@ public class Senior_addroom extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 num = 3;
+                showPictureDialog();
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                num = 4;
                 showPictureDialog();
             }
         });
@@ -132,6 +141,9 @@ public class Senior_addroom extends AppCompatActivity {
                         case 3:
                             imageview3.setImageBitmap(bitmap);
                             break;
+                        case 4:
+                            imageview4.setImageBitmap(bitmap);
+                            break;
                     }
 
 
@@ -152,6 +164,9 @@ public class Senior_addroom extends AppCompatActivity {
                     break;
                 case 3:
                     imageview3.setImageBitmap(thumbnail);
+                    break;
+                case 4:
+                    imageview4.setImageBitmap(thumbnail);
                     break;
             }
 
