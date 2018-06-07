@@ -2,12 +2,16 @@ package com.example.home.myapplication;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -33,7 +37,7 @@ public class Senior_addroom extends AppCompatActivity {
     private ImageView imageview3;
     int num = 0;
     private static final String IMAGE_DIRECTORY = "/demonuts";
-    private int GALLERY = 1, CAMERA = 2;
+    final int GALLERY = 1, CAMERA = 2;
 
 
     @Override
@@ -94,12 +98,51 @@ public class Senior_addroom extends AppCompatActivity {
                 });
         pictureDialog.show();
     }
+    boolean checkAppPermission(String[] requestPermission){
+        boolean[] requestResult= new boolean[requestPermission.length];
+        for(int i=0; i< requestResult.length; i++){
+            requestResult[i] = (ContextCompat.checkSelfPermission(this,
+                    requestPermission[i]) == PackageManager.PERMISSION_GRANTED);
+            if(!requestResult[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    void askPermission(String[] requestPermission, int REQ_PERMISSION) {
+        ActivityCompat.requestPermissions(this,requestPermission,
+                REQ_PERMISSION);
+    }
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case GALLERY:
+                if(checkAppPermission(permissions)){
+                    Intent intent=new Intent(Intent.ACTION_PICK);
+                    intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
+                    intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent,GALLERY);
+                }
+                else{
+                    finish();
+                }
+                break;
+        }
+    }
 
     public void choosePhotoFromGallary() {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
-        startActivityForResult(galleryIntent, GALLERY);
+        if(checkAppPermission(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE})){
+            Intent intent=new Intent(Intent.ACTION_PICK);
+            intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
+            intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(intent,GALLERY);
+        }
+        else{
+            askPermission(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    GALLERY);
+        }
     }
 
     private void takePhotoFromCamera() {
