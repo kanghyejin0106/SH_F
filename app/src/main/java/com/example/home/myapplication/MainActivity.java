@@ -19,12 +19,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
-
         implements map.OnFragmentInteractionListener,
         list.OnFragmentInteractionListener,
         NavigationView.OnNavigationItemSelectedListener {
+
+    String id = "";
+    String name = "";
+    DatabaseReference table;
     boolean change = false;
     static final int TAKE_PHOTO=2;
 
@@ -35,8 +44,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FragmentManager manager = getSupportFragmentManager();
 
+        Intent intent = new Intent(this.getIntent());
+        id = intent.getExtras().getString("ID");
+        FragmentManager manager = getSupportFragmentManager();
+        table = FirebaseDatabase.getInstance().getReference("student");
 
         manager.beginTransaction().replace(R.id.content_main,new map()).commit();
 
@@ -44,8 +56,6 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
 
                 FragmentManager manager = getSupportFragmentManager();
                 if(change==false){
@@ -73,6 +83,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         View nav_header_view = navigationView.getHeaderView(0);
+        TextView s_name = (TextView)nav_header_view.findViewById(R.id.name);
+        TextView s_email = (TextView)nav_header_view.findViewById(R.id.email);
+        s_email.setText(id);
+        name=table.child(id).child("name").getKey().toString();
+        s_name.setText(name);
 
     }
 
