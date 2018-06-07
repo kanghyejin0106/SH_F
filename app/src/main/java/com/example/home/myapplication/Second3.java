@@ -32,6 +32,11 @@ public class Second3 extends AppCompatActivity {
         Button next = findViewById(R.id.next);
 
         addListenerOnwake();
+        addListenerOnsleep();
+        addListenerOncomeback();
+        addListenerOncall();
+        addListenerOnbath_m();
+        addListenerOnbath_n();
 
         final RadioGroup bath = findViewById(R.id.bath);
         final RadioGroup weekend = findViewById(R.id.weekend);
@@ -84,6 +89,11 @@ public class Second3 extends AppCompatActivity {
     private void addListenerOncomeback() {
         comeback = (Spinner)findViewById(R.id.comeback);
         comeback.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+    }
+
+    private void addListenerOncall() {
+        call = (Spinner)findViewById(R.id.call);
+        call.setOnItemSelectedListener(new CustomOnItemSelectedListener());
     }
 
     private void addListenerOnbath_m() {
