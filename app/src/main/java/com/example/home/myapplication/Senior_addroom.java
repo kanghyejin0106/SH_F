@@ -70,11 +70,7 @@ public class Senior_addroom extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
-        }
-=======
     }
->>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
 
     private void showPictureDialog(){
         AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
@@ -98,19 +94,11 @@ public class Senior_addroom extends AppCompatActivity {
                 });
         pictureDialog.show();
     }
-<<<<<<< HEAD
 
     public void choosePhotoFromGallary() {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
-=======
-
-    public void choosePhotoFromGallary() {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
->>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
         startActivityForResult(galleryIntent, GALLERY);
     }
 
@@ -191,11 +179,7 @@ public class Senior_addroom extends AppCompatActivity {
                     new String[]{f.getPath()},
                     new String[]{"image/jpeg"}, null);
             fo.close();
-<<<<<<< HEAD
-            Log.d("TAG", "File Saved::--->" + f.getAbsolutePath());
-=======
             Log.d("TAG", "File Saved::—>" + f.getAbsolutePath());
->>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
 
             return f.getAbsolutePath();
         } catch (IOException e1) {
@@ -204,8 +188,4 @@ public class Senior_addroom extends AppCompatActivity {
         return "";
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b73a9465fe8aac7d3ce637ff3568e622d4c6ccad
