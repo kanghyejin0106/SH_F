@@ -3,7 +3,7 @@ package com.example.home.myapplication;
 import android.app.Fragment;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -26,8 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
-//////////
-
 public class MainActivity extends AppCompatActivity
         implements map.OnFragmentInteractionListener,
         list.OnFragmentInteractionListener,
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity
 
         Intent intent = new Intent(this.getIntent());
         id = intent.getExtras().getString("ID");
-        FragmentManager manager = getSupportFragmentManager();
+        FragmentManager manager = getFragmentManager();
         table = FirebaseDatabase.getInstance().getReference("student");
 
         manager.beginTransaction().replace(R.id.content_main,new map()).commit();
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                FragmentManager manager = getSupportFragmentManager();
+                FragmentManager manager = getFragmentManager();
                 if(change==false){
                     manager.beginTransaction().replace(R.id.content_main,new list()).commit();
                     Snackbar.make(view, "Change to list mode", Snackbar.LENGTH_LONG)
@@ -116,6 +114,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
