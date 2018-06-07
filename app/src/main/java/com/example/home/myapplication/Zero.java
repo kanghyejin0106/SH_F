@@ -91,6 +91,7 @@ public class Zero extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //table.child("dsa").setValue("dafdsf");
+                email_s = email.getText().toString();
                 regiUser();
 
 //                Messenger messenger = new Messenger(getApplicationContext());
@@ -99,27 +100,28 @@ public class Zero extends AppCompatActivity {
                 table.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
                     }
                 });
 
                 try{
                     GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
+
                     gMailSender.sendMail("ddd","ddd",email_s);
                     Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
 
-//                    Messenger messenger = new Messenger(getApplicationContext());
+//                   Messenger messenger = new Messenger(getApplicationContext());
 //                   messenger.sendMessageTo(phone_s);
                 }catch (SendFailedException e){
 
+                    Toast.makeText(getApplicationContext(), "이메일 확인해주세요1 "+email_s, Toast.LENGTH_SHORT).show();
                 }catch(MessagingException e){
-
+                    Toast.makeText(getApplicationContext(), "이메일 확인해주세요2 "+email_s, Toast.LENGTH_SHORT).show();
                 }catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "이메일 확인해주세요3 "+email_s, Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
 
