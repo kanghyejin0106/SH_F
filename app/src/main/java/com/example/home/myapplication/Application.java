@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -31,6 +32,14 @@ public class Application extends AppCompatActivity {
                 Room item = (Room)adapter.getItem(position);
                 Toast.makeText(getApplicationContext(),"선택: "+item.getRoomname(),Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        Button btn = (Button)findViewById(R.id.button3);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
