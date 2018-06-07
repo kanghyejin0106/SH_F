@@ -20,6 +20,7 @@ public class Intro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intro.this, Activity_login.class);
+                intent.putExtra("type","1");
                 startActivity(intent);
             }
         });
@@ -27,7 +28,8 @@ public class Intro extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intro.this, Senior_addroom.class);
+                Intent intent = new Intent(Intro.this, Activity_login.class);
+                intent.putExtra("type","2");
                 startActivity(intent);
             }
         });

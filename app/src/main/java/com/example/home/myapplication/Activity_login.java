@@ -18,28 +18,47 @@ public class Activity_login extends AppCompatActivity {
     DatabaseReference table;
     String id;
     String pw;
+    Button login;
+    Button loginJoin;
     String correctpw = null;
+    String check;
+    EditText idText;
+    EditText pwText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        //setContentView(R.layout.activity_login);
+        Intent new_intent = getIntent();
+        check = new_intent.getStringExtra("type");
+        if(check.equals("1")){
+           setContentView(R.layout.activity_login);
+            table = FirebaseDatabase.getInstance().getReference("student");
+            login = (Button)findViewById(R.id.login);
+            loginJoin = (Button)findViewById(R.id.loginJoin);
+            idText = (EditText)findViewById(R.id.loginID);
+            pwText = (EditText)findViewById(R.id.loginPW);
+        }
+        else if(check.equals("2")){
+            setContentView(R.layout.senior_login);
+            table = FirebaseDatabase.getInstance().getReference("senior");
+            login = (Button)findViewById(R.id.login_s);
+            loginJoin = (Button)findViewById(R.id.loginJoin_s);
+            idText = (EditText)findViewById(R.id.loginID_s);
+            pwText = (EditText)findViewById(R.id.loginPW_s);
+        }
 
-        table = FirebaseDatabase.getInstance().getReference("student");
-
-        Button login = (Button)findViewById(R.id.login);
-        Button loginJoin = (Button)findViewById(R.id.loginJoin);
         loginJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent join = new Intent(Activity_login.this,Zero.class);
+                join.putExtra("check",check);
                 startActivity(join);
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText idText = (EditText)findViewById(R.id.loginID);
-                EditText pwText = (EditText)findViewById(R.id.loginPW);
+
                 id=idText.getText().toString();
                 pw=pwText.getText().toString();
                 id = EncodeString(id);
@@ -50,10 +69,18 @@ public class Activity_login extends AppCompatActivity {
                         correctpw = dataSnapshot.child("userPW").getValue().toString();
                         if(pw.equals(correctpw)){
                             Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
-                            Intent new_page = new Intent(Activity_login.this,MainActivity.class);
-                            new_page.putExtra("ID",id);
-                            new_page.putExtra("userID",id);
-                            startActivity(new_page);
+                            if(check.equals("1")){
+                                Intent new_page = new Intent(Activity_login.this,MainActivity.class);
+                                new_page.putExtra("ID",id);
+                                new_page.putExtra("userID",id);
+                                startActivity(new_page);
+                            }
+                            else{
+                                Intent new_page = new Intent(Activity_login.this,senior_main.class);
+                                new_page.putExtra("ID",id);
+                                startActivity(new_page);
+                            }
+
                         }else{
                             Toast.makeText(getApplicationContext(),"다시 입력해 주세요.",Toast.LENGTH_SHORT).show();
                         }
