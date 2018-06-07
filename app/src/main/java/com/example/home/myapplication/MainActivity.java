@@ -25,7 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
+
 //////////
+
 public class MainActivity extends AppCompatActivity
         implements map.OnFragmentInteractionListener,
         list.OnFragmentInteractionListener,
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
             return true;
         }
 

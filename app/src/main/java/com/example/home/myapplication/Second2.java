@@ -9,12 +9,18 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class Second2 extends AppCompatActivity {
-
+public class    Second2 extends AppCompatActivity {
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second2);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle!=null){
+            email = bundle.getString("email");
+            Toast.makeText(getApplicationContext(),email,Toast.LENGTH_LONG).show();
+        }
 
         Button next = findViewById(R.id.next);
 
@@ -27,7 +33,8 @@ public class Second2 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Second2.this, Second3.class);
+                Intent intent = new Intent(Second2.this, MainActivity.class);
+                intent.putExtra("ID",email);
                 int selectedId = reli.getCheckedRadioButtonId();
                 if(selectedId == -1) {
                     Toast.makeText(getApplicationContext(), "Enter your Religion.", Toast.LENGTH_SHORT).show();
