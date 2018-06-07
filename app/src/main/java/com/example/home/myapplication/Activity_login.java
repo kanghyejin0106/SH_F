@@ -51,6 +51,7 @@ public class Activity_login extends AppCompatActivity {
                         if(pw.equals(correctpw)){
                             Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
                             Intent new_page = new Intent(Activity_login.this,MainActivity.class);
+                            new_page.putExtra("ID",id);
                             new_page.putExtra("userID",id);
                             startActivity(new_page);
                         }else{

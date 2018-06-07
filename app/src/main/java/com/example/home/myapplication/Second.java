@@ -107,7 +107,7 @@ public class Second extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Second2.class);
 
-
+                intent.putExtra("email",email);
                 intent.putExtra("period", checkPeriod);
 
 
