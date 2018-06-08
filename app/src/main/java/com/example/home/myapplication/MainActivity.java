@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity
         id = intent.getExtras().getString("ID");
         FragmentManager manager = getFragmentManager();
         table = FirebaseDatabase.getInstance().getReference("student");
-
         manager.beginTransaction().replace(R.id.content_main,new map()).commit();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
