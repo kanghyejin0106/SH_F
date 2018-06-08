@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_Confirm"
+        android:layout_above="@+id/editText"
         android:layout_gravity="center"
         android:layout_marginHorizontal="55dp"
         android:background="@color/bg"
@@ -40,8 +40,11 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_above="@+id/btn_Confirm"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="확인코드" />
+        android:hint="확인코드"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

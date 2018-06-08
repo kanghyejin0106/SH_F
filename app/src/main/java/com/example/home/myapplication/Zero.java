@@ -31,20 +31,40 @@ public class Zero extends AppCompatActivity {
     boolean status = true;
     Button female;
     Button male;
+    String check;
+    Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zero);
-
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
-
-        table = FirebaseDatabase.getInstance().getReference("student");
+        Intent new_intent = getIntent();
+        check = new_intent.getStringExtra("check");
+        if(check.equals("1")){
+            setContentView(R.layout.activity_zero);
+            table = FirebaseDatabase.getInstance().getReference("student");
+            female = (Button)findViewById(R.id.Female);
+            male = (Button)findViewById(R.id.Male);
+            name = (EditText)findViewById(R.id.Name);
+            pw = (EditText)findViewById(R.id.Password);
+            phone = (EditText)findViewById(R.id.Phone);
+            email = (EditText)findViewById(R.id.Email);
+            btn = (Button)findViewById(R.id.btn_Submit);
+        }
+        else if(check.equals("2")){
+            setContentView(R.layout.senior_zero);
+            table = FirebaseDatabase.getInstance().getReference("senior");
+            female = (Button)findViewById(R.id.Female_s);
+            male = (Button)findViewById(R.id.Male_s);
+            name = (EditText)findViewById(R.id.Name_s);
+            pw = (EditText)findViewById(R.id.Password_s);
+            phone = (EditText)findViewById(R.id.Phone_s);
+            email = (EditText)findViewById(R.id.Email_s);
+            btn = (Button)findViewById(R.id.btn_Submit_s);
+        }
 
 
         final boolean Status[]={true, false};
-
-        female = (Button)findViewById(R.id.Female);
-        male = (Button)findViewById(R.id.Male);
 
         female.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -72,25 +92,14 @@ public class Zero extends AppCompatActivity {
         });
 
 
-        name = (EditText)findViewById(R.id.Name);
-
-        pw = (EditText)findViewById(R.id.Password);
-        phone = (EditText)findViewById(R.id.Phone);
-
-        email = (EditText)findViewById(R.id.Email);
-        text = (TextView)findViewById(R.id.txt_Join);
-
         name_s = name.getText().toString();
         pw_s = pw.getText().toString();
         phone_s = phone.getText().toString();
         email_s = email.getText().toString();
 
-        Button btn = (Button)findViewById(R.id.btn_Submit);
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //table.child("dsa").setValue("dafdsf");
                 email_s = email.getText().toString();
                 regiUser();
 
@@ -101,7 +110,6 @@ public class Zero extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }
@@ -133,7 +141,12 @@ public class Zero extends AppCompatActivity {
     }
     public void regiUser(){
         //DB
-        table = FirebaseDatabase.getInstance().getReference("student");
+        if(check.equals("1")){
+            table = FirebaseDatabase.getInstance().getReference("student");
+        }else{
+            table = FirebaseDatabase.getInstance().getReference("senior");
+        }
+
         str=EncodeString(email.getText().toString());
         User newUser = new User(str,pw.getText().toString(),name.getText().toString(),phone.getText().toString(),status,0,0,null);
         table.child(str).setValue(newUser);
