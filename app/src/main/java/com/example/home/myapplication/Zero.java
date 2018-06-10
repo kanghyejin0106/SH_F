@@ -33,6 +33,7 @@ public class Zero extends AppCompatActivity {
     Button male;
     String check;
     Button btn;
+    String check_code;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +102,7 @@ public class Zero extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 email_s = email.getText().toString();
-                regiUser();
+
 
 //                Messenger messenger = new Messenger(getApplicationContext());
  //               messenger.sendMessageTo(phone.getText().toString());
@@ -117,8 +118,8 @@ public class Zero extends AppCompatActivity {
 
                 try{
                     GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
-
-                    gMailSender.sendMail("ddd","ddd",email_s);
+                    check_code = randomCode();
+                    gMailSender.sendMail("Season House 확인코드",check_code,email_s);
                     Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
 
 //                   Messenger messenger = new Messenger(getApplicationContext());
@@ -132,12 +133,23 @@ public class Zero extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "이메일 확인해주세요3 "+email_s, Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
-
+                regiUser();
 
             }
         });
 
 
+    }
+    public String randomCode(){
+        String[] str = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
+                "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        String newCode = new String();
+
+        for (int x = 0; x < 8; x++) {
+            int random = (int) (Math.random() * str.length);
+            newCode += str[random];
+        }
+        return newCode;
     }
     public void regiUser(){
         //DB
@@ -153,6 +165,7 @@ public class Zero extends AppCompatActivity {
 
         Intent intent = new Intent(Zero.this, First.class);
         intent.putExtra("email",str);
+        intent.putExtra("code",check_code);
         startActivity(intent);
 
         email.setText("");
