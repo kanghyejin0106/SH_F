@@ -51,7 +51,7 @@
             android:layout_width="121dp"
             android:layout_height="60dp"
             android:layout_marginRight="5dp"
-            android:background="@color/bar"
+            android:background="@drawable/button_clicked"
             android:gravity="center"
             android:text="SIGN UP"
             android:textSize="26dp"/>
@@ -61,7 +61,7 @@
             android:layout_width="123dp"
             android:layout_height="60dp"
             android:layout_marginLeft="5dp"
-            android:background="@color/bar2"
+            android:background="@drawable/button2_clicked"
             android:gravity="center"
             android:text="LOGIN"
             android:textSize="26dp"/>

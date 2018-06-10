@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/bar"
+        android:background="@drawable/button_clicked"
         android:text="STUDENT"
         android:textColor="#ffffff"
         android:textSize="30dp"
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/bar2"
+        android:background="@drawable/button2_clicked"
         android:textColor="#ffffff"
         android:text="OLD"
         android:textSize="30dp"/>

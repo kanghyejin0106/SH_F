@@ -52,14 +52,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginRight="5dp"
-            android:background="@color/bar"
+            android:background="@drawable/button_clicked"
             android:text="SIGN UP"/>
 
         <Button
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/bar2"
+            android:background="@drawable/button2_clicked"
             android:layout_marginLeft="5dp"
             android:gravity="center"
             android:text="LOGIN"/>

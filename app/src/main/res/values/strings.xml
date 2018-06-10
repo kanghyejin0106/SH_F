@@ -2,8 +2,10 @@
     <string name="app_name">My Application</string>
     <color name="bg">#F3F1EC</color>
     <color name="bar">#E8DCC1</color>
+    <color name="bar_clicked">#c9ba93</color>
     <color name="bold_bar">#838383</color>
     <color name="bar2">#A0A991</color>
+    <color name="bar2_clicked">#788066</color>
     <color name="clicked">#DBDBDB</color>
     <color name="White">#FFFFFF</color>
     <color name="Gray">#D5D5D5</color>

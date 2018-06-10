@@ -120,7 +120,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:background="@color/bar"
+        android:background="@drawable/button_clicked"
         android:onClick="SignUp"
         android:text="Submit"
         android:textColor="#FFFFFF"
