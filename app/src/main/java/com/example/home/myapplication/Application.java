@@ -31,7 +31,6 @@ public class Application extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room item = (Room)adapter.getItem(position);
                 Toast.makeText(getApplicationContext(),"선택: "+item.getRoomname(),Toast.LENGTH_SHORT).show();
-
             }
         });
 

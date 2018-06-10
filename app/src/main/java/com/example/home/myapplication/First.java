@@ -6,6 +6,7 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,10 @@ public class First extends AppCompatActivity{
     String email=null;
     String phone=null;
     String getCheck;
+    EditText code;
+    String right_code;
+    String student_code;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
@@ -26,7 +31,8 @@ public class First extends AppCompatActivity{
         setContentView(R.layout.activity_first);
         Intent in =this.getIntent();
         email = in.getExtras().getString("email");
-
+        right_code = in.getExtras().getString("code");
+        code = (EditText)findViewById(R.id.editText);
 
         TextView text = (TextView) findViewById(R.id.text2);
 
@@ -39,9 +45,17 @@ public class First extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(First.this, Question.class);
-                intent.putExtra("email",email);
-                startActivity(intent);
+                student_code=code.getText().toString();
+
+                if(student_code.equals(right_code)){
+                    Intent intent = new Intent(First.this, Question.class);
+                    intent.putExtra("email",email);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"다시확인하세요",Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
