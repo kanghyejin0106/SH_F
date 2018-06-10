@@ -34,6 +34,7 @@
         <activity android:name=".Senior_addroom"/>
         <activity android:name=".Senior_question1" />
         <activity android:name=".Activity_login" />
+        <activity android:name=".Map_addroom"></activity>
         <activity
             android:name=".Splash"
             android:theme="@style/SplashTheme">
@@ -48,8 +49,11 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBuwjgRnd66_TnxvsbV9jrWCzfThmBSghk" />
     </application>
 
 </manifest>

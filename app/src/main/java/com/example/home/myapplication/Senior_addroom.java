@@ -32,6 +32,7 @@ public class Senior_addroom extends AppCompatActivity {
     private Button btn2;
     private Button btn3;
     private Button btn4;
+    Button buttonnext;
     private ImageView imageview;
     private ImageView imageview2;
     private ImageView imageview3;
@@ -46,6 +47,7 @@ public class Senior_addroom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_addroom);
 
+
         btn = (Button) findViewById(R.id.add_bedroom);
         imageview = (ImageView) findViewById(R.id.iv_bedroom);
         btn2 = (Button) findViewById(R.id.add_livingroom);
@@ -54,6 +56,7 @@ public class Senior_addroom extends AppCompatActivity {
         imageview3 = (ImageView) findViewById(R.id.iv_kitchen);
         btn4 = (Button) findViewById(R.id.add_bathroom);
         imageview4 = (ImageView) findViewById(R.id.iv_bathroom);
+        buttonnext = (Button) findViewById(R.id.btn_next);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +87,13 @@ public class Senior_addroom extends AppCompatActivity {
             }
         });
 
+        buttonnext.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Senior_addroom.this, Map_addroom.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void showPictureDialog(){

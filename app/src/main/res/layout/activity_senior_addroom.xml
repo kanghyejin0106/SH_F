@@ -195,13 +195,39 @@
 
         </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:textSize="15sp"
-        android:text="Please fix the room price"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            android:text="Please fix the room price"/>
+
+        <EditText
+            android:id="@+id/roomprice"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            android:hint="RoomPrice"
+            android:textColorHint="@color/bar"
+            android:textAlignment="center"
+            android:textColor="@color/bar" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@color/bar"
+            android:onClick="Next"
+            android:text="Submit"
+            android:textColor="#FFFFFF" />
+
+
     </LinearLayout>
 </ScrollView>
