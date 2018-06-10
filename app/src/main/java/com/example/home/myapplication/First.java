@@ -14,7 +14,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class First extends AppCompatActivity{
     DatabaseReference table;
-    String email;
+    String email=null;
+    String phone=null;
+    String getCheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
@@ -37,11 +39,9 @@ public class First extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-
                 Intent intent = new Intent(First.this, Question.class);
                 intent.putExtra("email",email);
                 startActivity(intent);
-
             }
         });
 
