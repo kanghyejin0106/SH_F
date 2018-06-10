@@ -4,7 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <uses-feature android:name="android.hardware.camera2" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -21,6 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCXJkHuA7U5QPf18g58uFy3ga0uxTjxWxk" />
         <activity android:name=".Intro" />
         <activity android:name=".First" />
         <activity android:name=".Question" />
@@ -31,7 +36,7 @@
         <activity android:name=".Second4" />
         <activity android:name=".Second5" />
         <activity android:name=".Zero" />
-        <activity android:name=".Senior_addroom"/>
+        <activity android:name=".Senior_addroom" />
         <activity android:name=".Senior_question1" />
         <activity android:name=".Activity_login" />
         <activity android:name=".Map_addroom"></activity>
@@ -44,16 +49,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         </activity>
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBuwjgRnd66_TnxvsbV9jrWCzfThmBSghk" />
+        <activity android:name=".Application"/>
+        <activity android:name=".senior_main"></activity>
     </application>
-
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
 </manifest>

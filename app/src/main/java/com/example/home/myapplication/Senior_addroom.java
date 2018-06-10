@@ -1,5 +1,6 @@
 package com.example.home.myapplication;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,6 +13,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -20,11 +22,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Calendar;
+import java.util.UUID;
 
 public class Senior_addroom extends AppCompatActivity {
 
@@ -40,7 +53,8 @@ public class Senior_addroom extends AppCompatActivity {
     int num = 0;
     private static final String IMAGE_DIRECTORY = "/demonuts";
     final int GALLERY = 1, CAMERA = 2;
-
+    FirebaseStorage storage;
+    StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,7 +186,8 @@ public class Senior_addroom extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+        storage= FirebaseStorage.getInstance();
+        storageReference=storage.getReference();
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == this.RESULT_CANCELED) {
             return;
@@ -182,8 +197,10 @@ public class Senior_addroom extends AppCompatActivity {
                 Uri contentURI = data.getData();
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
-                    String path = saveImage(bitmap);
                     Toast.makeText(Senior_addroom.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+
+                    String path = saveImage(bitmap);
+
                     switch (num){
                         case 1:
                             imageview.setImageBitmap(bitmap);
@@ -198,7 +215,8 @@ public class Senior_addroom extends AppCompatActivity {
                             imageview4.setImageBitmap(bitmap);
                             break;
                     }
-
+                    uploadImage(contentURI);
+                    Toast.makeText(Senior_addroom.this,contentURI.toString(),Toast.LENGTH_LONG).show();
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -208,6 +226,7 @@ public class Senior_addroom extends AppCompatActivity {
 
         } else if (requestCode == CAMERA) {
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            Uri cameraUri=null;
             switch (num){
                 case 1:
                     imageview.setImageBitmap(thumbnail);
@@ -222,8 +241,11 @@ public class Senior_addroom extends AppCompatActivity {
                     imageview4.setImageBitmap(thumbnail);
                     break;
             }
-
-            saveImage(thumbnail);
+            String str= saveImage(thumbnail);
+            //CameraUri=Uri.fromFile(getFileStreamPath(f.toString()));
+            File f=new File(str);
+            cameraUri=Uri.fromFile(f);
+            uploadImage(cameraUri);
             Toast.makeText(Senior_addroom.this, "Image Saved!", Toast.LENGTH_SHORT).show();
         }
     }
@@ -248,6 +270,7 @@ public class Senior_addroom extends AppCompatActivity {
                     new String[]{f.getPath()},
                     new String[]{"image/jpeg"}, null);
             fo.close();
+
             Log.d("TAG", "File Saved::—>" + f.getAbsolutePath());
 
             return f.getAbsolutePath();
@@ -255,6 +278,40 @@ public class Senior_addroom extends AppCompatActivity {
             e1.printStackTrace();
         }
         return "";
+    }
+    private void uploadImage(Uri filePath) {
+
+        if(filePath != null)
+        {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+        }
     }
 
 }

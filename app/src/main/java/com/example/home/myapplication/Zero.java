@@ -31,20 +31,41 @@ public class Zero extends AppCompatActivity {
     boolean status = true;
     Button female;
     Button male;
+    String check;
+    Button btn;
+    String check_code;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zero);
-
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
-
-        table = FirebaseDatabase.getInstance().getReference("student");
+        Intent new_intent = getIntent();
+        check = new_intent.getStringExtra("check");
+        if(check.equals("1")){
+            setContentView(R.layout.activity_zero);
+            table = FirebaseDatabase.getInstance().getReference("student");
+            female = (Button)findViewById(R.id.Female);
+            male = (Button)findViewById(R.id.Male);
+            name = (EditText)findViewById(R.id.Name);
+            pw = (EditText)findViewById(R.id.Password);
+            phone = (EditText)findViewById(R.id.Phone);
+            email = (EditText)findViewById(R.id.Email);
+            btn = (Button)findViewById(R.id.btn_Submit);
+        }
+        else if(check.equals("2")){
+            setContentView(R.layout.senior_zero);
+            table = FirebaseDatabase.getInstance().getReference("senior");
+            female = (Button)findViewById(R.id.Female_s);
+            male = (Button)findViewById(R.id.Male_s);
+            name = (EditText)findViewById(R.id.Name_s);
+            pw = (EditText)findViewById(R.id.Password_s);
+            phone = (EditText)findViewById(R.id.Phone_s);
+            email = (EditText)findViewById(R.id.Email_s);
+            btn = (Button)findViewById(R.id.btn_Submit_s);
+        }
 
 
         final boolean Status[]={true, false};
-
-        female = (Button)findViewById(R.id.Female);
-        male = (Button)findViewById(R.id.Male);
 
         female.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -72,27 +93,16 @@ public class Zero extends AppCompatActivity {
         });
 
 
-        name = (EditText)findViewById(R.id.Name);
-
-        pw = (EditText)findViewById(R.id.Password);
-        phone = (EditText)findViewById(R.id.Phone);
-
-        email = (EditText)findViewById(R.id.Email);
-        text = (TextView)findViewById(R.id.txt_Join);
-
         name_s = name.getText().toString();
         pw_s = pw.getText().toString();
         phone_s = phone.getText().toString();
         email_s = email.getText().toString();
 
-        Button btn = (Button)findViewById(R.id.btn_Submit);
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //table.child("dsa").setValue("dafdsf");
                 email_s = email.getText().toString();
-                regiUser();
+
 
 //                Messenger messenger = new Messenger(getApplicationContext());
  //               messenger.sendMessageTo(phone.getText().toString());
@@ -101,7 +111,6 @@ public class Zero extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }
@@ -109,8 +118,8 @@ public class Zero extends AppCompatActivity {
 
                 try{
                     GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
-
-                    gMailSender.sendMail("ddd","ddd",email_s);
+                    check_code = randomCode();
+                    gMailSender.sendMail("Season House 확인코드",check_code,email_s);
                     Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
 
 //                   Messenger messenger = new Messenger(getApplicationContext());
@@ -124,22 +133,39 @@ public class Zero extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "이메일 확인해주세요3 "+email_s, Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
-
+                regiUser();
 
             }
         });
 
 
     }
+    public String randomCode(){
+        String[] str = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
+                "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        String newCode = new String();
+
+        for (int x = 0; x < 8; x++) {
+            int random = (int) (Math.random() * str.length);
+            newCode += str[random];
+        }
+        return newCode;
+    }
     public void regiUser(){
         //DB
-        table = FirebaseDatabase.getInstance().getReference("student");
+        if(check.equals("1")){
+            table = FirebaseDatabase.getInstance().getReference("student");
+        }else{
+            table = FirebaseDatabase.getInstance().getReference("senior");
+        }
+
         str=EncodeString(email.getText().toString());
         User newUser = new User(str,pw.getText().toString(),name.getText().toString(),phone.getText().toString(),status,0,0,null);
         table.child(str).setValue(newUser);
 
         Intent intent = new Intent(Zero.this, First.class);
         intent.putExtra("email",str);
+        intent.putExtra("code",check_code);
         startActivity(intent);
 
         email.setText("");
