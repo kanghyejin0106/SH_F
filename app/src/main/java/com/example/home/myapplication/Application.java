@@ -21,9 +21,9 @@ public class Application extends AppCompatActivity {
         ListView listView;
         listView = (ListView)findViewById(R.id.list_app) ;
         adapter = new SingerAdapter();
-        adapter.addItem(new Room("aa","dd","ee"));
-        adapter.addItem(new Room("bb","ee","ee"));
-        adapter.addItem(new Room("cc","rr","ee"));
+//        adapter.addItem(new Room("aa","dd","ee"));
+//        adapter.addItem(new Room("bb","ee","ee"));
+//        adapter.addItem(new Room("cc","rr","ee"));
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
