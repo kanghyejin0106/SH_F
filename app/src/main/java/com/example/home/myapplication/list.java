@@ -1,6 +1,7 @@
 package com.example.home.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -69,7 +70,12 @@ public class list extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room item = (Room)adapter.getItem(position);
-                Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getRoomname(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(),"Choice : "+item.getRoomname(),Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(), Room_details.class);
+//                intent.putExtra("aa,")
+                startActivity(intent);
+
 
             }
         });
