@@ -19,7 +19,7 @@ public class senior_main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(senior_main.this,Senior_addroom.class);
+                Intent intent = new Intent(senior_main.this,Map_addroom.class);
                 intent.putExtra("ID",SeniorID);
                 startActivity(intent);
             }
