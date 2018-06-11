@@ -15,10 +15,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class First extends AppCompatActivity{
     DatabaseReference table;
-    String email;
+    String email=null;
+    String phone=null;
+    String getCheck;
     EditText code;
     String right_code;
     String student_code;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitDiskReads().permitDiskWrites().permitNetwork().build());
@@ -41,6 +44,7 @@ public class First extends AppCompatActivity{
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 student_code=code.getText().toString();
 
                 if(student_code.equals(right_code)){

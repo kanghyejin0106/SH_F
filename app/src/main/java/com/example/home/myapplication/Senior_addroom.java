@@ -55,11 +55,14 @@ public class Senior_addroom extends AppCompatActivity {
     final int GALLERY = 1, CAMERA = 2;
     FirebaseStorage storage;
     StorageReference storageReference;
+    String SeniorID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_addroom);
+        Intent intent=getIntent();
+        SeniorID=intent.getStringExtra("ID");
 
 
         btn = (Button) findViewById(R.id.add_bedroom);
@@ -287,7 +290,7 @@ public class Senior_addroom extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            StorageReference ref = storageReference.child("images/").child(SeniorID).child(filePath.getLastPathSegment());
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override

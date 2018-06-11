@@ -60,7 +60,7 @@ public class Zero extends AppCompatActivity {
             name = (EditText)findViewById(R.id.Name_s);
             pw = (EditText)findViewById(R.id.Password_s);
             phone = (EditText)findViewById(R.id.Phone_s);
-            email = (EditText)findViewById(R.id.Email_s);
+            //email = (EditText)findViewById(R.id.Email_s);
             btn = (Button)findViewById(R.id.btn_Submit_s);
         }
 
@@ -93,16 +93,21 @@ public class Zero extends AppCompatActivity {
         });
 
 
-        name_s = name.getText().toString();
-        pw_s = pw.getText().toString();
-        phone_s = phone.getText().toString();
-        email_s = email.getText().toString();
+
+
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email_s = email.getText().toString();
-
+                //email_s = email.getText().toString();
+                name_s = name.getText().toString();
+                pw_s = pw.getText().toString();
+                phone_s = phone.getText().toString();
+                if(check.equals("1")){
+                    email_s = email.getText().toString();
+                }
+                regiUser();
 
 //                Messenger messenger = new Messenger(getApplicationContext());
  //               messenger.sendMessageTo(phone.getText().toString());
@@ -115,26 +120,24 @@ public class Zero extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
                     }
                 });
-
-                try{
-                    GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
-                    check_code = randomCode();
-                    gMailSender.sendMail("Season House 확인코드",check_code,email_s);
-                    Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
+                if(check.equals("1")){
+                        try{
+                            GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
+                            check_code = randomCode();
+                            gMailSender.sendMail("Season House 확인코드",check_code,email_s);
+                            Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
 
 //                   Messenger messenger = new Messenger(getApplicationContext());
 //                   messenger.sendMessageTo(phone_s);
-                }catch (SendFailedException e){
-
-                    Toast.makeText(getApplicationContext(), "이메일 확인해주세요1 "+email_s, Toast.LENGTH_SHORT).show();
-                }catch(MessagingException e){
-                    Toast.makeText(getApplicationContext(), "이메일 확인해주세요2 "+email_s, Toast.LENGTH_SHORT).show();
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "이메일 확인해주세요3 "+email_s, Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
+                    }catch (SendFailedException e){
+                        Toast.makeText(getApplicationContext(), "이메일 확인해주세요1 "+email_s, Toast.LENGTH_SHORT).show();
+                    }catch(MessagingException e){
+                        Toast.makeText(getApplicationContext(), "이메일 확인해주세요2 "+email_s, Toast.LENGTH_SHORT).show();
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext(), "이메일 확인해주세요3 "+email_s, Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
                 }
-                regiUser();
-
             }
         });
 
@@ -152,23 +155,31 @@ public class Zero extends AppCompatActivity {
         return newCode;
     }
     public void regiUser(){
+
+        Toast.makeText(getApplicationContext(),check,Toast.LENGTH_LONG).show();
         //DB
         if(check.equals("1")){
+            Intent intent = new Intent(Zero.this, First.class);
             table = FirebaseDatabase.getInstance().getReference("student");
+            str=EncodeString(email.getText().toString());
+            User newUser = new User(str,pw_s,name_s,phone_s,status,0,0,null);
+            table.child(str).setValue(newUser);
+            email.setText("");
+            intent.putExtra("check","1");
+            intent.putExtra("email",str);
+            startActivity(intent);
+
         }else{
+            Intent intent=new Intent(Zero.this,Question.class);
             table = FirebaseDatabase.getInstance().getReference("senior");
+            User newUser = new User(phone_s,pw_s,name_s,status,0,0,null);
+            table.child(phone_s).setValue(newUser);
+            Toast.makeText(getApplication(),phone_s,Toast.LENGTH_LONG).show();
+            intent.putExtra("check","2");
+            intent.putExtra("phone",phone_s);
+            startActivity(intent);
         }
 
-        str=EncodeString(email.getText().toString());
-        User newUser = new User(str,pw.getText().toString(),name.getText().toString(),phone.getText().toString(),status,0,0,null);
-        table.child(str).setValue(newUser);
-
-        Intent intent = new Intent(Zero.this, First.class);
-        intent.putExtra("email",str);
-        intent.putExtra("code",check_code);
-        startActivity(intent);
-
-        email.setText("");
         pw.setText("");
         name.setText("");
         phone.setText("");

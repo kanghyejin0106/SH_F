@@ -23,6 +23,8 @@ public class Senior_question1 extends AppCompatActivity {
         final RadioGroup wifi = findViewById(R.id.security);
         final RadioGroup vacation = findViewById(R.id.vacation);
         Button next = findViewById(R.id.next);
+        Intent intent=getIntent();
+        String phone=intent.getStringExtra("phone");
 
         provide.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

@@ -28,7 +28,16 @@ public class User {
         this.school=school;
         this.money=money;
     }
-
+    public User( String phone,String pw,String name, boolean gender,int period,int money,String school){
+       this.Email=null;
+        this.Name=name;
+        this.Phone=phone;
+        this.Gender=gender;
+        this.PW=pw;
+        this.period=period;
+        this.school=school;
+        this.money=money;
+    }
     public String getUserID(){return Email;}
     public void setUserID(String id){this.Email=id;}
     public String getUserPW(){return PW;}
