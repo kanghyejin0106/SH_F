@@ -72,7 +72,7 @@ public class map extends Fragment implements OnMapReadyCallback {
         }
     }
     public void onMapReady(final GoogleMap googleMap) {
-        MapsInitializer.initialize(getContext());
+        MapsInitializer.initialize(getActivity().getApplicationContext());
         mGoogleMap=googleMap;
         geocoder=new Geocoder(view.getContext());
 
