@@ -1,26 +1,33 @@
 package com.example.home.myapplication;
+
+import android.app.Fragment;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,8 +44,7 @@ public class map extends Fragment implements OnMapReadyCallback {
     View view;
     Marker exMarker;
     //
-    String strAddress;
-    //
+    DatabaseReference table;
     private OnFragmentInteractionListener mListener;
 
     public map() {
@@ -51,6 +57,53 @@ public class map extends Fragment implements OnMapReadyCallback {
 
     // TODO: Rename and change types and number of parameters
 
+    public void initDB(){
+        table = FirebaseDatabase.getInstance().getReference("senior");
+        table.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot data : dataSnapshot.getChildren()){
+
+                        if(data.hasChild("address")) {
+                            String getAddress = data.child("address").getValue().toString();
+                            Toast.makeText(getActivity().getApplicationContext(), getAddress, Toast.LENGTH_SHORT).show();
+                            List<Address> addressList = null;
+                            try {
+                                addressList = geocoder.getFromLocationName(getAddress, 10);
+
+                                System.out.println(addressList.get(0).toString());
+                                String[] splitStr = addressList.get(0).toString().split(",");
+                                String address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1, splitStr[0].length() - 2);
+                                System.out.println(address);
+
+                                String latitude = splitStr[10].substring(splitStr[10].indexOf("=") + 1);
+                                String longtitude = splitStr[12].substring(splitStr[12].indexOf("=") + 1);
+                                System.out.println(latitude);
+                                System.out.println(longtitude);
+                                LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longtitude));
+
+                                MarkerOptions mOptions2 = new MarkerOptions();
+                                mOptions2.title("search result");
+                                mOptions2.snippet(address);
+                                mOptions2.position(point);
+                                mGoogleMap.addMarker(mOptions2);
+                               // mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 15));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,6 +125,7 @@ public class map extends Fragment implements OnMapReadyCallback {
         }
     }
     public void onMapReady(final GoogleMap googleMap) {
+
         MapsInitializer.initialize(getContext());
         mGoogleMap=googleMap;
         geocoder=new Geocoder(view.getContext());
@@ -122,37 +176,11 @@ public class map extends Fragment implements OnMapReadyCallback {
                 }
             }
         });
-        for(int i=0;i<1;i++){
-            strAddress = "대화동 2026";
-            List<Address> addressList = null;
-            try {
-                addressList = geocoder.getFromLocationName(strAddress, 10);
-
-                System.out.println(addressList.get(0).toString());
-                String[] splitStr = addressList.get(0).toString().split(",");
-                String address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1, splitStr[0].length() - 2);
-                System.out.println(address);
-
-                String latitude = splitStr[10].substring(splitStr[10].indexOf("=") + 1);
-                String longtitude = splitStr[12].substring(splitStr[12].indexOf("=") + 1);
-                System.out.println(latitude);
-                System.out.println(longtitude);
-                LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longtitude));
-
-                MarkerOptions mOptions2 = new MarkerOptions();
-                mOptions2.title("search result");
-                mOptions2.snippet(address);
-                mOptions2.position(point);
-                mGoogleMap.addMarker(mOptions2);
-                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 15));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        initDB();
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(40.689247,-74.044502)).title("Statue of Liberty").snippet("I hope to go"));
-       // CameraPosition Liberty= CameraPosition.builder().target(new LatLng(40.689247,-74.044502)).zoom(16).bearing(0).tilt(45).build();
-       // mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
+        // CameraPosition Liberty= CameraPosition.builder().target(new LatLng(40.689247,-74.044502)).zoom(16).bearing(0).tilt(45).build();
+        // mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -161,7 +189,6 @@ public class map extends Fragment implements OnMapReadyCallback {
         super.onAttach(context);
         try{
             mListener = (OnFragmentInteractionListener)getContext();
-
         }catch (ClassCastException e){
             throw new ClassCastException(context.toString()+" must implement OnFragmentInteractionListener");
         }
