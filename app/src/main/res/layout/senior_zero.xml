@@ -21,20 +21,20 @@
         android:textSize="40dp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/Email_s"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:textSize="30dp"
-        android:background="#FFFFFF"
-        android:inputType="textPersonName"
-        android:padding="8dp"
-        android:hint="E-Mail"
-        android:textColorHint="@color/bar"
-        android:textAlignment="center"
-        android:textColor="@color/bar" />
+    <!--<EditText-->
+        <!--android:id="@+id/Email_s"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:textSize="30dp"-->
+        <!--android:background="#FFFFFF"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:padding="8dp"-->
+        <!--android:hint="E-Mail"-->
+        <!--android:textColorHint="@color/bar"-->
+        <!--android:textAlignment="center"-->
+        <!--android:textColor="@color/bar" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
