@@ -34,7 +34,7 @@ public class list extends Fragment {
     public list() {
         // Required empty public constructor
     }
-             // TODO: Rename and change types and number of parameters
+    // TODO: Rename and change types and number of parameters
     public static list newInstance(String param1, String param2) {
         list fragment = new list();
         Bundle args = new Bundle();
@@ -61,9 +61,9 @@ public class list extends Fragment {
         listView = (ListView)v.findViewById(R.id.list_room) ;
 
         adapter = new SingerAdapter();
-        adapter.addItem(new Room("aa","dd","ee"));
-        adapter.addItem(new Room("bb","ee","ee"));
-        adapter.addItem(new Room("cc","rr","ee"));
+        //adapter.addItem(new Room("aa","dd","ee"));
+        //adapter.addItem(new Room("bb","ee","ee"));
+        //adapter.addItem(new Room("cc","rr","ee"));
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
