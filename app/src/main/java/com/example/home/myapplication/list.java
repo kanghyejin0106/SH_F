@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import android.app.Fragment;
 
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,12 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -25,10 +32,11 @@ public class list extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    public String address="";
 
     ListView listView;
     SingerAdapter adapter;
-
+    DatabaseReference table;
     private OnFragmentInteractionListener mListener;
 
     public list() {
@@ -59,8 +67,8 @@ public class list extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_list, container, false);
         listView = (ListView)v.findViewById(R.id.list_room) ;
+        initDB();
 
-        adapter = new SingerAdapter();
         //adapter.addItem(new Room("aa","dd","ee"));
         //adapter.addItem(new Room("bb","ee","ee"));
         //adapter.addItem(new Room("cc","rr","ee"));
@@ -80,6 +88,25 @@ public class list extends Fragment {
             }
         });
         return v;
+    }
+    public void initDB(){
+        adapter = new SingerAdapter();
+        table = FirebaseDatabase.getInstance().getReference(address);
+        //주소바꾸기
+        table.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot data : dataSnapshot.getChildren()){
+                    Room room = data.getValue(Room.class);
+                    adapter.addItem(room);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
     @Override
     public void onAttach(Context context) {
@@ -131,6 +158,7 @@ public class list extends Fragment {
             itemView.setName(item.getRoomname());
             itemView.setlocate(item.getRoomlocate());
             itemView.setmoney(item.getRoommoney());
+            itemView.setImageView(Uri.parse(item.getImg1FilePath().toString()));
             return itemView;
         }
     }
