@@ -84,7 +84,6 @@ public class list extends Fragment {
 //                intent.putExtra("aa,")
                 startActivity(intent);
 
-
             }
         });
         return v;
