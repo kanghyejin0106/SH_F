@@ -30,7 +30,6 @@ public class Room_details extends Activity implements View.OnTouchListener {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_details);
-
         owner = (TextView)findViewById(R.id.owner);
         money = (TextView)findViewById(R.id.money);
 
@@ -41,9 +40,7 @@ public class Room_details extends Activity implements View.OnTouchListener {
         ImageView religion = (ImageView)findViewById(R.id.religion);
 
         /*
-
         To use database
-
          */
 
         String text = "OWNER : " + "name";
