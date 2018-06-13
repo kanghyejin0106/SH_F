@@ -1,11 +1,8 @@
 package com.example.home.myapplication;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-
 import android.app.Fragment;
-
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,16 +57,16 @@ public class list extends Fragment {
         listView = (ListView)v.findViewById(R.id.list_room) ;
 
         adapter = new SingerAdapter();
-        adapter.addItem(new Room("aa","dd","ee"));
-        adapter.addItem(new Room("bb","ee","ee"));
-        adapter.addItem(new Room("cc","rr","ee"));
+        //adapter.addItem(new Room("aa","dd","ee"));
+        //adapter.addItem(new Room("bb","ee","ee"));
+        //adapter.addItem(new Room("cc","rr","ee"));
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room item = (Room)adapter.getItem(position);
-                Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getRoomname(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -122,9 +119,9 @@ public class list extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             roomView itemView = new roomView(getActivity().getApplicationContext());///////
             Room item = items.get(position);
-            itemView.setName(item.getRoomname());
-            itemView.setlocate(item.getRoomlocate());
-            itemView.setmoney(item.getRoommoney());
+            itemView.setName(item.getroomname());
+            itemView.setlocate(item.getroomlocate());
+            itemView.setmoney(item.getroommoney());
             return itemView;
         }
     }

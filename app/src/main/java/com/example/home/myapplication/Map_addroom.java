@@ -11,15 +11,17 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -36,6 +38,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.List;
@@ -66,6 +70,8 @@ public class Map_addroom extends AppCompatActivity
     boolean mMoveMapByUser = true;
     boolean mMoveMapByAPI = true;
     LatLng currentPosition;
+    Button btn;
+    DatabaseReference table;
 
     LocationRequest locationRequest = new LocationRequest()
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -162,7 +168,7 @@ public class Map_addroom extends AppCompatActivity
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
+        btn=(Button)findViewById(R.id.locationbtn);
         Log.d(TAG, "onMapReady :");
 
         mGoogleMap = googleMap;
@@ -217,6 +223,25 @@ public class Map_addroom extends AppCompatActivity
             public void onCameraMove() {
 
 
+            }
+        });
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=getIntent();
+                String name=intent.getStringExtra("ID");
+                String locationName=getCurrentAddress(currentPosition);
+                int i=locationName.indexOf("동");
+                String temp=locationName.substring(0,i+1);
+                Room room=new Room(name,locationName,null,null,null,null,null);
+
+                table= FirebaseDatabase.getInstance().getReference("Room");
+                table.child(temp).child(name).setValue(room);
+
+                Intent intent1=new Intent(Map_addroom.this,Senior_addroom.class);
+                intent1.putExtra("ID",name);
+                intent1.putExtra("templo",temp);
+                startActivity(intent1);
             }
         });
     }
