@@ -53,7 +53,7 @@ public class First extends AppCompatActivity{
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),"다시확인하세요",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Try again.",Toast.LENGTH_SHORT).show();
                 }
 
             }

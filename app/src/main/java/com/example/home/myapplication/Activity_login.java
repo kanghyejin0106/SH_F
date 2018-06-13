@@ -68,7 +68,7 @@ public class Activity_login extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         correctpw = dataSnapshot.child("userPW").getValue().toString();
                         if(pw.equals(correctpw)){
-                            Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Log in.",Toast.LENGTH_SHORT).show();
                             if(check.equals("1")){
                                 Intent new_page = new Intent(Activity_login.this,MainActivity.class);
                                 new_page.putExtra("ID",id);
@@ -82,7 +82,7 @@ public class Activity_login extends AppCompatActivity {
                             }
 
                         }else{
-                            Toast.makeText(getApplicationContext(),"다시 입력해 주세요.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Try again.",Toast.LENGTH_SHORT).show();
                         }
                     }
 

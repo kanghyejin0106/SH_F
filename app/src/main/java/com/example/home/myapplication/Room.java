@@ -30,6 +30,12 @@ public class Room {
     public void setroomlocate(String locate){this.roomlocate=locate;}
     public String getroommoney(){return roommoney;}
     public void setroommoney(String money){this.roommoney=money;}
+    public String getRoomname(){return roomname;}
+    public void setRoomname(String name){this.roomname=name;}
+    public String getRoomlocate(){return roomlocate;}
+    public void setRoomlocate(String locate){this.roomlocate=locate;}
+    public String getRoommoney(){return roommoney;}
+    public void setRoommoney(String money){this.roommoney=money;}
     public String getImg1FilePath(){return img1FilePath;}
     public void setImg1FilePath(String img1path){this.img1FilePath=img1path;}
     public String getImg2FilePath(){return img2FilePath;}
@@ -39,3 +45,4 @@ public class Room {
     public String getImg4FilePath(){return img4FilePath;}
     public void setImg4FilePath(String img4path){this.img4FilePath=img4path;}
 }
+

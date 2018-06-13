@@ -169,6 +169,7 @@ public class Map_addroom extends AppCompatActivity
     @Override
     public void onMapReady(GoogleMap googleMap) {
         btn=(Button)findViewById(R.id.locationbtn);
+
         Log.d(TAG, "onMapReady :");
 
         mGoogleMap = googleMap;
@@ -249,7 +250,6 @@ public class Map_addroom extends AppCompatActivity
 
     @Override
     public void onLocationChanged(Location location) {
-
         currentPosition
                 = new LatLng( location.getLatitude(), location.getLongitude());
 

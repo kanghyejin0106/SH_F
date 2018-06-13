@@ -3,6 +3,13 @@ package com.example.home.myapplication;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+
+import android.app.Fragment;
+
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +17,12 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -21,16 +34,17 @@ public class list extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    public String address="";
 
     ListView listView;
     SingerAdapter adapter;
-
+    DatabaseReference table;
     private OnFragmentInteractionListener mListener;
 
     public list() {
         // Required empty public constructor
     }
-             // TODO: Rename and change types and number of parameters
+    // TODO: Rename and change types and number of parameters
     public static list newInstance(String param1, String param2) {
         list fragment = new list();
         Bundle args = new Bundle();
@@ -55,6 +69,7 @@ public class list extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_list, container, false);
         listView = (ListView)v.findViewById(R.id.list_room) ;
+        initDB();
 
         adapter = new SingerAdapter();
         //adapter.addItem(new Room("aa","dd","ee"));
@@ -67,10 +82,34 @@ public class list extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room item = (Room)adapter.getItem(position);
                 Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(),"Choice : "+item.getRoomname(),Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(), Room_details.class);
+//                intent.putExtra("aa,")
+                startActivity(intent);
 
             }
         });
         return v;
+    }
+    public void initDB(){
+        adapter = new SingerAdapter();
+        table = FirebaseDatabase.getInstance().getReference(address);
+        //주소바꾸기
+        table.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot data : dataSnapshot.getChildren()){
+                    Room room = data.getValue(Room.class);
+                    adapter.addItem(room);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
     @Override
     public void onAttach(Context context) {
@@ -122,6 +161,11 @@ public class list extends Fragment {
             itemView.setName(item.getroomname());
             itemView.setlocate(item.getroomlocate());
             itemView.setmoney(item.getroommoney());
+            itemView.setName(item.getRoomname());
+            itemView.setlocate(item.getRoomlocate());
+            itemView.setmoney(item.getRoommoney());
+            itemView.setImageView(Uri.parse(item.getImg1FilePath().toString()));
+
             return itemView;
         }
     }

@@ -22,7 +22,7 @@
         android:layout_marginHorizontal="55dp"
         android:background="@color/bg"
         android:padding="20dp"
-        android:text="입력하신 E-mail 주소로 전송된 확인번호를 입력하십시오."
+        android:text="Please enter the confirmation code sent by e-mail."
         android:textColor="#753E2D"
         android:textSize="15dp" />
 
@@ -44,7 +44,7 @@
         android:layout_above="@+id/btn_Confirm"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="확인코드"
+        android:hint="confirmation code"
         android:inputType="textPersonName" />
 
 </RelativeLayout>

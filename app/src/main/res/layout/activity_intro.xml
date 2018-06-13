@@ -28,7 +28,7 @@
         android:layout_weight="1"
         android:background="@drawable/button2_clicked"
         android:textColor="#ffffff"
-        android:text="OLD"
+        android:text="SENIOR"
         android:textSize="30dp"/>
 
 </LinearLayout>
