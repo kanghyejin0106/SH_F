@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".Map_addroom" >
 
     <fragment
         android:id="@+id/map"
@@ -13,11 +13,7 @@
         android:layout_weight="9"
         class="com.google.android.gms.maps.MapFragment" />
     <Button
-<<<<<<< HEAD
         android:id="@+id/locationbtn"
-=======
-        android:id="@+id/locationBtn"
->>>>>>> 36ff23d0d7e9c846d12601ecec05402e81aa061a
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

@@ -168,7 +168,7 @@ public class Map_addroom extends AppCompatActivity
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        btn=(Button)findViewById(R.id.locationbtn);
+        btn=(Button) findViewById(R.id.locationbtn);
 
         Log.d(TAG, "onMapReady :");
 
