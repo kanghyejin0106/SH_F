@@ -13,17 +13,18 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -32,12 +33,9 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Calendar;
-import java.util.UUID;
 
 public class Senior_addroom extends AppCompatActivity {
 
@@ -50,13 +48,19 @@ public class Senior_addroom extends AppCompatActivity {
     private ImageView imageview2;
     private ImageView imageview3;
     private ImageView imageview4;
+    private EditText editText;
+    private String img1Path;
+    private String img2Path;
+    private String img3Path;
+    private String img4Path;
     int num = 0;
     private static final String IMAGE_DIRECTORY = "/demonuts";
     final int GALLERY = 1, CAMERA = 2;
     FirebaseStorage storage;
     StorageReference storageReference;
     String SeniorID;
-
+    DatabaseReference table;
+    String money;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +78,7 @@ public class Senior_addroom extends AppCompatActivity {
         btn4 = (Button) findViewById(R.id.add_bathroom);
         imageview4 = (ImageView) findViewById(R.id.iv_bathroom);
         buttonnext = (Button) findViewById(R.id.btn_next);
+        editText=(EditText)findViewById(R.id.roomprice);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,14 +108,27 @@ public class Senior_addroom extends AppCompatActivity {
                 showPictureDialog();
             }
         });
-
+        money=editText.getText().toString();
         buttonnext.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Senior_addroom.this, Map_addroom.class);
+                regRoom();
+                editText.setText("");
+                Intent intent = new Intent(Senior_addroom.this, Senior_question1.class);
                 startActivity(intent);
             }
         });
+    }
+    public void regRoom(){
+        Intent intent=getIntent();
+        String str=intent.getStringExtra("templo");
+        table=FirebaseDatabase.getInstance().getReference("Room").child(str).child(SeniorID);
+        table.child("roommoney").setValue(money);
+        table.child("img1FilePath").setValue(img1Path);
+        table.child("img2FilePath").setValue(img2Path);
+        table.child("img3FilePath").setValue(img3Path);
+        table.child("img4FilePath").setValue(img4Path);
+
     }
 
     private void showPictureDialog(){
@@ -290,12 +308,24 @@ public class Senior_addroom extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/").child(SeniorID).child(filePath.getLastPathSegment());
+            final StorageReference ref = storageReference.child("images/").child(SeniorID).child(filePath.getLastPathSegment());
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
+                            if(num==1){
+                                img1Path=ref.getDownloadUrl().toString();
+                            }
+                            else if(num==2){
+                                img2Path=ref.getDownloadUrl().toString();
+                            }
+                            else if(num==3){
+                                img3Path=ref.getDownloadUrl().toString();
+                            }
+                            else if(num==4){
+                                img4Path=ref.getDownloadUrl().toString();
+                            }
                             Toast.makeText(getApplicationContext(), "Uploaded", Toast.LENGTH_SHORT).show();
                         }
                     })
