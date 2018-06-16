@@ -243,6 +243,7 @@ public class Map_addroom extends AppCompatActivity
 
                 Intent intent1=new Intent(Map_addroom.this,Senior_addroom.class);
                 intent1.putExtra("ID",name);
+                intent1.putExtra("templo",temp);
                 startActivity(intent1);
             }
         });
