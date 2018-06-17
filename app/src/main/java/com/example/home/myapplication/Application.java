@@ -38,12 +38,12 @@ public class Application extends AppCompatActivity {
 //        adapter.addItem(new Room("bb","ee","ee"));
 //        adapter.addItem(new Room("cc","rr","ee"));
 
-        listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Room item = (Room)adapter.getItem(position);
-                Toast.makeText(getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
+                //Room item = (Room)adapter.getItem(position);
+                //Toast.makeText(getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -89,7 +89,7 @@ public class Application extends AppCompatActivity {
     }
     class SingerAdapter extends BaseAdapter {
 
-        ArrayList<Room> items = new ArrayList<Room>();
+        //ArrayList<Room> items = new ArrayList<Room>();
         @Override
         public int getCount() {
             return items.size();
@@ -109,7 +109,7 @@ public class Application extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            roomView itemView = new roomView(getApplicationContext());///////
+            roomView itemView = new roomView(getApplicationContext());
             Room item = items.get(position);
             itemView.setName(item.getroomname());
             itemView.setlocate(item.getroomlocate());
