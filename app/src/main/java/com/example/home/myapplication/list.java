@@ -83,6 +83,7 @@ public class list extends Fragment {
                 Room item = (Room)adapter.getItem(position);
                 Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
 
+
                 Intent intent = new Intent(getActivity(), Room_details.class);
 //                intent.putExtra("aa,")
                 startActivity(intent);
