@@ -15,12 +15,12 @@ public class SeniorQuestionData {
     int q_pet;//반려동물 1. 기르고 있으며 상관없 2.기르지 않으나 상관없 3. 싫어함
     int smoke;//1. always 2.often 3.Sometimes 4. Do not
     int alcohol;//1.always 2. often 3. Sometimes 4.Do not
-    int breakfast;//1.I always eat 2.eat often 3. i eat sometimes 4.Do not eat
+    int weed;//1.I always do 2.do often 3. i do sometimes 4.Do not
 
 
     SeniorQuestionData(Boolean StudentGender,Boolean furniture,String furnitureType,
                        int security,Boolean wifi,Boolean vactionRent,int q_religion,int q_pet,
-                       int smoke,int alcohol,int breakfast){
+                       int smoke,int alcohol,int weed){
         this.StudentGender=StudentGender;
         this.furniture=furniture;
         this.furnitureType=furnitureType;
@@ -31,7 +31,7 @@ public class SeniorQuestionData {
         this.q_pet=q_pet;
         this.smoke=smoke;
         this.alcohol=alcohol;
-        this.breakfast=breakfast;
+        this.weed=weed;
     }
 
     public void setStudentGender(Boolean studentGender) {
@@ -113,12 +113,12 @@ public class SeniorQuestionData {
         return alcohol;
     }
 
-    public void setBreakfast(int breakfast) {
-        this.breakfast = breakfast;
+    public void setWeed(int weed) {
+        this.weed = weed;
     }
 
-    public int getBreakfast() {
-        return breakfast;
+    public int getWeed() {
+        return weed;
     }
 
 }

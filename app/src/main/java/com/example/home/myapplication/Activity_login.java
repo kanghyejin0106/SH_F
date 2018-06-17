@@ -72,7 +72,7 @@ public class Activity_login extends AppCompatActivity {
                             if(check.equals("1")){
                                 Intent new_page = new Intent(Activity_login.this,MainActivity.class);
                                 new_page.putExtra("ID",id);
-                                new_page.putExtra("userID",id);
+
                                 startActivity(new_page);
                             }
                             else{
