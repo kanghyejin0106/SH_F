@@ -110,15 +110,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:id="@+id/furniture"
+                android:visibility="gone"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="5dp"
                 android:padding="15dp"
-                android:id="@+id/furniture"
                 android:background="@color/White"
-                android:orientation="vertical"
-                android:visibility="gone">
-
+                android:orientation="vertical" >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
