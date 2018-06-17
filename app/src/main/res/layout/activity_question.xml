@@ -2,14 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@drawable/background4"
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
+<<<<<<< HEAD
+=======
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/agreement_text"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:layout_margin="15dp"
+        android:background="@color/mainmenu_text"
+        android:padding="15dp">
+>>>>>>> master
 
     <TextView
         android:layout_margin="5dp"
         android:layout_width="wrap_content"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
         android:layout_above="@+id/agree"
         android:gravity="center"
@@ -33,4 +51,42 @@
         android:textColor="#753E2D"
         android:background="@color/bar"
         android:visibility="gone" />
+=======
+        android:layout_height="match_parent"
+        android:textSize="18sp"
+        android:layout_above="@+id/agree"
+        android:text="As an applicant for the Seoul Metropolitan Government's one-room generation sympathy project, I agree with the following. 1. Personal Information Collection and User : Seoul Metropolitan Government (metropolitan government) 2. The purpose of personal information collection and utilization is to manage the status of the project and to select the business owner (monitoring) 3. However, the business end date (when the lease period expires or is canceled) shall be kept and used only to the extent necessary for settlement of disputes, handling of civil affairs, and compliance with legal obligations. 5. I inform you that I can refuse to accept the following statements and can not participate in the business without them : 6. For the above business, I shall collect and use data containing my own unique identification. " />
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:layout_gravity="center"
+            android:id="@+id/agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Gray"
+            android:layout_above="@+id/next"
+            android:buttonTint="@color/Gray"
+            android:textSize="20sp"
+            android:text="I AGREE" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mainmenu_button"
+            android:visibility="gone"
+            android:layout_margin="10dp"
+            android:textColor="@color/White"
+            android:textSize="16sp"
+            android:text="NEXT" />
+
+    </LinearLayout>
+
+>>>>>>> master
     </LinearLayout>

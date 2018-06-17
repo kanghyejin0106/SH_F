@@ -34,11 +34,6 @@ public class First extends AppCompatActivity{
         right_code = in.getExtras().getString("code");
         code = (EditText)findViewById(R.id.editText);
 
-        TextView text = (TextView) findViewById(R.id.text2);
-
-
-        //Intent intent = getIntent();
-
         Button btn2 = (Button)findViewById(R.id.btn_Confirm);
 
         btn2.setOnClickListener(new View.OnClickListener() {
