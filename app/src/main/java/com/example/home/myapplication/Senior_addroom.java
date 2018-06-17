@@ -116,6 +116,7 @@ public class Senior_addroom extends AppCompatActivity {
                 regRoom();
                 editText.setText("");
                 Intent intent = new Intent(Senior_addroom.this, Senior_question1.class);
+                intent.putExtra("phone",SeniorID);
                 startActivity(intent);
             }
         });
@@ -123,8 +124,7 @@ public class Senior_addroom extends AppCompatActivity {
     public void regRoom(){
         Intent intent=getIntent();
         Toast.makeText(getApplication(),money,Toast.LENGTH_SHORT).show();
-        String str=intent.getStringExtra("templo");
-        table=FirebaseDatabase.getInstance().getReference("Room").child(str).child(SeniorID);
+        table=FirebaseDatabase.getInstance().getReference("Room").child(SeniorID);
         table.child("roomMoney").setValue(money);
         table.child("img1FilePath").setValue(img1Path);
         table.child("img2FilePath").setValue(img2Path);
@@ -310,22 +310,24 @@ public class Senior_addroom extends AppCompatActivity {
             progressDialog.show();
 
             final StorageReference ref = storageReference.child("images/").child(SeniorID).child(filePath.getLastPathSegment());
+            UploadTask uploadTask = ref.putFile(filePath);
+
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
                             if(num==1){
-                                img1Path=ref.getDownloadUrl().toString();
+                                img1Path=ref.toString();
                             }
                             else if(num==2){
-                                img2Path=ref.getDownloadUrl().toString();
+                                img2Path=ref.toString();
                             }
                             else if(num==3){
-                                img3Path=ref.getDownloadUrl().toString();
+                                img3Path=ref.toString();
                             }
                             else if(num==4){
-                                img4Path=ref.getDownloadUrl().toString();
+                                img4Path=ref.toString();
                             }
                             Toast.makeText(getApplicationContext(), "Uploaded", Toast.LENGTH_SHORT).show();
                         }

@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 /**
  * Created by USER on 2018-06-04.
  */
@@ -47,6 +49,6 @@ public class roomView extends LinearLayout {
         textView2.setText(money);
     }
     public void setImageView(Uri uri){
-        imageView.setImageURI(uri);
+        Glide.with(getContext()).load(uri).into(imageView);
     }
 }

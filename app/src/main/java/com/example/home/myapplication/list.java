@@ -2,18 +2,12 @@ package com.example.home.myapplication;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.os.Bundle;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import android.app.Fragment;
-
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -34,11 +28,12 @@ public class list extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    public String address="대한민국 서울특별시 광진구 자양동";
+    public String address="";;
 
     ListView listView;
     SingerAdapter adapter;
     DatabaseReference table;
+    ArrayList<Room> items = new ArrayList<Room>();
     private OnFragmentInteractionListener mListener;
 
     public list() {
@@ -61,7 +56,9 @@ public class list extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
+        //adapter.addItem(new Room("aa","dd","ee"));
+        //initDB();
+        //listView.setAdapter(adapter);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,14 +66,17 @@ public class list extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_list, container, false);
         listView = (ListView)v.findViewById(R.id.list_room) ;
+
+
         initDB();
 
-        adapter = new SingerAdapter();
-        //adapter.addItem(new Room("aa","dd","ee"));
+        //주소바꾸기
+        //adapter = new SingerAdapter();
         //adapter.addItem(new Room("bb","ee","ee"));
         //adapter.addItem(new Room("cc","rr","ee"));
+        //listView.setAdapter(adapter);
 
-        listView.setAdapter(adapter);
+        /*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -90,26 +90,39 @@ public class list extends Fragment {
 
             }
         });
+        */
         return v;
     }
     public void initDB(){
         adapter = new SingerAdapter();
         table = FirebaseDatabase.getInstance().getReference("Room");
-        //주소바꾸기
-        table.child(address).addValueEventListener(new ValueEventListener() {
+        table.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
-                    Room room = data.getValue(Room.class);
-                    adapter.addItem(room);
+                    if(data.hasChild("img1FilePath")){
+                        Toast.makeText(getActivity().getApplicationContext(),data.child("roommoney").getValue().toString(),Toast.LENGTH_LONG).show();
+                        Room room = new Room(data.child("roomname").getValue().toString(),data.child("roomlocate").getValue().toString(),
+                                data.child("roommoney").getValue().toString(),
+                                data.child("img1FilePath").getValue().toString(),data.child("img2FilePath").getValue().toString(),
+                                data.child("img3FilePath").getValue().toString(),data.child("img4FilePath").getValue().toString());
+                        adapter.addItem(room);
+
+                        //adapter.addItem(new Room("aa","dd","ee"));
+                        listView.setAdapter(adapter);
+                    }
+                    else{
+                        Toast.makeText(getActivity().getApplicationContext(),"fail",Toast.LENGTH_LONG).show();
+                    }
+
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+        //listView.setAdapter(adapter);
     }
     @Override
     public void onAttach(Context context) {
@@ -136,7 +149,7 @@ public class list extends Fragment {
     }
     class SingerAdapter extends BaseAdapter {
 
-        ArrayList<Room> items = new ArrayList<Room>();
+        //ArrayList<Room> items = new ArrayList<Room>();
         @Override
         public int getCount() {
             return items.size();
@@ -161,7 +174,8 @@ public class list extends Fragment {
             itemView.setName(item.getroomname());
             itemView.setlocate(item.getroomlocate());
             itemView.setmoney(item.getroommoney());
-            itemView.setImageView(Uri.parse(item.getImg1FilePath().toString()));
+            itemView.setImageView(Uri.parse(item.getImg1FilePath()));
+
 
             return itemView;
         }

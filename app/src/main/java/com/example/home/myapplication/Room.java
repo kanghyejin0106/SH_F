@@ -24,6 +24,11 @@ public class Room {
         this.roomlocate=locate;
         this.roomMoney=roomMoney;
     }
+    Room(String name, String locate, String roomMoney){
+        this.roomname=name;
+        this.roomlocate=locate;
+        this.roomMoney=roomMoney;
+    }
     public String getroomname(){return roomname;}
     public void setroomname(String name){this.roomname=name;}
     public String getroomlocate(){return roomlocate;}
