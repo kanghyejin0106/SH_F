@@ -1,3 +1,5 @@
+
+
 package com.example.home.myapplication;
 
 import android.app.Fragment;
@@ -58,40 +60,40 @@ public class map extends Fragment implements OnMapReadyCallback {
     // TODO: Rename and change types and number of parameters
 
     public void initDB(){
-        table = FirebaseDatabase.getInstance().getReference("senior");
+        table = FirebaseDatabase.getInstance().getReference("Room");
         table.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
-                        if(data.hasChild("address")) {
-                            String getAddress = data.child("address").getValue().toString();
-                            Toast.makeText(getActivity().getApplicationContext(), getAddress, Toast.LENGTH_SHORT).show();
-                            List<Address> addressList = null;
-                            try {
-                                addressList = geocoder.getFromLocationName(getAddress, 10);
+                    if(data.hasChild("roomlocate")) {
+                        String getAddress = data.child("roomlocate").getValue().toString();
+                        Toast.makeText(getActivity().getApplicationContext(), getAddress, Toast.LENGTH_SHORT).show();
+                        List<Address> addressList = null;
+                        try {
+                            addressList = geocoder.getFromLocationName(getAddress, 10);
 
-                                System.out.println(addressList.get(0).toString());
-                                String[] splitStr = addressList.get(0).toString().split(",");
-                                String address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1, splitStr[0].length() - 2);
-                                System.out.println(address);
+                            System.out.println(addressList.get(0).toString());
+                            String[] splitStr = addressList.get(0).toString().split(",");
+                            String address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1, splitStr[0].length() - 2);
+                            System.out.println(address);
 
-                                String latitude = splitStr[10].substring(splitStr[10].indexOf("=") + 1);
-                                String longtitude = splitStr[12].substring(splitStr[12].indexOf("=") + 1);
-                                System.out.println(latitude);
-                                System.out.println(longtitude);
-                                LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longtitude));
+                            String latitude = splitStr[10].substring(splitStr[10].indexOf("=") + 1);
+                            String longtitude = splitStr[12].substring(splitStr[12].indexOf("=") + 1);
+                            System.out.println(latitude);
+                            System.out.println(longtitude);
+                            LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longtitude));
 
-                                MarkerOptions mOptions2 = new MarkerOptions();
-                                mOptions2.title(data.getKey().toString());
-                                mOptions2.snippet(address);
-                                mOptions2.position(point);
-                                mGoogleMap.addMarker(mOptions2);
-                               // mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 15));
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
+                            MarkerOptions mOptions2 = new MarkerOptions();
+                            mOptions2.title(data.getKey().toString());
+                            mOptions2.snippet(address);
+                            mOptions2.position(point);
+                            mGoogleMap.addMarker(mOptions2);
+                            // mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 15));
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
+
+                    }
 
 
                 }
@@ -148,6 +150,8 @@ public class map extends Fragment implements OnMapReadyCallback {
             @Override
             public boolean onMarkerClick(Marker marker) {
                 Intent room_details = new Intent(getActivity(),Room_details.class);
+                //Toast.makeText(getActivity(),marker.getTitle().toString(),Toast.LENGTH_LONG).show();
+                room_details.putExtra("ID",marker.getTitle().toString());
                 startActivity(room_details);
                 return false;
             }
@@ -205,4 +209,5 @@ public class map extends Fragment implements OnMapReadyCallback {
 
     }
 }
+
 
