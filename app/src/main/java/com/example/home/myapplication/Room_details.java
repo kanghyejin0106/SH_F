@@ -33,6 +33,7 @@ public class Room_details extends Activity implements View.OnTouchListener {
     String id_senior="";
     String id_student="";
     DatabaseReference table;
+    DatabaseReference tableQuestion;
     Button applyBtn;
     public void onCreate(Bundle savedInstanceState) {
 
@@ -75,11 +76,38 @@ public class Room_details extends Activity implements View.OnTouchListener {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     if (data.getKey().toString().equals(id_senior)) {
-                        Toast.makeText(getApplicationContext(),id_senior,Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(),id_student,Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), id_senior, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), id_student, Toast.LENGTH_LONG).show();
                         if (data.hasChild("roommoney")) {
                             String text = "Monthly Rent : " + data.child("roommoney").getValue().toString();
                             money.setText(text);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        tableQuestion = FirebaseDatabase.getInstance().getReference("senior");
+        tableQuestion.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    if (data.getKey().toString().equals(id_senior)) {
+                        if (data.hasChild("seniorQ")) {
+                            String alcohol = (data.child("seniorQ").child("alcohol").getValue().toString());
+                            String pet = (data.child("seniorQ").child("q_pet").getValue().toString());
+                            String religion = (data.child("seniorQ").child("q_religion").getValue().toString());
+                            String smoke = (data.child("seniorQ").child("smoke").getValue().toString());
+                            String weed = (data.child("seniorQ").child("weed").getValue().toString());
+                        Toast.makeText(getApplicationContext(), alcohol, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), smoke, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), weed, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), pet, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), religion, Toast.LENGTH_LONG).show();
                         }
                     }
                 }
