@@ -90,7 +90,7 @@ public class Senior_question1 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Senior_question1.this, Activity_login.class);
+                Intent intent = new Intent(Senior_question1.this, Adding_question.class);
 
                 CheckBox fe = findViewById(R.id.fe);
                 CheckBox m = findViewById(R.id.m);
