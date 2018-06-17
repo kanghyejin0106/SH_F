@@ -39,7 +39,7 @@ public class    Second2 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Second2.this, MainActivity.class);
+                Intent intent = new Intent(Second2.this, Activity_login.class);
                 intent.putExtra("ID",email);
                 int selectedId = reli.getCheckedRadioButtonId();
                 if(selectedId == -1) {
@@ -150,7 +150,7 @@ public class    Second2 extends AppCompatActivity {
                     }
                     intent.putExtra("bf", selectedId);
                 }
-                selectedId = in.getCheckedRadioButtonId();
+  /*              selectedId = in.getCheckedRadioButtonId();
                 if(selectedId == -1) {
                     Toast.makeText(getApplicationContext(), "Enter about breakfast.", Toast.LENGTH_SHORT).show();
                     return;
@@ -169,8 +169,8 @@ public class    Second2 extends AppCompatActivity {
                             breakfast=4;
                             break;
                     }
-                    intent.putExtra("bf", selectedId);
-                }
+                    intent.putExtra("in", selectedId);
+                } */
                 startActivity(intent);
 
             }
@@ -183,6 +183,6 @@ public class    Second2 extends AppCompatActivity {
         table.child("smoke").setValue(smoke);
         table.child("alcohol").setValue(alcohol);
         table.child("breakfast").setValue(breakfast);
-        table.child("invite").setValue(invite);
+//        table.child("invite").setValue(invite);
     }
 }
