@@ -1,20 +1,16 @@
 package com.example.home.myapplication;
 
 import android.app.Activity;
-//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 import android.widget.ViewFlipper;
 
-import org.w3c.dom.Text;
+//import android.support.v7.app.AppCompatActivity;
 
 
 public class Room_details extends Activity implements View.OnTouchListener {

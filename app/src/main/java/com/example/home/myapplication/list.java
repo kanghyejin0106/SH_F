@@ -1,6 +1,8 @@
 package com.example.home.myapplication;
 
+import android.app.Fragment;
 import android.content.Context;
+import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -69,6 +71,7 @@ public class list extends Fragment {
         listView = (ListView)v.findViewById(R.id.list_room) ;
         initDB();
 
+        adapter = new SingerAdapter();
         //adapter.addItem(new Room("aa","dd","ee"));
         //adapter.addItem(new Room("bb","ee","ee"));
         //adapter.addItem(new Room("cc","rr","ee"));
@@ -78,6 +81,7 @@ public class list extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room item = (Room)adapter.getItem(position);
+                Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
                 Toast.makeText(getActivity().getApplicationContext(),"Choice : "+item.getRoomname(),Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity(), Room_details.class);
@@ -154,10 +158,14 @@ public class list extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             roomView itemView = new roomView(getActivity().getApplicationContext());///////
             Room item = items.get(position);
+            itemView.setName(item.getroomname());
+            itemView.setlocate(item.getroomlocate());
+            itemView.setmoney(item.getroommoney());
             itemView.setName(item.getRoomname());
             itemView.setlocate(item.getRoomlocate());
             itemView.setmoney(item.getRoommoney());
             itemView.setImageView(Uri.parse(item.getImg1FilePath().toString()));
+
             return itemView;
         }
     }

@@ -62,7 +62,6 @@ public class map extends Fragment implements OnMapReadyCallback {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
-
                         if(data.hasChild("address")) {
                             String getAddress = data.child("address").getValue().toString();
                             Toast.makeText(getActivity().getApplicationContext(), getAddress, Toast.LENGTH_SHORT).show();
@@ -124,7 +123,7 @@ public class map extends Fragment implements OnMapReadyCallback {
         }
     }
     public void onMapReady(final GoogleMap googleMap) {
-        MapsInitializer.initialize(getActivity().getApplicationContext());
+        MapsInitializer.initialize(getContext());
         mGoogleMap=googleMap;
         geocoder=new Geocoder(view.getContext());
 
@@ -142,6 +141,13 @@ public class map extends Fragment implements OnMapReadyCallback {
                 mOptions.position(new LatLng(latitude,longtitue));
 
                 exMarker=googleMap.addMarker(mOptions);
+            }
+        });
+        mGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Toast.makeText(getActivity().getApplicationContext(),"success했음^~",Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
         button.setOnClickListener(new Button.OnClickListener(){
