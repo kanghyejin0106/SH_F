@@ -1,13 +1,12 @@
 package com.example.home.myapplication;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -33,8 +32,7 @@ public class Senior_question1 extends AppCompatActivity {
         final RadioGroup wifi = findViewById(R.id.security);
         final RadioGroup vacation = findViewById(R.id.vacation);
         Button next = findViewById(R.id.next);
-        Intent intent=getIntent();
-       phone=intent.getStringExtra("phone");
+
 
         provide.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -119,7 +117,14 @@ public class Senior_question1 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Intent intent = new Intent(Senior_question1.this, Adding_question.class);
+=======
+                Intent id=getIntent();
+                phone=id.getStringExtra("phone");
+                regSeniorQ();
+                Intent intent = new Intent(Senior_question1.this, Activity_login.class);
+>>>>>>> master
 
                 CheckBox fe = findViewById(R.id.fe);
                 CheckBox m = findViewById(R.id.m);
@@ -197,10 +202,10 @@ public class Senior_question1 extends AppCompatActivity {
             }
         });
     }
-    public void regQ(){
+    public void regSeniorQ(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone);
         SeniorQuestionData Sgd=new SeniorQuestionData(StudentGender,furniture,furnitureType,securityD,
                 wifiD,vactionRent);
-
+        table.child("seniorQ").setValue(Sgd);
     }
 }

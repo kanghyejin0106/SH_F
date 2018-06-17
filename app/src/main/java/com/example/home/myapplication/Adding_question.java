@@ -71,7 +71,7 @@ public class Adding_question extends AppCompatActivity {
                 }
 
 */
-                Intent intent = new Intent(Adding_question.this, Success_adding.class);
+                Intent intent = new Intent(Adding_question.this, senior_main.class);
                 startActivity(intent);
             }
         });

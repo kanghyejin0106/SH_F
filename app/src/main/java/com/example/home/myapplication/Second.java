@@ -26,6 +26,9 @@ public class Second extends AppCompatActivity {
     String email;
     int checkmoney;
     int checkPeriod;
+    String liveWith,houseType;
+    int checkBill;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,7 @@ public class Second extends AppCompatActivity {
 
        RadioGroup money = (RadioGroup) findViewById(R.id.money);
        RadioGroup period =  (RadioGroup)findViewById(R.id.period);
+       RadioGroup bill=(RadioGroup)findViewById(R.id.bill);
 
        school = (EditText) findViewById(R.id.school);
 
@@ -101,6 +105,30 @@ public class Second extends AppCompatActivity {
                 }
             }
         });
+        bill.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(i==-1){
+                    Toast.makeText(getApplicationContext(), "Enter desired bill.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    switch (i){
+                        case R.id.bill1:
+                            checkBill=1;
+                            break;
+                        case R.id.bill2:
+                            checkBill=2;
+                            break;
+                        case R.id.bill3:
+                            checkBill=3;
+                            break;
+                        case R.id.bill4:
+                            checkBill=4;
+                            break;
+                    }
+                }
+            }
+        });
         //Toast.makeText(getApplicationContext(),checkmoney,Toast.LENGTH_SHORT).show();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,12 +146,18 @@ public class Second extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter type of house order.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    if (checked0)
+                    if (checked0){
+                        liveWith+="Granny/";
                         intent.putExtra("granm", checked0);
-                    if (checked1)
+                    }
+                    if (checked1) {
+                        liveWith+="Granpa/";
                         intent.putExtra("granf", checked1);
-                    if (checked2)
+                    }
+                    if (checked2) {
+                        liveWith+="Old Couple/";
                         intent.putExtra("granc", checked2);
+                    }
                 }
 
                 boolean home1Checked = home1.isChecked();
@@ -134,14 +168,22 @@ public class Second extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter type of house.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    if (home1Checked)
+                    if (home1Checked) {
+                        houseType+="Detached House/";
                         intent.putExtra("home1", home1Checked);
-                    if (home2Checked)
+                    }
+                    if (home2Checked) {
+                        houseType+="Apartments/";
                         intent.putExtra("home2", home2Checked);
-                    if (home3Checked)
+                    }
+                    if (home3Checked) {
+                        houseType+="Row House/";
                         intent.putExtra("home3", home3Checked);
-                    if (home4Checked)
+                    }
+                    if (home4Checked) {
+                        houseType+="Multi Family House/";
                         intent.putExtra("home4", home4Checked);
+                    }
                 }
 
                 String ttedId = school.getText().toString();
@@ -174,10 +216,10 @@ public class Second extends AppCompatActivity {
     }
 
     public void regQ(){
-          table= FirebaseDatabase.getInstance().getReference("student").child(email);
-          table.child("period").setValue(checkPeriod);
-          table.child("school").setValue(school.getText().toString());
-          table.child("money").setValue(checkmoney);
+        table= FirebaseDatabase.getInstance().getReference("student").child(email).child("studentQ");
+        studentQData sgd=new studentQData(school.getText().toString(),liveWith,houseType,checkPeriod,checkmoney,checkBill,
+                0,0,0,0,0,0);
+        school.setText("");
     }
 
 

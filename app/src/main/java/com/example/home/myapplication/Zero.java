@@ -178,13 +178,13 @@ public class Zero extends AppCompatActivity {
         if(check.equals("1")){
             table = FirebaseDatabase.getInstance().getReference("student");
             str=EncodeString(email.getText().toString());
-            User newUser = new User(str,pw_s,name_s,phone_s,status,0,0,null);
+            User newUser = new User(str,pw_s,name_s,phone_s,status);
             table.child(str).setValue(newUser);
             email.setText("");
 
         }else{
             table = FirebaseDatabase.getInstance().getReference("senior");
-            User newUser = new User(phone_s,pw_s,name_s,status,0,0,null);
+            User newUser = new User(phone_s,pw_s,name_s,status);
             table.child(phone_s).setValue(newUser);
             Toast.makeText(getApplication(),phone_s,Toast.LENGTH_LONG).show();
         }

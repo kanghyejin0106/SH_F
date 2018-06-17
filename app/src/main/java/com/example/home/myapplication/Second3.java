@@ -105,7 +105,6 @@ public class Second3 extends AppCompatActivity {
                     intent.putExtra("study", selectedId);
                 }
 
-
                 startActivity(intent);
 
             }
@@ -146,6 +145,5 @@ public class Second3 extends AppCompatActivity {
         }
     }
 }
-
 
 
