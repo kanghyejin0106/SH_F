@@ -34,7 +34,7 @@ public class list extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    public String address="";
+    public String address="대한민국 서울특별시 광진구 자양동";
 
     ListView listView;
     SingerAdapter adapter;
