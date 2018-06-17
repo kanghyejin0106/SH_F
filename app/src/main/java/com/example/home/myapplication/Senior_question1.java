@@ -120,8 +120,8 @@ public class Senior_question1 extends AppCompatActivity {
                 Intent id=getIntent();
                 phone=id.getStringExtra("phone");
                 regSeniorQ();
-                Intent intent = new Intent(Senior_question1.this, Activity_login.class);
-
+                Intent intent = new Intent(Senior_question1.this, Second2.class);
+                intent.putExtra("phone",phone);
                 CheckBox fe = findViewById(R.id.fe);
                 CheckBox m = findViewById(R.id.m);
 
@@ -199,9 +199,9 @@ public class Senior_question1 extends AppCompatActivity {
         });
     }
     public void regSeniorQ(){
-        table= FirebaseDatabase.getInstance().getReference("senior").child(phone);
+        table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
         SeniorQuestionData Sgd=new SeniorQuestionData(StudentGender,furniture,furnitureType,securityD,
-                wifiD,vactionRent);
+                wifiD,vactionRent,0,0,0,0,0,0);
         table.child("seniorQ").setValue(Sgd);
     }
 }

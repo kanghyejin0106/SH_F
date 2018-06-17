@@ -39,7 +39,7 @@ public class    Second2 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Second2.this, MainActivity.class);
+                Intent intent = new Intent(Second2.this, senior_main.class);
                 intent.putExtra("ID",email);
                 int selectedId = reli.getCheckedRadioButtonId();
                 if(selectedId == -1) {
@@ -177,7 +177,9 @@ public class    Second2 extends AppCompatActivity {
         });
     }
     public void regQData(){
-        table= FirebaseDatabase.getInstance().getReference("student").child(email).child("studentQ");
+        Intent intent=getIntent();
+        String str=intent.getStringExtra("phone");
+        table= FirebaseDatabase.getInstance().getReference("senior").child(str).child("seniorQ");
         table.child("religion").setValue(religionD);
         table.child("pet").setValue(petD);
         table.child("smoke").setValue(smoke);

@@ -121,16 +121,19 @@ public class Zero extends AppCompatActivity {
                     }
                 });
                 if(check.equals("1")){
+
                         try{
                             GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
                             check_code = randomCode();
                             if(email_s.indexOf(".ac.")!=-1){
+
                                 gMailSender.sendMail("Season House 확인코드",check_code,email_s);
                                 Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
                                 if(check.equals("1")){
                                     Intent intent = new Intent(Zero.this, First.class);
                                     intent.putExtra("check","1");
                                     intent.putExtra("email",str);
+                                    intent.putExtra("code",check_code);
                                     startActivity(intent);
                                 }else{
                                     Intent intent=new Intent(Zero.this,Question.class);
@@ -140,7 +143,7 @@ public class Zero extends AppCompatActivity {
                                 }
                             }
                             else{
-                                Toast.makeText(getApplicationContext(), "이메일 확인해주세요", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "학교 이메일로 회원가입을 하세요", Toast.LENGTH_SHORT).show();
                             }
 
 //                   Messenger messenger = new Messenger(getApplicationContext());
