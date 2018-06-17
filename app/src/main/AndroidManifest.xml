@@ -39,8 +39,6 @@
         <activity android:name=".Second" />
         <activity android:name=".Second2" />
         <activity android:name=".Second3" />
-        <activity android:name=".Second4" />
-        <activity android:name=".Second5" />
         <activity android:name=".Zero" />
         <activity android:name=".Senior_addroom" />
         <activity android:name=".Senior_question1" />

@@ -49,6 +49,7 @@ public class roomView extends LinearLayout {
         textView2.setText(money);
     }
     public void setImageView(Uri uri){
+        //imageView.setImageURI(uri);
         Glide.with(getContext()).load(uri).into(imageView);
     }
 }

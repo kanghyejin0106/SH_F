@@ -2,6 +2,7 @@ package com.example.home.myapplication;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -173,7 +174,7 @@ public class list extends Fragment {
             itemView.setlocate(item.getroomlocate());
             itemView.setmoney(item.getroommoney());
             //itemView.setImageView(item.getImg1FilePath());
-            //itemView.setImageView(Uri.parse(item.getImg1FilePath()));
+            itemView.setImageView(Uri.parse(item.getImg1FilePath().toString()));
 
 
 
