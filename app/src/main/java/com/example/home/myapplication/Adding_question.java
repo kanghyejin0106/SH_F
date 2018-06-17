@@ -3,11 +3,14 @@ package com.example.home.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
 public class Adding_question extends AppCompatActivity {
+    public Adding_question() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
