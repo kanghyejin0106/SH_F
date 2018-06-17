@@ -232,16 +232,16 @@ public class Map_addroom extends AppCompatActivity
                 Intent intent=getIntent();
                 String name=intent.getStringExtra("ID");
                 String locationName=getCurrentAddress(currentPosition);
-                int i=locationName.indexOf("동");
-                String temp=locationName.substring(0,i+1);
+//                int i=locationName.indexOf("동");
+//                String temp=locationName.substring(0,i+1);
                 Room room=new Room(name,locationName,null,null,null,null,null);
 
                 table= FirebaseDatabase.getInstance().getReference("Room");
-                table.child(temp).child(name).setValue(room);
+                table.child(name).setValue(room);
 
                 Intent intent1=new Intent(Map_addroom.this,Senior_addroom.class);
                 intent1.putExtra("ID",name);
-                intent1.putExtra("templo",temp);
+//                intent1.putExtra("templo",temp);
                 startActivity(intent1);
             }
         });

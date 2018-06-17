@@ -2,6 +2,7 @@ package com.example.home.myapplication;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -81,7 +82,7 @@ public class map extends Fragment implements OnMapReadyCallback {
                                 LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longtitude));
 
                                 MarkerOptions mOptions2 = new MarkerOptions();
-                                mOptions2.title("search result");
+                                mOptions2.title(data.getKey().toString());
                                 mOptions2.snippet(address);
                                 mOptions2.position(point);
                                 mGoogleMap.addMarker(mOptions2);
@@ -146,7 +147,8 @@ public class map extends Fragment implements OnMapReadyCallback {
         mGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Toast.makeText(getActivity().getApplicationContext(),"success했음^~",Toast.LENGTH_SHORT).show();
+                Intent room_details = new Intent(getActivity(),Room_details.class);
+                startActivity(room_details);
                 return false;
             }
         });
