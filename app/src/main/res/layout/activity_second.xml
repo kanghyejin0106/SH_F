@@ -32,8 +32,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:textStyle="bold"
-                    android:text="What's your school?"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:text="What's your school?"/>
 
                 <EditText
                     android:id="@+id/school"
