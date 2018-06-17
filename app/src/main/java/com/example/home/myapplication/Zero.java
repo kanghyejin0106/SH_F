@@ -124,8 +124,24 @@ public class Zero extends AppCompatActivity {
                         try{
                             GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
                             check_code = randomCode();
-                            gMailSender.sendMail("Season House 확인코드",check_code,email_s);
-                            Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
+                            if(email_s.indexOf(".ac.")!=-1){
+                                gMailSender.sendMail("Season House 확인코드",check_code,email_s);
+                                Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
+                                if(check.equals("1")){
+                                    Intent intent = new Intent(Zero.this, First.class);
+                                    intent.putExtra("check","1");
+                                    intent.putExtra("email",str);
+                                    startActivity(intent);
+                                }else{
+                                    Intent intent=new Intent(Zero.this,Question.class);
+                                    intent.putExtra("check","2");
+                                    intent.putExtra("phone",phone_s);
+                                    startActivity(intent);
+                                }
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "이메일 확인해주세요", Toast.LENGTH_SHORT).show();
+                            }
 
 //                   Messenger messenger = new Messenger(getApplicationContext());
 //                   messenger.sendMessageTo(phone_s);
@@ -159,25 +175,17 @@ public class Zero extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),check,Toast.LENGTH_LONG).show();
         //DB
         if(check.equals("1")){
-            Intent intent = new Intent(Zero.this, First.class);
             table = FirebaseDatabase.getInstance().getReference("student");
             str=EncodeString(email.getText().toString());
             User newUser = new User(str,pw_s,name_s,phone_s,status,0,0,null);
             table.child(str).setValue(newUser);
             email.setText("");
-            intent.putExtra("check","1");
-            intent.putExtra("email",str);
-            startActivity(intent);
 
         }else{
-            Intent intent=new Intent(Zero.this,Question.class);
             table = FirebaseDatabase.getInstance().getReference("senior");
             User newUser = new User(phone_s,pw_s,name_s,status,0,0,null);
             table.child(phone_s).setValue(newUser);
             Toast.makeText(getApplication(),phone_s,Toast.LENGTH_LONG).show();
-            intent.putExtra("check","2");
-            intent.putExtra("phone",phone_s);
-            startActivity(intent);
         }
 
         pw.setText("");

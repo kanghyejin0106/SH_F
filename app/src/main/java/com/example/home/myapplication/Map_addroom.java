@@ -11,13 +11,13 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -71,8 +71,6 @@ public class Map_addroom extends AppCompatActivity
     boolean mMoveMapByAPI = true;
     LatLng currentPosition;
     Button btn;
-
-
     DatabaseReference table;
 
     LocationRequest locationRequest = new LocationRequest()
@@ -170,7 +168,7 @@ public class Map_addroom extends AppCompatActivity
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        btn=(Button)findViewById(R.id.locationBtn);
+        btn=(Button) findViewById(R.id.locationbtn);
 
         Log.d(TAG, "onMapReady :");
 
