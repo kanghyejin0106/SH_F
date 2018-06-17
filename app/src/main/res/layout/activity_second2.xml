@@ -257,7 +257,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:textColor="#753E2D"
-                        android:text="Breakfast?"
+                        android:text="Weed?"
                         android:textSize="10pt" />
 
                     <RadioGroup
@@ -271,7 +271,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="I always eat." />
+                            android:text="I always do." />
 
                         <RadioButton
                             android:id="@+id/bf2"
@@ -279,7 +279,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="Eat often." />
+                            android:text="Do often." />
 
                         <RadioButton
                             android:id="@+id/bf3"
@@ -287,7 +287,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="I eat sometimes." />
+                            android:text="I do sometimes." />
 
                         <RadioButton
                             android:id="@+id/bf4"
@@ -295,7 +295,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="Do not eat." />
+                            android:text="Do not." />
                     </RadioGroup>
                 </LinearLayout>
 
