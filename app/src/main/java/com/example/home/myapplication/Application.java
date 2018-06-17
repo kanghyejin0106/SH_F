@@ -1,9 +1,8 @@
 package com.example.home.myapplication;
 
-import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Application extends AppCompatActivity {
-    SingerAdapter adapter;
+    SingleAdapter adapter;
 
     ListView listView;
     DatabaseReference table;
@@ -30,8 +29,8 @@ public class Application extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application);
-        ListView listView;
         listView = (ListView)findViewById(R.id.list_app) ;
+        adapter = new SingleAdapter();
         initDB();
         //adapter = new SingerAdapter();
 //        adapter.addItem(new Room("aa","dd","ee"));
@@ -57,16 +56,16 @@ public class Application extends AppCompatActivity {
 
     }
     public void initDB(){
-        adapter = new SingerAdapter();
+
         table = FirebaseDatabase.getInstance().getReference("Room");
         table.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
                     if(data.hasChild("img1FilePath")){
-                        Toast.makeText(getApplicationContext(),data.child("roommoney").getValue().toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),data.child("roomMoney").getValue().toString(),Toast.LENGTH_LONG).show();
                         Room room = new Room(data.child("roomname").getValue().toString(),data.child("roomlocate").getValue().toString(),
-                                data.child("roommoney").getValue().toString(),
+                                data.child("roomMoney").getValue().toString(),
                                 data.child("img1FilePath").getValue().toString(),data.child("img2FilePath").getValue().toString(),
                                 data.child("img3FilePath").getValue().toString(),data.child("img4FilePath").getValue().toString());
                         adapter.addItem(room);
@@ -87,7 +86,8 @@ public class Application extends AppCompatActivity {
         });
         //listView.setAdapter(adapter);
     }
-    class SingerAdapter extends BaseAdapter {
+
+    class SingleAdapter extends BaseAdapter {
 
         //ArrayList<Room> items = new ArrayList<Room>();
         @Override
@@ -114,8 +114,9 @@ public class Application extends AppCompatActivity {
             itemView.setName(item.getroomname());
             itemView.setlocate(item.getroomlocate());
             itemView.setmoney(item.getroommoney());
-            itemView.setImageView(Uri.parse(item.getImg1FilePath()));
+            itemView.setImageView(item.getImg1FilePath());
             return itemView;
         }
     }
+
 }
