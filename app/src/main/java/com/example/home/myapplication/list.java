@@ -34,7 +34,7 @@ public class list extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    public String address="";
+    public String address="대한민국 서울특별시 광진구 자양동";
 
     ListView listView;
     SingerAdapter adapter;
@@ -94,9 +94,9 @@ public class list extends Fragment {
     }
     public void initDB(){
         adapter = new SingerAdapter();
-        table = FirebaseDatabase.getInstance().getReference(address);
+        table = FirebaseDatabase.getInstance().getReference("Room");
         //주소바꾸기
-        table.addValueEventListener(new ValueEventListener() {
+        table.child(address).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
