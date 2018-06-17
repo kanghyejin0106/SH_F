@@ -29,7 +29,7 @@ public class Senior_question1 extends AppCompatActivity {
         setContentView(R.layout.activity_senior_question1);
         final RadioGroup provide = findViewById(R.id.provide_fur);
         final RadioGroup security = findViewById(R.id.security);
-        final RadioGroup wifi = findViewById(R.id.security);
+        final RadioGroup wifi = findViewById(R.id.wifi);
         final RadioGroup vacation = findViewById(R.id.vacation);
         Button next = findViewById(R.id.next);
 
@@ -119,7 +119,6 @@ public class Senior_question1 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent id=getIntent();
                 phone=id.getStringExtra("phone");
-                regSeniorQ();
                 Intent intent = new Intent(Senior_question1.this, Second2.class);
                 intent.putExtra("phone",phone);
                 CheckBox fe = findViewById(R.id.fe);
@@ -193,7 +192,7 @@ public class Senior_question1 extends AppCompatActivity {
                     }
                     intent.putExtra("vacation", selectedId);
                 }
-
+                regSeniorQ();
                 startActivity(intent);
             }
         });

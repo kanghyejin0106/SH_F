@@ -158,8 +158,8 @@ public class    Second2 extends AppCompatActivity {
     }
     public void regQData(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
-        table.child("religion").setValue(religionD);
-        table.child("pet").setValue(petD);
+        table.child("q_religion").setValue(religionD);
+        table.child("q_pet").setValue(petD);
         table.child("smoke").setValue(smoke);
         table.child("alcohol").setValue(alcohol);
         table.child("weed").setValue(weed);
