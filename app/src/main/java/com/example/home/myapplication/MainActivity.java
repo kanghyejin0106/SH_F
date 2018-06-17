@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity
             intent.setType("image/*");
             startActivityForResult(intent,TAKE_PHOTO);
 
-        } else if (id == R.id.nav_slideshow) {
+        }/* else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 
