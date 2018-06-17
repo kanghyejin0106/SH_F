@@ -116,8 +116,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="5dp"
                 android:padding="15dp"
+                android:id="@+id/furniture"
                 android:background="@color/White"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
