@@ -20,8 +20,7 @@ public class Second3 extends AppCompatActivity {
     private Spinner wake;
     private Spinner comeback;
     private Spinner call;
-    private Spinner bath_m;
-    private Spinner bath_n;
+
 
     @Override
 
@@ -35,11 +34,16 @@ public class Second3 extends AppCompatActivity {
         addListenerOnsleep();
         addListenerOncomeback();
         addListenerOncall();
-        addListenerOnbath_m();
-        addListenerOnbath_n();
 
-        final RadioGroup bath = findViewById(R.id.bath);
-        final RadioGroup weekend = findViewById(R.id.weekend);
+        final RadioGroup noise = findViewById(R.id.noise);
+        final RadioGroup laundry = findViewById(R.id.laundry);
+        final RadioGroup bf = findViewById(R.id.bf);
+        final RadioGroup bathroom = findViewById(R.id.bathroom);
+        final RadioGroup kitchen = findViewById(R.id.kit);
+        final RadioGroup study = findViewById(R.id.study);
+
+//        final RadioGroup bath = findViewById(R.id.bath);
+//         final RadioGroup weekend = findViewById(R.id.weekend);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,21 +57,54 @@ public class Second3 extends AppCompatActivity {
                                 + "\nbath_m : " + String.valueOf(bath_m.getSelectedItem())
                                 + "\nbath_n : " + String.valueOf(bath_n.getSelectedItem()), Toast.LENGTH_SHORT).show();
 */
-                int selectedId = bath.getCheckedRadioButtonId();
+                int selectedId = noise.getCheckedRadioButtonId();
                 if(selectedId == -1) {
                     Toast.makeText(getApplicationContext(), "Enter your time using bathroom.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    intent.putExtra("bath", selectedId);
+                    intent.putExtra("noise", selectedId);
                 }
 
-                selectedId = weekend.getCheckedRadioButtonId();
+                selectedId = laundry.getCheckedRadioButtonId();
                 if(selectedId == -1) {
                     Toast.makeText(getApplicationContext(), "Enter about what you do on weekend.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    intent.putExtra("weekend", selectedId);
+                    intent.putExtra("laundry", selectedId);
                 }
+
+                selectedId = bf.getCheckedRadioButtonId();
+                if(selectedId == -1) {
+                    Toast.makeText(getApplicationContext(), "Enter about what you do on weekend.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    intent.putExtra("bf", selectedId);
+                }
+
+                selectedId = kitchen.getCheckedRadioButtonId();
+                if(selectedId == -1) {
+                    Toast.makeText(getApplicationContext(), "Enter about what you do on weekend.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    intent.putExtra("kitchen", selectedId);
+                }
+
+                selectedId = bathroom.getCheckedRadioButtonId();
+                if(selectedId == -1) {
+                    Toast.makeText(getApplicationContext(), "Enter about what you do on weekend.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    intent.putExtra("bathroom", selectedId);
+                }
+
+                selectedId = study.getCheckedRadioButtonId();
+                if(selectedId == -1) {
+                    Toast.makeText(getApplicationContext(), "Enter about what you do on weekend.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    intent.putExtra("study", selectedId);
+                }
+
 
                 startActivity(intent);
 
@@ -96,16 +133,6 @@ public class Second3 extends AppCompatActivity {
         call.setOnItemSelectedListener(new CustomOnItemSelectedListener());
     }
 
-    private void addListenerOnbath_m() {
-        bath_m = (Spinner)findViewById(R.id.bath_m);
-        bath_m.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-    }
-
-    private void addListenerOnbath_n() {
-        bath_n = (Spinner)findViewById(R.id.bath_n);
-        bath_n.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-    }
-
     private class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -119,6 +146,5 @@ public class Second3 extends AppCompatActivity {
         }
     }
 }
-
 
 
