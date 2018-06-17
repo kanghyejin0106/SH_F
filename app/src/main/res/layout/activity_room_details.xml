@@ -60,8 +60,7 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/couple"
-                    android:layout_margin="2.5mm"
+                    android:src="@drawable/ban_drink"
                     android:id="@+id/drinking" />
 
                 <ImageView
@@ -69,32 +68,28 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/couple"
-                    android:layout_margin="2.5mm"
+                    android:src="@drawable/ban_marifana"
                     android:id="@+id/pet" />
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/couple"
+                    android:src="@drawable/ban_pet"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2.5mm"
                     android:id="@+id/religion" />
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/couple"
+                    android:src="@drawable/smoke"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2.5mm"
                     android:id="@+id/smoking" />
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/couple"
-                    android:layout_margin="2.5mm"
+                    android:src="@drawable/pagoda"
                     android:id="@+id/weed" />
 
             </LinearLayout>
