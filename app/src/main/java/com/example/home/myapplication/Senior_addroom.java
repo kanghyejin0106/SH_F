@@ -127,7 +127,7 @@ public class Senior_addroom extends AppCompatActivity {
         Intent intent=getIntent();
         String str=intent.getStringExtra("templo");
         table=FirebaseDatabase.getInstance().getReference("Room").child(str).child(SeniorID);
-        table.child("roommoney").setValue(money);
+        table.child("roomMoney").setValue(money);
         table.child("img1FilePath").setValue(img1Path);
         table.child("img2FilePath").setValue(img2Path);
         table.child("img3FilePath").setValue(img3Path);

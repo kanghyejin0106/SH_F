@@ -7,7 +7,7 @@ package com.example.home.myapplication;
 public class Room {
     private String roomname;
     private String roomlocate;
-    private String roommoney;
+    private String roomMoney;
     private String img1FilePath;
     private String img2FilePath;
     private String img3FIlePath;
@@ -15,21 +15,21 @@ public class Room {
 
 
     Room(){}
-    Room(String name, String locate, String money,String img1FilePath,String img2FilePath,String img3FIlePath,String img4FilePath){
+    Room(String name, String locate, String roomMoney,String img1FilePath,String img2FilePath,String img3FIlePath,String img4FilePath){
         this.img1FilePath=img1FilePath;
         this.img2FilePath=img2FilePath;
         this.img3FIlePath=img3FIlePath;
         this.img4FilePath=img4FilePath;
         this.roomname=name;
         this.roomlocate=locate;
-        this.roommoney=money;
+        this.roomMoney=roomMoney;
     }
     public String getroomname(){return roomname;}
     public void setroomname(String name){this.roomname=name;}
     public String getroomlocate(){return roomlocate;}
     public void setroomlocate(String locate){this.roomlocate=locate;}
-    public String getroommoney(){return roommoney;}
-    public void setroommoney(String money){this.roommoney=money;}
+    public String getroommoney(){return roomMoney;}
+    public void setroommoney(String money){this.roomMoney=money;}
     public String getImg1FilePath(){return img1FilePath;}
     public void setImg1FilePath(String img1path){this.img1FilePath=img1path;}
     public String getImg2FilePath(){return img2FilePath;}
