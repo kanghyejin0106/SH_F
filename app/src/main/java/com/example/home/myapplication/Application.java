@@ -1,5 +1,6 @@
 package com.example.home.myapplication;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -114,7 +115,7 @@ public class Application extends AppCompatActivity {
             itemView.setName(item.getroomname());
             itemView.setlocate(item.getroomlocate());
             itemView.setmoney(item.getroommoney());
-            itemView.setImageView(item.getImg1FilePath());
+            itemView.setImageView(Uri.parse(item.getImg1FilePath()));
             return itemView;
         }
     }
