@@ -35,6 +35,59 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:textColor="#753E2D"
+                        android:text="Breakfast?"
+                        android:textSize="10pt" />
+
+                    <RadioGroup
+                        android:id="@+id/bf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/bf1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="I always eat." />
+
+                        <RadioButton
+                            android:id="@+id/bf2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="Eat often." />
+
+                        <RadioButton
+                            android:id="@+id/bf3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="I eat sometimes." />
+
+                        <RadioButton
+                            android:id="@+id/bf4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="Do not eat." />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="#753E2D"
                         android:text="The average wake up time is"
                         android:textSize="10pt" >
                     </TextView>
@@ -66,7 +119,6 @@
                     <Spinner
                         android:id="@+id/sleep"
                         android:entries="@array/sleep"
-                        android:spinnerMode="dialog"
                         android:textColor="#753E2D"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -132,38 +184,96 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:textColor="#753E2D"
-                        android:text="I go to bathroom in a day,"
+                        android:text="Noise in sleep"
                         android:textSize="10pt" />
 
                     <RadioGroup
-                        android:id="@+id/bath"
+                        android:id="@+id/noise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/noise1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="Sensitive" />
+
+                        <RadioButton
+                            android:id="@+id/noise2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="Normal" />
+
+                        <RadioButton
+                            android:id="@+id/noise3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="It is rather blunt." />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="#753E2D"
+                        android:text="The place to study is usually in"
+                        android:textSize="10pt" />
+
+                    <RadioGroup
+                        android:id="@+id/study"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <RadioButton
-                            android:id="@+id/bath1"
+                            android:id="@+id/study1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="One to three." />
+                            android:text="my room" />
 
                         <RadioButton
-                            android:id="@+id/bath2"
+                            android:id="@+id/study2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="Three to five." />
+                            android:text="library" />
 
                         <RadioButton
-                            android:id="@+id/bath3"
+                            android:id="@+id/study3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="It goes more than six times.">
+                            android:text="study room">
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/study4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="cafe">
                         </RadioButton>
                     </RadioGroup>
                 </LinearLayout>
@@ -179,78 +289,112 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:textColor="#753E2D"
-                        android:text="I have to use the bathroom in the morning on "
-                        android:textSize="10pt" >
-                    </TextView>
-
-                    <Spinner
-                        android:id="@+id/bath_m"
-                        android:entries="@array/bath_m"
-                        android:textColor="#753E2D"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    </Spinner>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="#753E2D"
-                        android:text="I have to use the bathroom in the night on "
-                        android:textSize="10pt" >
-                    </TextView>
-
-                    <Spinner
-                        android:id="@+id/bath_n"
-                        android:entries="@array/bath_n"
-                        android:textColor="#753E2D"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    </Spinner>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="#753E2D"
-                        android:text="On the weekend"
+                        android:text="I can use the Lessor (old man) and the kitchen for public use."
                         android:textSize="10pt" />
 
                     <RadioGroup
-                        android:id="@+id/weekend"
+                        android:id="@+id/kit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/weekend1"
+                            android:id="@+id/kit1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="I prefer to go out." />
+                            android:text="Yes." />
 
                         <RadioButton
-                            android:id="@+id/weekend2"
+                            android:id="@+id/kit2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
                             android:textColor="@color/bar2"
                             android:buttonTint="@color/bar2"
-                            android:text="I prefer staying at home." />
+                            android:text="No." />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="#753E2D"
+                        android:text="I can do the laundry with the lessor (old man)."
+                        android:textSize="10pt" />
+
+                    <RadioGroup
+                        android:id="@+id/laundry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/laundry1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="Yes." />
+
+                        <RadioButton
+                            android:id="@+id/laundry2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="No." />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="#753E2D"
+                        android:text="I can use the lessor and bathroom for public use."
+                        android:textSize="10pt" />
+
+                    <RadioGroup
+                        android:id="@+id/bathroom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/bathroom1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="Yes." />
+
+                        <RadioButton
+                            android:id="@+id/bathroom2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/bar2"
+                            android:buttonTint="@color/bar2"
+                            android:text="No." />
                     </RadioGroup>
                 </LinearLayout>
 
