@@ -117,7 +117,7 @@
                 android:id="@+id/submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="The End! Thank you!"
+                android:text=" The End! Thank you! "
                 android:layout_margin="10dp"
                 android:background="@drawable/login_button"
                 android:textColor="@color/White"
