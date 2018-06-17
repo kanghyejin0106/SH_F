@@ -3,6 +3,9 @@
     <color name="bg">#F3F1EC</color>
     <color name="bar">#E8DCC1</color>
     <color name="bar_clicked">#c9ba93</color>
+    <color name="mainmenu_button">#33000000</color>
+    <color name="mainmenu_button_click">#66000000</color>
+    <color name="mainmenu_text">#ccF3F1EC</color>
     <color name="bold_bar">#838383</color>
     <color name="bar2">#A0A991</color>
     <color name="bar2_clicked">#788066</color>

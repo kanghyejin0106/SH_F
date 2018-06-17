@@ -30,7 +30,7 @@ public class Application extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room item = (Room)adapter.getItem(position);
-                Toast.makeText(getApplicationContext(),"선택: "+item.getRoomname(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -67,9 +67,9 @@ public class Application extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             roomView itemView = new roomView(getApplicationContext());///////
             Room item = items.get(position);
-            itemView.setName(item.getRoomname());
-            itemView.setlocate(item.getRoomlocate());
-            itemView.setmoney(item.getRoommoney());
+            itemView.setName(item.getroomname());
+            itemView.setlocate(item.getroomlocate());
+            itemView.setmoney(item.getroommoney());
             return itemView;
         }
     }
