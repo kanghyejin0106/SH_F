@@ -134,11 +134,6 @@ public class Zero extends AppCompatActivity {
                                     intent.putExtra("email",str);
                                     intent.putExtra("code",check_code);
                                     startActivity(intent);
-                                }else{
-                                    Intent intent=new Intent(Zero.this,Question.class);
-                                    intent.putExtra("check","2");
-                                    intent.putExtra("phone",phone_s);
-                                    startActivity(intent);
                                 }
                             }
                             else{
@@ -157,9 +152,11 @@ public class Zero extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Check your e-mail3 "+email_s, Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), Activity_login.class);
-
+                }
+                else{
+                    Intent intent=new Intent(Zero.this,Question.class);
+                    intent.putExtra("check","2");
+                    intent.putExtra("phone",phone_s);
                     startActivity(intent);
                 }
             }
