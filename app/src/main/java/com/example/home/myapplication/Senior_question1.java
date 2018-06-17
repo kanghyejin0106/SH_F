@@ -11,7 +11,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Senior_question1 extends AppCompatActivity {
     boolean StudentGenderD;//true면 여자 false면 남자
@@ -190,18 +189,33 @@ public class Senior_question1 extends AppCompatActivity {
                     }
                     //intent.putExtra("vacation", selectedId);
                 }
-                regSeniorQ();
+//                regSeniorQ();
                 Toast.makeText(getApplicationContext(),"dd",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Senior_question1.this, Second2.class);
-                intent.putExtra("phone",phone);
-                startActivity(intent);
+<<<<<<< HEAD
+//                Intent intent = new Intent(Senior_question1.this, Second2.class);
+//                intent.putExtra("phone",phone);
+//                startActivity(intent);
+            }
+        });
+    }
+//    public void regSeniorQ(){
+//        table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
+//        SeniorQuestionData Sgd=new SeniorQuestionData(StudentGenderD,furniture,furnitureType,securityD,
+//                wifiD,vactionRent,0,0,0,0,0);
+//        table.setValue(Sgd);
+//    }
+=======
+                //Intent intent = new Intent(Senior_question1.this, Second2.class);
+               // intent.putExtra("phone",phone);
+                //startActivity(intent);
             }
         });
     }
     public void regSeniorQ(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
-        SeniorQuestionData Sgd=new SeniorQuestionData(StudentGenderD,furniture,furnitureType,securityD,
-                wifiD,vactionRent,0,0,0,0,0);
-        table.setValue(Sgd);
+       // SeniorQuestionData Sgd=new SeniorQuestionData(StudentGenderD,furniture,furnitureType,securityD,
+        //        wifiD,vactionRent,0,0,0,0,0);
+        //table.setValue(Sgd);
     }
+>>>>>>> 45bdbfa004b2aa2d07e1565f3d3aa7054406a865
 }

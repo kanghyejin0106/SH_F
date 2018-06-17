@@ -1,12 +1,10 @@
 package com.example.home.myapplication;
 
 import android.content.Intent;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -38,7 +36,7 @@ public class    Second2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in=getIntent();
                 phone=in.getStringExtra("phone");
-                Intent intent = new Intent(Second2.this, Adding_question.class);
+                Intent intent = new Intent(Second2.this, senior_main.class);
 
                 int selectedId = reli.getCheckedRadioButtonId();
                 if(selectedId == -1) {
@@ -158,10 +156,12 @@ public class    Second2 extends AppCompatActivity {
     }
     public void regQData(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
-        table.child("q_religion").setValue(religionD);
-        table.child("q_pet").setValue(petD);
-        table.child("smoke").setValue(smoke);
-        table.child("alcohol").setValue(alcohol);
-        table.child("weed").setValue(weed);
+<<<<<<< HEAD
+       SeniorQuestionData seniorQuestionData=new SeniorQuestionData(religionD,petD,smoke,alcohol,weed);
+       table.setValue(seniorQuestionData);
+=======
+        SeniorQuestionData sqd=new SeniorQuestionData(religionD,petD,smoke,alcohol,weed);
+        table.setValue(sqd);
+>>>>>>> 45bdbfa004b2aa2d07e1565f3d3aa7054406a865
     }
 }
