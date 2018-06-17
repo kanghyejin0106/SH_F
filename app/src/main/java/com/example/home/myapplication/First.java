@@ -48,6 +48,7 @@ public class First extends AppCompatActivity{
                     startActivity(intent);
                 }
                 else{
+//                    Toast.makeText(getApplicationContext(),right_code+" "+student_code,Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(),"Try again.",Toast.LENGTH_SHORT).show();
                 }
 

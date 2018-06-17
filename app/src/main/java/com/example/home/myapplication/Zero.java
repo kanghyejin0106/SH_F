@@ -126,6 +126,7 @@ public class Zero extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Enter your code into e-mail.", Toast.LENGTH_SHORT).show();
                                 if(check.equals("1")){
                                     Intent intent = new Intent(Zero.this, First.class);
+                                    intent.putExtra("code",check_code);
                                     intent.putExtra("check","1");
                                     intent.putExtra("email",str);
                                     startActivity(intent);
