@@ -101,7 +101,9 @@ public class Room_details extends Activity implements View.OnTouchListener {
             religion.setImageResource(R.drawable.catholic);
         }else if(religion2.equals("2")){
             religion.setImageResource(R.drawable.pagoda);
-        }else{
+        }else if(religion2.equals("5")){
+            religion.setImageResource(R.drawable.ban_religion);
+        }else {
             religion.setImageResource(R.drawable.mosque);
         }
 
