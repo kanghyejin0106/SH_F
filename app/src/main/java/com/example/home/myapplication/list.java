@@ -2,7 +2,6 @@ package com.example.home.myapplication;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -101,9 +100,9 @@ public class list extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
                     if(data.hasChild("img1FilePath")){
-                        Toast.makeText(getActivity().getApplicationContext(),data.child("roommoney").getValue().toString(),Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity().getApplicationContext(),data.child("roomMoney").getValue().toString(),Toast.LENGTH_LONG).show();
                         Room room = new Room(data.child("roomname").getValue().toString(),data.child("roomlocate").getValue().toString(),
-                                data.child("roommoney").getValue().toString(),
+                                data.child("roomMoney").getValue().toString(),
                                 data.child("img1FilePath").getValue().toString(),data.child("img2FilePath").getValue().toString(),
                                 data.child("img3FilePath").getValue().toString(),data.child("img4FilePath").getValue().toString());
                         adapter.addItem(room);
@@ -174,7 +173,7 @@ public class list extends Fragment {
             itemView.setName(item.getroomname());
             itemView.setlocate(item.getroomlocate());
             itemView.setmoney(item.getroommoney());
-            itemView.setImageView(Uri.parse(item.getImg1FilePath()));
+            itemView.setImageView(item.getImg1FilePath());
 
 
             return itemView;
