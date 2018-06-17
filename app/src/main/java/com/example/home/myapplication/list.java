@@ -82,7 +82,7 @@ public class list extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room item = (Room)adapter.getItem(position);
                 Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity().getApplicationContext(),"Choice : "+item.getRoomname(),Toast.LENGTH_SHORT).show();
+
 
                 Intent intent = new Intent(getActivity(), Room_details.class);
 //                intent.putExtra("aa,")
@@ -161,9 +161,6 @@ public class list extends Fragment {
             itemView.setName(item.getroomname());
             itemView.setlocate(item.getroomlocate());
             itemView.setmoney(item.getroommoney());
-            itemView.setName(item.getRoomname());
-            itemView.setlocate(item.getRoomlocate());
-            itemView.setmoney(item.getRoommoney());
             itemView.setImageView(Uri.parse(item.getImg1FilePath().toString()));
 
             return itemView;
