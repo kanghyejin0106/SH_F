@@ -1,29 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:background="@color/bg"
-tools:context=".senior_main">
-
-
-<Button
-    android:id="@+id/button2"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:background="@drawable/senior_main_addroom_activity"
-    />
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background5"
+    tools:context=".senior_main">
 
-<Button
-    android:id="@+id/select_old"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:background="@drawable/senior_main_studentapplication_activity"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:src="@drawable/logo"
+        />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="ADD ROOM"
+        android:textSize="30sp"
+        android:textColor="@color/mainmenu_text"
+        android:background="@drawable/mainmenu_button"
+        />
+
+    <Button
+        android:id="@+id/select_old"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="STUDENT\nAPPLICATION"
+        android:textSize="30sp"
+        android:textColor="@color/mainmenu_text"
+        android:background="@drawable/mainmenu_button"/>
 
 </LinearLayout>
