@@ -2,14 +2,25 @@ package com.example.home.myapplication;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.os.Bundle;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
+import android.app.Fragment;
+
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,12 +39,14 @@ public class list extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    public String address="";;
+    MyAdapter2 adapter;
+    TextView roomnameview;
+    ImageView roomimage;
+    ArrayList<Room> roomList;
+    public String address="대한민국 서울특별시 광진구 자양동";
 
     ListView listView;
-    SingerAdapter adapter;
     DatabaseReference table;
-    ArrayList<Room> items = new ArrayList<Room>();
     private OnFragmentInteractionListener mListener;
 
     public list() {
@@ -56,9 +69,7 @@ public class list extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        //adapter.addItem(new Room("aa","dd","ee"));
-        //initDB();
-        //listView.setAdapter(adapter);
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,63 +77,52 @@ public class list extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_list, container, false);
         listView = (ListView)v.findViewById(R.id.list_room) ;
+        roomnameview = (TextView) v.findViewById(R.id.roomnamelist);
+        roomimage = (ImageView)v.findViewById(R.id.imageView4);
+        roomList = new ArrayList<>();
+        adapter = new MyAdapter2(getActivity().getApplicationContext(), R.layout.layout_list, roomList);
+        listView.setAdapter(adapter);
 
 
         initDB();
-
-        //주소바꾸기
-        //adapter = new SingerAdapter();
-        //adapter.addItem(new Room("bb","ee","ee"));
-        //adapter.addItem(new Room("cc","rr","ee"));
-        //listView.setAdapter(adapter);
-
-        /*
+        //placeNameView.setText(ID); //선택 지역 표시
+        //placeImage.setImageDrawable(); storage에서 이미지 가져오기
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Room item = (Room)adapter.getItem(position);
-                Toast.makeText(getActivity().getApplicationContext(),"선택: "+item.getroomname(),Toast.LENGTH_SHORT).show();
-
-
-                Intent intent = new Intent(getActivity(), Room_details.class);
-//                intent.putExtra("aa,")
-                startActivity(intent);
-
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                Room tour=(Room)adapterView.getAdapter().getItem(pos);
+                /*
+                Intent tourActivity = new Intent(register_list.this, TourActivity.class);
+                tourActivity.putExtra("userID",ID);
+                tourActivity.putExtra("tourPlace",tour.getplace());
+                tourActivity.putExtra("regist","0");
+                tourActivity.putExtra("guideID",tour.getGuideID());
+                startActivity(tourActivity);
+                */
             }
         });
-        */
         return v;
     }
     public void initDB(){
-        adapter = new SingerAdapter();
         table = FirebaseDatabase.getInstance().getReference("Room");
-        table.addValueEventListener(new ValueEventListener() {
+        //주소바꾸기
+        table.child(address).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                roomList.clear();
                 for(DataSnapshot data : dataSnapshot.getChildren()){
-                    if(data.hasChild("img1FilePath")){
-                        Toast.makeText(getActivity().getApplicationContext(),data.child("roommoney").getValue().toString(),Toast.LENGTH_LONG).show();
-                        Room room = new Room(data.child("roomname").getValue().toString(),data.child("roomlocate").getValue().toString(),
-                                data.child("roommoney").getValue().toString(),
-                                data.child("img1FilePath").getValue().toString(),data.child("img2FilePath").getValue().toString(),
-                                data.child("img3FilePath").getValue().toString(),data.child("img4FilePath").getValue().toString());
-                        adapter.addItem(room);
-
-                        //adapter.addItem(new Room("aa","dd","ee"));
-                        listView.setAdapter(adapter);
-                    }
-                    else{
-                        Toast.makeText(getActivity().getApplicationContext(),"fail",Toast.LENGTH_LONG).show();
-                    }
-
+                    Room room = data.getValue(Room.class);
+                    roomList.add(room);
                 }
+                adapter.notifyDataSetChanged();
+                listView.setSelection(adapter.getCount()-1);
+
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-        //listView.setAdapter(adapter);
     }
     @Override
     public void onAttach(Context context) {
@@ -147,37 +147,41 @@ public class list extends Fragment {
         void onFragmentInteraction();//Uri uri);
 
     }
-    class SingerAdapter extends BaseAdapter {
 
-        //ArrayList<Room> items = new ArrayList<Room>();
-        @Override
-        public int getCount() {
-            return items.size();
-        }
-        public void addItem (Room item){
-            items.add(item);
-        }
-        @Override
-        public Object getItem(int position) {
-            return items.get(position);
-        }
+}
+class MyAdapter2 extends ArrayAdapter<Room> { //arrayList담을 MyAdapter 클래스 상속
+    ArrayList<Room> arrayList;
 
-        @Override
-        public long getItemId(int position) {
-            return position;
+    public MyAdapter2(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Room> objects) {
+        super(context, resource, objects);
+        arrayList = objects;
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View v = convertView;
+        if (v == null) { //convertView가 null일 경우에만 새로 만들기.
+            LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = inflater.inflate(R.layout.layout_list, parent, false);
         }
+        // TextView에 Message 출력하는 기능 구현
+        Room tour = arrayList.get(position);
+        //현재 행에 해당하는 chat 정보를 가져옴, position
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            roomView itemView = new roomView(getActivity().getApplicationContext());///////
-            Room item = items.get(position);
-            itemView.setName(item.getroomname());
-            itemView.setlocate(item.getroomlocate());
-            itemView.setmoney(item.getroommoney());
-            itemView.setImageView(Uri.parse(item.getImg1FilePath()));
+        TextView textView = (TextView)v.findViewById(R.id.textView2);
+        TextView textView1 = (TextView)v.findViewById(R.id.textView3);
+        TextView textView2 = (TextView)v.findViewById(R.id.textView4);
+        ImageView imageView=(ImageView)v.findViewById(R.id.imageView2);
 
+        //일단 투어 이미지 했는데 가이드 얼굴로 바꾸기
+        Uri tourImageUri = Uri.parse(tour.getImg1FilePath().toString());
 
-            return itemView;
-        }
+        textView.setText(tour.getroomname());//매핑작업(메시지, ID, 시간순으로 보여줌)
+        textView1.setText(tour.getroomlocate());
+        textView2.setText(tour.getroommoney());
+        imageView.setImageURI(tourImageUri);
+        textView2.setText("");
+        return v;
     }
 }

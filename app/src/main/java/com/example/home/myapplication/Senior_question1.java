@@ -120,7 +120,7 @@ public class Senior_question1 extends AppCompatActivity {
                 Intent id=getIntent();
                 phone=id.getStringExtra("phone");
                 regSeniorQ();
-                Intent intent = new Intent(Senior_question1.this, Activity_login.class);
+                Intent intent = new Intent(Senior_question1.this, Adding_question.class);
 
                 CheckBox fe = findViewById(R.id.fe);
                 CheckBox m = findViewById(R.id.m);

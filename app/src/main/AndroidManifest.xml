@@ -58,10 +58,12 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".Application" />
         <activity android:name=".senior_main" />
-        <activity android:name=".Room_details"></activity>
+        <activity android:name=".Room_details" />
+        <activity android:name=".Adding_question" />
+        <activity android:name=".Success_adding"></activity>
     </application>
 
 </manifest>
