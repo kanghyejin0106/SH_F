@@ -118,17 +118,21 @@ public class Zero extends AppCompatActivity {
                 });
 
                 if(check.equals("1")){
+
                         try{
                             GMailSender gMailSender = new GMailSender("shp.shouse@gmail.com","tksguqvm1!");
                             check_code = randomCode();
                             if(email_s.indexOf(".ac.")!=-1){
+
                                 gMailSender.sendMail("Season House Code",check_code,email_s);
                                 Toast.makeText(getApplicationContext(), "Enter your code into e-mail.", Toast.LENGTH_SHORT).show();
+
                                 if(check.equals("1")){
                                     Intent intent = new Intent(Zero.this, First.class);
                                     intent.putExtra("code",check_code);
                                     intent.putExtra("check","1");
                                     intent.putExtra("email",str);
+                                    intent.putExtra("code",check_code);
                                     startActivity(intent);
                                 }else{
                                     Intent intent=new Intent(Zero.this,Question.class);
@@ -138,7 +142,9 @@ public class Zero extends AppCompatActivity {
                                 }
                             }
                             else{
-                                Toast.makeText(getApplicationContext(), "Check your e-mail.", Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(getApplicationContext(), "Check your e-mail. You can join only by school e-mail", Toast.LENGTH_SHORT).show();
+
                             }
 
 //                   Messenger messenger = new Messenger(getApplicationContext());

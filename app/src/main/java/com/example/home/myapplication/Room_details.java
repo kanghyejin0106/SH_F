@@ -1,7 +1,9 @@
 package com.example.home.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -9,6 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 //import android.support.v7.app.AppCompatActivity;
 
@@ -21,6 +29,8 @@ public class Room_details extends Activity implements View.OnTouchListener {
     int count = 0;
     private TextView owner;
     private TextView money;
+    String id="";
+    DatabaseReference table;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -34,21 +44,41 @@ public class Room_details extends Activity implements View.OnTouchListener {
         ImageView pet = (ImageView)findViewById(R.id.pet);
         ImageView weed = (ImageView)findViewById(R.id.weed);
         ImageView religion = (ImageView)findViewById(R.id.religion);
+        Intent intent=new Intent(this.getIntent());
+        id=intent.getExtras().getString("ID");
 
-        /*
-        To use database
-         */
-
-        String text = "OWNER : " + "name";
+        String text = "OWNER : " + id;
         owner.setText(text);
 
         String text2 = "Monthly Rent : " + "money";
         money.setText(text2);
-
+        initDB();
         flipper = (ViewFlipper)findViewById(R.id.viewFlipper1);
         flipper.setOnTouchListener(this);
     }
+    public void initDB() {
+        table = FirebaseDatabase.getInstance().getReference("Room");
+        table.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    if (data.getKey().toString().equals(id)) {
+                        Toast.makeText(getApplicationContext(),id,Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),data.getKey().toString(),Toast.LENGTH_LONG).show();
+                        if (data.hasChild("roommoney")) {
+                            String text = "Monthly Rent : " + data.child("roommoney").getValue().toString();
+                            money.setText(text);
+                        }
+                    }
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         if( v != flipper) return false;

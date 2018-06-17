@@ -26,7 +26,7 @@ public class Second extends AppCompatActivity {
     String email;
     int checkmoney;
     int checkPeriod;
-    String liveWith,houseType;
+    String liveWith="",houseType="";
     int checkBill;
 
     @Override
@@ -133,10 +133,11 @@ public class Second extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Second2.class);
+                Intent intent = new Intent(getApplicationContext(),Activity_login.class);
 
                 intent.putExtra("email",email);
                 intent.putExtra("period", checkPeriod);
+                intent.putExtra("type","1");
 
 
                 boolean checked0 = granm.isChecked();
@@ -217,8 +218,8 @@ public class Second extends AppCompatActivity {
 
     public void regQ(){
         table= FirebaseDatabase.getInstance().getReference("student").child(email).child("studentQ");
-        studentQData sgd=new studentQData(school.getText().toString(),liveWith,houseType,checkPeriod,checkmoney,checkBill,
-                0,0,0,0,0,0);
+        studentQData sgd=new studentQData(school.getText().toString(),liveWith,houseType,checkPeriod,checkmoney,checkBill);
+        table.setValue(sgd);
         school.setText("");
     }
 
