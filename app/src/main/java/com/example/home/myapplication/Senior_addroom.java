@@ -112,6 +112,7 @@ public class Senior_addroom extends AppCompatActivity {
         buttonnext.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                money=editText.getText().toString();
                 regRoom();
                 editText.setText("");
                 Intent intent = new Intent(Senior_addroom.this, Senior_question1.class);
@@ -121,6 +122,7 @@ public class Senior_addroom extends AppCompatActivity {
     }
     public void regRoom(){
         Intent intent=getIntent();
+        Toast.makeText(getApplication(),money,Toast.LENGTH_SHORT).show();
         String str=intent.getStringExtra("templo");
         table=FirebaseDatabase.getInstance().getReference("Room").child(str).child(SeniorID);
         table.child("roomMoney").setValue(money);
