@@ -100,7 +100,11 @@ public class list extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
                     if(data.hasChild("img1FilePath")){
+<<<<<<< HEAD
                         //Toast.makeText(getActivity().getApplicationContext(),data.child("roomMoney").getValue().toString(),Toast.LENGTH_LONG).show();
+=======
+                        //Toast.makeText(getActivity().getApplicationContext(),data.child("roommoney").getValue().toString(),Toast.LENGTH_LONG).show();
+>>>>>>> 61aac6f1b826f121c87ac27ebb284d94550d0639
                         Room room = new Room(data.child("roomname").getValue().toString(),data.child("roomlocate").getValue().toString(),
                                 data.child("roomMoney").getValue().toString(),
                                 data.child("img1FilePath").getValue().toString(),data.child("img2FilePath").getValue().toString(),
@@ -173,7 +177,9 @@ public class list extends Fragment {
             itemView.setName(item.getroomname());
             itemView.setlocate(item.getroomlocate());
             itemView.setmoney(item.getroommoney());
-            itemView.setImageView(item.getImg1FilePath());
+            //itemView.setImageView(item.getImg1FilePath());
+            //itemView.setImageView(Uri.parse(item.getImg1FilePath()));
+
 
 
             return itemView;

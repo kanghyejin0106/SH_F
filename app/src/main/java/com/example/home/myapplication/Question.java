@@ -7,18 +7,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class Question extends AppCompatActivity {
     String email;
     String phone;
     String check;
+    Button vi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         Intent in=getIntent();
         check=in.getStringExtra("check");
-        if(check=="2"){
+        if(check.equals("2")){
             phone=in.getStringExtra("phone");
         }
         else{
@@ -30,7 +32,7 @@ public class Question extends AppCompatActivity {
         agree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Button vi = v.getRootView().findViewById(R.id.next);
+               vi = v.getRootView().findViewById(R.id.next);
 
                 if(vi.getVisibility() == View.GONE)
                 v.getRootView().findViewById(R.id.next).setVisibility(View.VISIBLE);
@@ -44,8 +46,12 @@ public class Question extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(check=="2"){
-                    Intent intent = new Intent(Question.this, Senior_question1.class);
+                //Intent in=getIntent();
+                //=in.getStringExtra("check");
+                Toast.makeText(getApplicationContext(),check, Toast.LENGTH_SHORT).show();
+                if(check.equals("2")){
+                    Intent intent = new Intent(Question.this, Activity_login.class);
+                    intent.putExtra("type","2");
                     intent.putExtra("phone",phone);
                     startActivity(intent);
                 }

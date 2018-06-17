@@ -45,6 +45,7 @@ public class First extends AppCompatActivity{
                 if(student_code.equals(right_code)){
                     Intent intent = new Intent(First.this, Question.class);
                     intent.putExtra("email",email);
+                    intent.putExtra("check","1");
                     startActivity(intent);
                 }
                 else{

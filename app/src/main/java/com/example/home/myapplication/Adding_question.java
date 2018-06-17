@@ -8,14 +8,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
-public class Adding_question extends AppCompatActivity {
-    public Adding_question() {
-    }
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+public class Adding_question extends AppCompatActivity {
+   String seniorMakeQ;
+    DatabaseReference table;
+    String phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adding_question);
+
 
         final CheckBox bf = findViewById(R.id.bf);
         final CheckBox kitchen = findViewById(R.id.kitchen);
@@ -32,9 +36,12 @@ public class Adding_question extends AppCompatActivity {
         Button submit = findViewById(R.id.submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-/*                boolean checked0 = bf.isChecked();
+                Intent i=getIntent();
+                phone=i.getStringExtra("phone");
+                boolean checked0 = bf.isChecked();
                 boolean checked1 = kitchen.isChecked();
                 boolean checked2 = laundry.isChecked();
                 boolean checked3 = bathroom.isChecked();
@@ -48,32 +55,36 @@ public class Adding_question extends AppCompatActivity {
 //        Intent c0 = new Intent();
 
                 if(checked0) {
-//            c0.putExtra("bf", 0);
-
-                } if (checked1) {
-
+                    seniorMakeQ+="0/";
+                }
+                if (checked1) {
+                    seniorMakeQ+="1/";
                 } if (checked2) {
-
+                    seniorMakeQ+="2/";
                 } if (checked3) {
-
+                    seniorMakeQ+="3/";
                 } if (checked4) {
-
+                    seniorMakeQ+="4/";
                 } if (checked5) {
-
+                    seniorMakeQ+="5/";
                 } if (checked6) {
-
+                    seniorMakeQ+="6/";
                 } if (checked7) {
-
+                    seniorMakeQ+="7/";
                 } if (checked8) {
-
+                    seniorMakeQ+="8/";
                 } if (checked9) {
-
+                    seniorMakeQ+="9/";
                 }
 
-*/
+                regMQ();
                 Intent intent = new Intent(Adding_question.this, senior_main.class);
                 startActivity(intent);
             }
         });
+    }
+    public void regMQ(){
+        table= FirebaseDatabase.getInstance().getReference("Room").child(phone).child("seniorMq");
+        table.setValue(seniorMakeQ);
     }
 }
