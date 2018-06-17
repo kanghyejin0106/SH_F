@@ -38,7 +38,7 @@ public class    Second2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in=getIntent();
                 phone=in.getStringExtra("phone");
-                Intent intent = new Intent(Second2.this, Adding_question.class);
+                Intent intent = new Intent(Second2.this, senior_main.class);
 
                 int selectedId = reli.getCheckedRadioButtonId();
                 if(selectedId == -1) {
@@ -158,10 +158,7 @@ public class    Second2 extends AppCompatActivity {
     }
     public void regQData(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
-        table.child("q_religion").setValue(religionD);
-        table.child("q_pet").setValue(petD);
-        table.child("smoke").setValue(smoke);
-        table.child("alcohol").setValue(alcohol);
-        table.child("weed").setValue(weed);
+        SeniorQuestionData sqd=new SeniorQuestionData(religionD,petD,smoke,alcohol,weed);
+        table.setValue(sqd);
     }
 }

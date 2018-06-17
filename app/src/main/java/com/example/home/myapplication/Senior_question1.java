@@ -192,16 +192,16 @@ public class Senior_question1 extends AppCompatActivity {
                 }
                 regSeniorQ();
                 Toast.makeText(getApplicationContext(),"dd",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Senior_question1.this, Second2.class);
-                intent.putExtra("phone",phone);
-                startActivity(intent);
+                //Intent intent = new Intent(Senior_question1.this, Second2.class);
+               // intent.putExtra("phone",phone);
+                //startActivity(intent);
             }
         });
     }
     public void regSeniorQ(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
-        SeniorQuestionData Sgd=new SeniorQuestionData(StudentGenderD,furniture,furnitureType,securityD,
-                wifiD,vactionRent,0,0,0,0,0);
-        table.setValue(Sgd);
+       // SeniorQuestionData Sgd=new SeniorQuestionData(StudentGenderD,furniture,furnitureType,securityD,
+        //        wifiD,vactionRent,0,0,0,0,0);
+        //table.setValue(Sgd);
     }
 }
