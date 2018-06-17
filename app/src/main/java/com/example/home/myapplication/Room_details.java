@@ -35,6 +35,12 @@ public class Room_details extends Activity implements View.OnTouchListener {
     DatabaseReference table;
     DatabaseReference tableQuestion;
     Button applyBtn;
+    String alcohol;
+    String pet2;
+    String religion2 ;
+    String smoke ;
+    String weed2 ;
+
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -70,6 +76,36 @@ public class Room_details extends Activity implements View.OnTouchListener {
         initDB();
         flipper = (ViewFlipper)findViewById(R.id.viewFlipper1);
         flipper.setOnTouchListener(this);
+
+        if (alcohol.equals("4")) {
+            drinking.setImageResource(R.drawable.drink);
+        }else{
+            drinking.setImageResource(R.drawable.ban_drink);
+        }
+        if(pet2.equals("4")){
+            pet.setImageResource(R.drawable.pet);
+        }else{
+            pet.setImageResource(R.drawable.ban_pet);
+        }
+        if(smoke.equals("4")){
+            smoking.setImageResource(R.drawable.ban_smoke);
+        }else {
+            smoking.setImageResource(R.drawable.smoke);
+        }
+        if(weed2.equals("4")){
+            weed.setImageResource(R.drawable.ban_marifana);
+        }else {
+            weed.setImageResource(R.drawable.marifana);
+        }
+        if(religion2.equals("1")){
+            religion.setImageResource(R.drawable.catholic);
+        }else if(religion2.equals("2")){
+            religion.setImageResource(R.drawable.pagoda);
+        }else{
+            religion.setImageResource(R.drawable.mosque);
+        }
+
+
     }
     public void initDB() {
         table = FirebaseDatabase.getInstance().getReference("Room");
@@ -100,16 +136,17 @@ public class Room_details extends Activity implements View.OnTouchListener {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     if (data.getKey().toString().equals(id_senior)) {
                         if (data.hasChild("seniorQ")) {
-                            String alcohol = (data.child("seniorQ").child("alcohol").getValue().toString());
-                            String pet = (data.child("seniorQ").child("q_pet").getValue().toString());
-                            String religion = (data.child("seniorQ").child("q_religion").getValue().toString());
-                            String smoke = (data.child("seniorQ").child("smoke").getValue().toString());
-                            String weed = (data.child("seniorQ").child("weed").getValue().toString());
-                        Toast.makeText(getApplicationContext(), alcohol, Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), smoke, Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), weed, Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), pet, Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), religion, Toast.LENGTH_LONG).show();
+                            alcohol = (data.child("seniorQ").child("alcohol").getValue().toString());
+                            pet2 = (data.child("seniorQ").child("q_pet").getValue().toString());
+                            religion2 = (data.child("seniorQ").child("q_religion").getValue().toString());
+                            smoke = (data.child("seniorQ").child("smoke").getValue().toString());
+                            weed2 = (data.child("seniorQ").child("weed").getValue().toString());
+                            Toast.makeText(getApplicationContext(), alcohol, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), smoke, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), weed2, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), pet2, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), religion2, Toast.LENGTH_LONG).show();
+
                         }
                     }
                 }
