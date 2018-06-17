@@ -46,7 +46,6 @@ public class map extends Fragment implements OnMapReadyCallback {
     View view;
     Marker exMarker;
     String id="dd";
-    Bundle bundle;
     //
     DatabaseReference table;
     private OnFragmentInteractionListener mListener;
@@ -57,7 +56,6 @@ public class map extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bundle =this.getArguments();
         id = getActivity().getIntent().getExtras().getString("ID");
         Toast.makeText(getActivity().getApplicationContext(),id,Toast.LENGTH_LONG).show();
     }
