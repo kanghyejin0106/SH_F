@@ -53,6 +53,8 @@ public class Room_details extends Activity implements View.OnTouchListener {
         applyBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                table = FirebaseDatabase.getInstance().getReference("senior"); ////////////////
+                table.child("request").setValue(id_student);
                 Intent second3=new Intent(getApplicationContext(),Second3.class);
                 second3.putExtra("ID_senior",id_senior);
                 second3.putExtra("ID_student",id_student);
