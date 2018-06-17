@@ -201,7 +201,7 @@ public class Senior_question1 extends AppCompatActivity {
     public void regSeniorQ(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
         SeniorQuestionData Sgd=new SeniorQuestionData(StudentGender,furniture,furnitureType,securityD,
-                wifiD,vactionRent,0,0,0,0,0,0);
+                wifiD,vactionRent,0,0,0,0,0);
         table.child("seniorQ").setValue(Sgd);
     }
 }
