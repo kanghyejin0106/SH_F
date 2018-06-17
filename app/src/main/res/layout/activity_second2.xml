@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".Second2">
 
         <ScrollView
@@ -14,29 +15,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="50dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="15dp"
+                    android:background="@color/White"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="#753E2D"
-                        android:text="What is your religion?"
-                        android:textSize="10pt" />
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="What is your religion?"/>
 
                     <RadioGroup
                         android:id="@+id/reli"
@@ -46,47 +44,42 @@
 
                         <RadioButton
                             android:id="@+id/reli1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:textColor="@color/question_text"
                             android:text="Christianity" />
 
                         <RadioButton
                             android:id="@+id/reli2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:textColor="@color/question_text"
                             android:text="Buddhism" />
 
                         <RadioButton
                             android:id="@+id/reli3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:textColor="@color/question_text"
                             android:text="Catholic" />
 
                         <RadioButton
                             android:id="@+id/reli4"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:textColor="@color/question_text"
                             android:text="Islam" />
 
                         <RadioButton
                             android:id="@+id/reil5"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:textColor="@color/question_text"
                             android:text="No Religion" />
                     </RadioGroup>
                 </LinearLayout>
@@ -94,16 +87,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="15dp"
+                    android:background="@color/White"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="#753E2D"
-                        android:text="Pet?"
-                        android:textSize="10pt" />
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="Pet?" />
 
                     <RadioGroup
                         android:id="@+id/pet"
@@ -113,26 +111,26 @@
 
                         <RadioButton
                             android:id="@+id/pet1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="I'm raising it, I like it." />
 
                         <RadioButton
                             android:id="@+id/pet2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="I don't raise it, but I like it." />
 
                             <RadioButton
                                 android:id="@+id/pet3"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/bar2"
-                                android:buttonTint="@color/bar2"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/question_text"
                                 android:text="I don't raise it and I don't like it.">
                             </RadioButton>
                     </RadioGroup>
@@ -141,16 +139,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="15dp"
+                    android:background="@color/White"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="#753E2D"
-                        android:text="I smoke"
-                        android:textSize="10pt" />
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="I smoke" />
 
                     <RadioGroup
                         android:id="@+id/smoky"
@@ -160,34 +163,34 @@
 
                         <RadioButton
                             android:id="@+id/smoky1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="Always" />
 
                         <RadioButton
                             android:id="@+id/smoky2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="Often" />
 
                         <RadioButton
                             android:id="@+id/smoky3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="Sometimes" />
 
                         <RadioButton
                             android:id="@+id/smoky4"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="Do not." />
                     </RadioGroup>
 
@@ -196,16 +199,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="15dp"
+                    android:background="@color/White"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="#753E2D"
-                        android:text="I drink alcohol"
-                        android:textSize="10pt" />
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="I drink alcohol"/>
 
                     <RadioGroup
                         android:id="@+id/drunken"
@@ -214,34 +222,34 @@
 
                         <RadioButton
                             android:id="@+id/drunken1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="Always" />
 
                         <RadioButton
                             android:id="@+id/drunken2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="Often" />
 
                         <RadioButton
                             android:id="@+id/drunken3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="Sometimes" />
 
                         <RadioButton
                             android:id="@+id/drunken4"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
                             android:text="Do not." />
                     </RadioGroup>
                 </LinearLayout>
@@ -249,16 +257,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="15dp"
+                    android:background="@color/White"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="#753E2D"
-                        android:text="Breakfast?"
-                        android:textSize="10pt" />
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="Weed?"/>
 
                     <RadioGroup
                         android:id="@+id/bf"
@@ -267,51 +280,56 @@
 
                         <RadioButton
                             android:id="@+id/bf1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
-                            android:text="I always eat." />
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
+                            android:text="I always do." />
 
                         <RadioButton
                             android:id="@+id/bf2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
-                            android:text="Eat often." />
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
+                            android:text="Do often." />
 
                         <RadioButton
                             android:id="@+id/bf3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
-                            android:text="I eat sometimes." />
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
+                            android:text="I do sometimes." />
 
                         <RadioButton
                             android:id="@+id/bf4"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/bar2"
-                            android:buttonTint="@color/bar2"
-                            android:text="Do not eat." />
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/question_text"
+                            android:text="Do not." />
                     </RadioGroup>
                 </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:padding="15dp"
+                        android:background="@color/White"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:textColor="#753E2D"
-                            android:text="Invite?"
-                            android:textSize="10pt" />
+                            android:layout_marginBottom="10dp"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:text="Invite?"/>
 
                         <RadioGroup
                             android:id="@+id/in"
@@ -320,54 +338,47 @@
 
                             <RadioButton
                                 android:id="@+id/in1"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/bar2"
-                                android:buttonTint="@color/bar2"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/question_text"
                                 android:text="Invite someone more than once a month." />
 
                             <RadioButton
                                 android:id="@+id/in2"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/bar2"
-                                android:buttonTint="@color/bar2"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/question_text"
                                 android:text="Invite someone more than once every two month." />
 
                             <RadioButton
                                 android:id="@+id/in3"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/bar2"
-                                android:buttonTint="@color/bar2"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/question_text"
                                 android:text="Invite someone more than once every three months." />
 
                             <RadioButton
                                 android:id="@+id/in4"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/bar2"
-                                android:buttonTint="@color/bar2"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/question_text"
                                 android:text="Do not invite anyone." />
                         </RadioGroup>
                     </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:orientation="vertical">
 
                 <Button
                     android:id="@+id/next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:background="@color/bar"
-                    android:textColor="#753E2D"
-                    android:text="next" />
-                </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:background="@drawable/login_button"
+                    android:textColor="@color/White"
+                    android:textSize="16sp"
+                    android:text="NEXT" />
             </LinearLayout>
-        </LinearLayout>
      </ScrollView>
 </LinearLayout>

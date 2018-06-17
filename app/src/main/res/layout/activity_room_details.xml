@@ -5,109 +5,140 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/bar"
     tools:context=".Room_details">
 
-    <ViewFlipper
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/viewFlipper1"
-        android:flipInterval="1000">
-        <ImageView
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:src="@drawable/t4"/>
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:src="@drawable/t3"/>
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/viewFlipper1"
+                android:flipInterval="1000">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:src="@drawable/t4"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:src="@drawable/t2"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:src="@drawable/t3"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:src="@drawable/t1" />
-    </ViewFlipper>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:src="@drawable/t2"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:src="@drawable/t1" />
+            </ViewFlipper>
 
-        <ImageView
-            android:layout_width="25mm"
-            android:layout_height="25mm"
-            android:src="@drawable/computer"
-            android:layout_margin="2.5mm"
-            android:id="@+id/drinking" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:background="@color/mainmenu_text">
 
-        <ImageView
-            android:layout_width="25mm"
-            android:layout_height="25mm"
-            android:src="@drawable/couple"
-            android:layout_margin="2.5mm"
-            android:id="@+id/pet" />
-        <ImageView
-            android:layout_width="25mm"
-            android:src="@drawable/couple"
-            android:layout_height="25mm"
-            android:layout_margin="2.5mm"
-            android:id="@+id/religion" />
-        <ImageView
-            android:layout_width="25mm"
-            android:src="@drawable/couple"
-            android:layout_height="25mm"
-            android:layout_margin="2.5mm"
-            android:id="@+id/smoking" />
-        <ImageView
-            android:layout_width="25mm"
-            android:layout_height="25mm"
-            android:src="@drawable/couple"
-            android:layout_margin="2.5mm"
-            android:id="@+id/weed" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/couple"
+                    android:layout_margin="2.5mm"
+                    android:id="@+id/drinking" />
 
-    </LinearLayout>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/couple"
+                    android:layout_margin="2.5mm"
+                    android:id="@+id/pet" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/couple"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2.5mm"
+                    android:id="@+id/religion" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/couple"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2.5mm"
+                    android:id="@+id/smoking" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/couple"
+                    android:layout_margin="2.5mm"
+                    android:id="@+id/weed" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/owner"
-        android:textStyle="bold"
-        android:textSize="15pt"
-        android:text=""/>
+            </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/money"
-        android:textStyle="bold"
-        android:textSize="15pt"
-        android:text=""/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/mainmenu_text"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:id="@+id/owner"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:text=""/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/mainmenu_text"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:id="@+id/money"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text=""/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:id="@+id/apply"
-            android:layout_height="wrap_content"
-            android:background="@color/bar"
-            android:textColor="#753E2D"
-            android:gravity="center"
-            android:text="  Apply  "/>
-
-    </LinearLayout>
+            <Button
+                android:id="@+id/apply"
+                android:gravity="center"
+                android:text="Apply"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/login_singup"
+                android:textColor="@color/White"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

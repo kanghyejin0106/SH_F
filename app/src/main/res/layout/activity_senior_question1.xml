@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".Senior_question1">
 
     <ScrollView
@@ -14,45 +15,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="50dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:padding="15dp"
+                android:background="@color/White"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="#753E2D"
-                    android:text="Which student living your room?"
-                    android:textSize="10pt" />
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="Which student living your room?"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:orientation="horizontal">
 
                     <CheckBox
                         android:id="@+id/fe"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:textColor="@color/question_text"
                         android:text="Female" />
 
                     <CheckBox
                         android:id="@+id/m"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:textColor="@color/question_text"
                         android:text="Male" />
 
                 </LinearLayout>
@@ -61,168 +64,179 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:padding="15dp"
+                android:background="@color/White"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="#753E2D"
-                    android:text="Do you intend to provide furniture for students?"
-                    android:textSize="10pt" />
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="Do you intend to provide furniture for students?"/>
 
                 <RadioGroup
                     android:id="@+id/provide_fur"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/pf_y"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
-                        android:text="Yes"
-                        android:layout_marginRight="10dp"/>
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
+                        android:text="Yes"/>
 
                     <RadioButton
                         android:id="@+id/pf_n"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
                         android:text="No" />
                 </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/furniture"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:padding="15dp"
+                android:id="@+id/furniture"
+                android:background="@color/White"
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="#753E2D"
-                    android:text="What kind of furniture do you have? (Redundant Responses)"
-                    android:textSize="10pt" />
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="What kind of furniture do you have? (Redundant Responses)" />
 
                 <CheckBox
                     android:id="@+id/fur1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Bed" />
 
                 <CheckBox
                     android:id="@+id/fur2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Desk" />
 
                 <CheckBox
                     android:id="@+id/fur3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Closet" />
 
                 <CheckBox
                     android:id="@+id/fur4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Shelves" />
 
                 <CheckBox
                     android:id="@+id/fur5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Shoe rack" />
 
                 <CheckBox
                     android:id="@+id/fur6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Sink" />
 
                 <CheckBox
                     android:id="@+id/fur7"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Washing machine" />
 
                 <CheckBox
                     android:id="@+id/fur8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Fan" />
 
                 <CheckBox
                     android:id="@+id/fur9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Air conditioner" />
 
                 <CheckBox
                     android:id="@+id/fur10"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Basin" />
 
                 <CheckBox
                     android:id="@+id/fur11"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Shower" />
 
                 <CheckBox
                     android:id="@+id/fur12"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Boiler" />
 
                 <CheckBox
                     android:id="@+id/fur13"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Induction" />
 
                 <CheckBox
                     android:id="@+id/fur14"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/bar2"
-                    android:buttonTint="@color/bar2"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/question_text"
                     android:text="Refrigerator" />
 
             </LinearLayout>
@@ -230,16 +244,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:padding="15dp"
+                android:background="@color/White"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="#753E2D"
-                    android:text="What security facilities do you have?"
-                    android:textSize="10pt" />
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="What security facilities do you have?" />
 
                 <RadioGroup
                     android:id="@+id/security"
@@ -249,26 +268,26 @@
 
                     <RadioButton
                         android:id="@+id/security1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
                         android:text="Doorlock" />
 
                     <RadioButton
                         android:id="@+id/security2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
                         android:text="Keys" />
 
                     <RadioButton
                         android:id="@+id/security3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
                         android:text="Keys + Shackles" />
                 </RadioGroup>
             </LinearLayout>
@@ -276,37 +295,44 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:padding="15dp"
+                android:background="@color/White"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#753E2D"
-                    android:text="I can provide the Internet(Wi-Fi-)."
-                    android:textSize="10pt" />
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="I can provide the Internet(Wi-Fi-)."/>
 
                 <RadioGroup
                     android:id="@+id/wifi"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/wifi_y"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
-                        android:text="Yes"
-                        android:layout_marginRight="10dp"/>
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
+                        android:text="Yes"/>
 
                     <RadioButton
                         android:id="@+id/wifi_n"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
                         android:text="No" />
 
                 </RadioGroup>
@@ -315,37 +341,44 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:padding="15dp"
+                android:background="@color/White"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#753E2D"
-                    android:text="Students will be paid rent even if they do not live during the vacation."
-                    android:textSize="10pt" />
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="Students will be paid rent even if they do not live during the vacation."/>
 
                 <RadioGroup
                     android:id="@+id/vacation"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/vacation_y"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
-                        android:text="Yes"
-                        android:layout_marginRight="10dp"/>
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
+                        android:text="Yes"/>
 
                     <RadioButton
                         android:id="@+id/vacation_n"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/bar2"
-                        android:buttonTint="@color/bar2"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/question_text"
                         android:text="No" />
 
                 </RadioGroup>
@@ -355,10 +388,11 @@
                 android:id="@+id/next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@color/bar"
-                android:textColor="#753E2D"
-                android:text="Next" />
+                android:layout_margin="10dp"
+                android:background="@drawable/login_button"
+                android:textColor="@color/White"
+                android:textSize="16sp"
+                android:text="NEXT"/>
         </LinearLayout>
 
     </ScrollView>
