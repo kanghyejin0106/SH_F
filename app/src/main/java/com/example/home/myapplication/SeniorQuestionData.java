@@ -16,11 +16,11 @@ public class SeniorQuestionData {
     int smoke;//1. always 2.often 3.Sometimes 4. Do not
     int alcohol;//1.always 2. often 3. Sometimes 4.Do not
     int breakfast;//1.I always eat 2.eat often 3. i eat sometimes 4.Do not eat
-    int invite;//1.once a month 2. once every two month 3.once every three month 4. do not
+
 
     SeniorQuestionData(Boolean StudentGender,Boolean furniture,String furnitureType,
                        int security,Boolean wifi,Boolean vactionRent,int q_religion,int q_pet,
-                       int smoke,int alcohol,int breakfast, int invite){
+                       int smoke,int alcohol,int breakfast){
         this.StudentGender=StudentGender;
         this.furniture=furniture;
         this.furnitureType=furnitureType;
@@ -32,7 +32,6 @@ public class SeniorQuestionData {
         this.smoke=smoke;
         this.alcohol=alcohol;
         this.breakfast=breakfast;
-        this.invite=invite;
     }
 
     public void setStudentGender(Boolean studentGender) {
@@ -122,11 +121,4 @@ public class SeniorQuestionData {
         return breakfast;
     }
 
-    public void setInvite(int invite) {
-        this.invite = invite;
-    }
-
-    public int getInvite() {
-        return invite;
-    }
 }

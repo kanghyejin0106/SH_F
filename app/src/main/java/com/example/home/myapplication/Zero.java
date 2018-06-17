@@ -93,10 +93,6 @@ public class Zero extends AppCompatActivity {
         });
 
 
-
-
-
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,6 +116,7 @@ public class Zero extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
                     }
                 });
+
                 if(check.equals("1")){
 
                         try{
@@ -127,10 +124,12 @@ public class Zero extends AppCompatActivity {
                             check_code = randomCode();
                             if(email_s.indexOf(".ac.")!=-1){
 
-                                gMailSender.sendMail("Season House 확인코드",check_code,email_s);
-                                Toast.makeText(getApplicationContext(), "확인코드를 입력해주세요", Toast.LENGTH_SHORT).show();
+                                gMailSender.sendMail("Season House Code",check_code,email_s);
+                                Toast.makeText(getApplicationContext(), "Enter your code into e-mail.", Toast.LENGTH_SHORT).show();
+
                                 if(check.equals("1")){
                                     Intent intent = new Intent(Zero.this, First.class);
+                                    intent.putExtra("code",check_code);
                                     intent.putExtra("check","1");
                                     intent.putExtra("email",str);
                                     intent.putExtra("code",check_code);
@@ -143,19 +142,25 @@ public class Zero extends AppCompatActivity {
                                 }
                             }
                             else{
-                                Toast.makeText(getApplicationContext(), "학교 이메일로 회원가입을 하세요", Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(getApplicationContext(), "Check your e-mail. You can join only by school e-mail", Toast.LENGTH_SHORT).show();
+
                             }
 
 //                   Messenger messenger = new Messenger(getApplicationContext());
 //                   messenger.sendMessageTo(phone_s);
                     }catch (SendFailedException e){
-                        Toast.makeText(getApplicationContext(), "이메일 확인해주세요1 "+email_s, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Check your e-mail1 "+email_s, Toast.LENGTH_SHORT).show();
                     }catch(MessagingException e){
-                        Toast.makeText(getApplicationContext(), "이메일 확인해주세요2 "+email_s, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Check your e-mail2 "+email_s, Toast.LENGTH_SHORT).show();
                     }catch (Exception e){
-                        Toast.makeText(getApplicationContext(), "이메일 확인해주세요3 "+email_s, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Check your e-mail3 "+email_s, Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), Activity_login.class);
+
+                    startActivity(intent);
                 }
             }
         });

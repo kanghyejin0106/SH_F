@@ -34,12 +34,14 @@ public class    Second2 extends AppCompatActivity {
         final RadioGroup reli = findViewById(R.id.reli);
         final RadioGroup drunken = findViewById(R.id.drunken);
         final RadioGroup bf = findViewById(R.id.bf);
-        final RadioGroup in=(RadioGroup)findViewById(R.id.in);
+//        final RadioGroup in=(RadioGroup)findViewById(R.id.in);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(Second2.this, senior_main.class);
+
                 intent.putExtra("ID",email);
                 int selectedId = reli.getCheckedRadioButtonId();
                 if(selectedId == -1) {
@@ -150,27 +152,7 @@ public class    Second2 extends AppCompatActivity {
                     }
                     intent.putExtra("bf", selectedId);
                 }
-                selectedId = in.getCheckedRadioButtonId();
-                if(selectedId == -1) {
-                    Toast.makeText(getApplicationContext(), "Enter about breakfast.", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    switch (selectedId){
-                        case R.id.in1:
-                            invite=1;
-                            break;
-                        case R.id.bf2:
-                            breakfast=2;
-                            break;
-                        case R.id.bf3:
-                            breakfast=3;
-                            break;
-                        case R.id.bf4:
-                            breakfast=4;
-                            break;
-                    }
-                    intent.putExtra("bf", selectedId);
-                }
+
                 startActivity(intent);
 
             }
@@ -185,6 +167,5 @@ public class    Second2 extends AppCompatActivity {
         table.child("smoke").setValue(smoke);
         table.child("alcohol").setValue(alcohol);
         table.child("breakfast").setValue(breakfast);
-        table.child("invite").setValue(invite);
     }
 }
