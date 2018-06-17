@@ -3,9 +3,17 @@
     <color name="bg">#F3F1EC</color>
     <color name="bar">#E8DCC1</color>
     <color name="bar_clicked">#c9ba93</color>
+    <!-- .................................................. -->
     <color name="mainmenu_button">#33000000</color>
     <color name="mainmenu_button_click">#66000000</color>
-    <color name="mainmenu_text">#ccF3F1EC</color>
+    <color name="mainmenu_text">#b3F3F1EC</color>
+    <color name="login_edit">#80ffffff</color>
+    <color name="login_button">#b3E8DCC1</color>
+    <color name="login_button_click">#b3c9ba93</color>
+    <color name="login_signup">#b3A0A991</color>
+    <color name="login_signup_click">#b3788066</color>
+    <color name="login_text">#b3000000</color>
+    <!-- .................................................. -->
     <color name="bold_bar">#838383</color>
     <color name="bar2">#A0A991</color>
     <color name="bar2_clicked">#788066</color>
