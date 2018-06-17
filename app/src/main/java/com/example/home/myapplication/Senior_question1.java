@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Senior_question1 extends AppCompatActivity {
-    boolean StudentGender;//true면 여자 false면 남자
+    boolean StudentGenderD;//true면 여자 false면 남자
     boolean furniture;//true면 가구제공 false면 가구 제공안함
     String furnitureType="";//가구종류
     int securityD;//보안 종류 1이면 Doorlock 2이면 key 3이면 keys+shackles
@@ -22,15 +22,15 @@ public class Senior_question1 extends AppCompatActivity {
     boolean vactionRent;//ture면 방학동안에 살지않아도 돈을 내야함 false면 반대
     DatabaseReference table;
     String phone;
-
+    RadioGroup security;RadioGroup wifi;RadioGroup vacation;RadioGroup provide;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_senior_question1);
-        final RadioGroup provide = findViewById(R.id.provide_fur);
-        final RadioGroup security = findViewById(R.id.security);
-        final RadioGroup wifi = findViewById(R.id.wifi);
-        final RadioGroup vacation = findViewById(R.id.vacation);
+        security = findViewById(R.id.security);
+        wifi = findViewById(R.id.wifi);
+        vacation = findViewById(R.id.vacation);
+        provide = findViewById(R.id.provide_fur);
         Button next = findViewById(R.id.next);
 
 
@@ -41,13 +41,13 @@ public class Senior_question1 extends AppCompatActivity {
                     LinearLayout li = (LinearLayout)findViewById(R.id.furniture);
                     switch (checkedId){
                         case R.id.pf_y:
-                            li.setVisibility(View.VISIBLE);
                             furniture=true;
-//                            OncheckedFurniture();
+                            li.setVisibility(View.VISIBLE);
+                            OncheckedFurniture();
                             break;
                         case R.id.pf_n:
                             furniture=false;
-                            furnitureType=null;
+                            furnitureType="";
                             li.setVisibility(View.GONE);
                             break;
                     }
@@ -119,16 +119,14 @@ public class Senior_question1 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent id=getIntent();
                 phone=id.getStringExtra("phone");
-                Intent intent = new Intent(Senior_question1.this, Second2.class);
-                intent.putExtra("phone",phone);
                 CheckBox fe = findViewById(R.id.fe);
                 CheckBox m = findViewById(R.id.m);
 
-                boolean checked0 = fe.isChecked();
-                if(checked0){StudentGender=true;}
-                boolean checked1 = m.isChecked();
-                if (checked1){StudentGender=false;}
-                if(!checked0 && !checked1) {
+
+                if(fe.isChecked()){StudentGenderD=true;}
+                else if (m.isChecked()){StudentGenderD=false;}
+
+                if(!fe.isChecked() && !m.isChecked()) {
                     Toast.makeText(getApplicationContext(), "Enter about which you want gender of student.", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -139,7 +137,7 @@ public class Senior_question1 extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter your providing furniture.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    intent.putExtra("provide", selectedId);
+                    //intent.putExtra("provide", selectedId);
                 }
 
                 selectedId = security.getCheckedRadioButtonId();
@@ -158,7 +156,7 @@ public class Senior_question1 extends AppCompatActivity {
                             securityD=3;
                             break;
                     }
-                    intent.putExtra("security", selectedId);
+                    ///intent.putExtra("security", selectedId);
                 }
 
                 selectedId = wifi.getCheckedRadioButtonId();
@@ -174,7 +172,7 @@ public class Senior_question1 extends AppCompatActivity {
                             wifiD=false;
                             break;
                     }
-                    intent.putExtra("wifi", selectedId);
+                    //intent.putExtra("wifi", selectedId);
                 }
 
                 selectedId = vacation.getCheckedRadioButtonId();
@@ -190,16 +188,19 @@ public class Senior_question1 extends AppCompatActivity {
                             vactionRent=false;
                             break;
                     }
-                    intent.putExtra("vacation", selectedId);
+                    //intent.putExtra("vacation", selectedId);
                 }
                 regSeniorQ();
+                Toast.makeText(getApplicationContext(),"dd",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Senior_question1.this, Second2.class);
+                intent.putExtra("phone",phone);
                 startActivity(intent);
             }
         });
     }
     public void regSeniorQ(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
-        SeniorQuestionData Sgd=new SeniorQuestionData(StudentGender,furniture,furnitureType,securityD,
+        SeniorQuestionData Sgd=new SeniorQuestionData(StudentGenderD,furniture,furnitureType,securityD,
                 wifiD,vactionRent,0,0,0,0,0);
         table.setValue(Sgd);
     }

@@ -5,7 +5,7 @@ package com.example.home.myapplication;
  */
 
 public class SeniorQuestionData {
-    boolean StudentGender;//true면 여자 false면 남자
+    boolean studentG;//true면 여자 false면 남자
     boolean furniture;//true면 가구제공 false면 가구 제공안함
     String furnitureType;//가구종류
     int security;//보안 종류 1이면 Doorlock 2이면 key 3이면 keys+shackles
@@ -18,10 +18,10 @@ public class SeniorQuestionData {
     int weed;//1.I always do 2.do often 3. i do sometimes 4.Do not
 
 
-    SeniorQuestionData(Boolean StudentGender,Boolean furniture,String furnitureType,
+    SeniorQuestionData(Boolean studentG,Boolean furniture,String furnitureType,
                        int security,Boolean wifi,Boolean vactionRent,int q_religion,int q_pet,
                        int smoke,int alcohol,int weed){
-        this.StudentGender=StudentGender;
+        this.studentG=studentG;
         this.furniture=furniture;
         this.furnitureType=furnitureType;
         this.security=security;
@@ -34,12 +34,12 @@ public class SeniorQuestionData {
         this.weed=weed;
     }
 
-    public void setStudentGender(Boolean studentGender) {
-        StudentGender = studentGender;
+    public void setStudentG(Boolean studentG) {
+        this.studentG = studentG;
     }
 
-    public Boolean getStudentGender() {
-        return StudentGender;
+    public Boolean getStudentG() {
+        return studentG;
     }
 
     public void setFurniture(Boolean furniture) {
