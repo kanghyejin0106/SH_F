@@ -34,7 +34,7 @@ public class    Second2 extends AppCompatActivity {
         final RadioGroup reli = findViewById(R.id.reli);
         final RadioGroup drunken = findViewById(R.id.drunken);
         final RadioGroup bf = findViewById(R.id.bf);
-        final RadioGroup in=(RadioGroup)findViewById(R.id.in);
+//        final RadioGroup in=(RadioGroup)findViewById(R.id.in);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
