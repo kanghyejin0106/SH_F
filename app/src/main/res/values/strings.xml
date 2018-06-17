@@ -12,6 +12,7 @@
     <color name="login_text">#b3000000</color>
     <color name="question_edit">#0d000000</color>
     <color name="question_text">#767676</color>
+    <color name="confirm_num_box">#b3000000</color>
     <!-- .................................................. -->
     <color name="bg">#F3F1EC</color>
     <color name="bar">#E8DCC1</color>
