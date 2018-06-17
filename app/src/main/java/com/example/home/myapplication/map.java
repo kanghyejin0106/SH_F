@@ -45,6 +45,8 @@ public class map extends Fragment implements OnMapReadyCallback {
     EditText editText;
     View view;
     Marker exMarker;
+    String id="dd";
+    Bundle bundle;
     //
     DatabaseReference table;
     private OnFragmentInteractionListener mListener;
@@ -55,6 +57,9 @@ public class map extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        bundle =this.getArguments();
+        id = getActivity().getIntent().getExtras().getString("ID");
+        Toast.makeText(getActivity().getApplicationContext(),id,Toast.LENGTH_LONG).show();
     }
 
     // TODO: Rename and change types and number of parameters
@@ -67,7 +72,8 @@ public class map extends Fragment implements OnMapReadyCallback {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
                     if(data.hasChild("roomlocate")) {
                         String getAddress = data.child("roomlocate").getValue().toString();
-                        Toast.makeText(getActivity().getApplicationContext(), getAddress, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity().getApplicationContext(), getAddress, Toast.LENGTH_SHORT).show();
+
                         List<Address> addressList = null;
                         try {
                             addressList = geocoder.getFromLocationName(getAddress, 10);
@@ -111,6 +117,7 @@ public class map extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_map, container, false);
+
         return view;
     }
     @Override
@@ -119,6 +126,8 @@ public class map extends Fragment implements OnMapReadyCallback {
         mapView=(MapView) view.findViewById(R.id.map);
         editText=(EditText) view.findViewById(R.id.editText);
         button=(Button) view.findViewById(R.id.button);
+        // extra=getArguments();
+
         if(mapView!=null){
             mapView.onCreate(null);
             mapView.onResume();
@@ -150,8 +159,10 @@ public class map extends Fragment implements OnMapReadyCallback {
             @Override
             public boolean onMarkerClick(Marker marker) {
                 Intent room_details = new Intent(getActivity(),Room_details.class);
+                room_details.putExtra("ID_senior",marker.getTitle().toString());
+                room_details.putExtra("ID_student",id);
                 //Toast.makeText(getActivity(),marker.getTitle().toString(),Toast.LENGTH_LONG).show();
-                room_details.putExtra("ID",marker.getTitle().toString());
+                //Toast.makeText(getActivity(),id,Toast.LENGTH_LONG).show();
                 startActivity(room_details);
                 return false;
             }

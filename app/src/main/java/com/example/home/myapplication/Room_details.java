@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,25 +30,36 @@ public class Room_details extends Activity implements View.OnTouchListener {
     int count = 0;
     private TextView owner;
     private TextView money;
-    String id="";
+    String id_senior="";
+    String id_student="";
     DatabaseReference table;
-
+    Button applyBtn;
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_details);
         owner = (TextView)findViewById(R.id.owner);
         money = (TextView)findViewById(R.id.money);
-
+        applyBtn=(Button)findViewById(R.id.apply);
         ImageView smoking = (ImageView)findViewById(R.id.smoking);
         ImageView drinking = (ImageView)findViewById(R.id.drinking);
         ImageView pet = (ImageView)findViewById(R.id.pet);
         ImageView weed = (ImageView)findViewById(R.id.weed);
         ImageView religion = (ImageView)findViewById(R.id.religion);
         Intent intent=new Intent(this.getIntent());
-        id=intent.getExtras().getString("ID");
+        id_senior=intent.getExtras().getString("ID_senior");
+        id_student=intent.getExtras().getString("ID_student");
 
-        String text = "OWNER : " + id;
+        applyBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent second3=new Intent(getApplicationContext(),Second3.class);
+                second3.putExtra("ID_senior",id_senior);
+                second3.putExtra("ID_student",id_student);
+                startActivity(second3);
+            }
+        });
+        String text = "OWNER : " + id_senior;
         owner.setText(text);
 
         String text2 = "Monthly Rent : " + "money";
@@ -62,9 +74,9 @@ public class Room_details extends Activity implements View.OnTouchListener {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    if (data.getKey().toString().equals(id)) {
-                        Toast.makeText(getApplicationContext(),id,Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(),data.getKey().toString(),Toast.LENGTH_LONG).show();
+                    if (data.getKey().toString().equals(id_senior)) {
+                        Toast.makeText(getApplicationContext(),id_senior,Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),id_student,Toast.LENGTH_LONG).show();
                         if (data.hasChild("roommoney")) {
                             String text = "Monthly Rent : " + data.child("roommoney").getValue().toString();
                             money.setText(text);

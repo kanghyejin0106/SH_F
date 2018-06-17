@@ -1,18 +1,14 @@
 package com.example.home.myapplication;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Second3 extends AppCompatActivity {
 
@@ -21,20 +17,26 @@ public class Second3 extends AppCompatActivity {
     private Spinner comeback;
     private Spinner call;
 
+    String id_senior="";
+    String id_student="";
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second3);
         Button next = findViewById(R.id.next);
 
         addListenerOnwake();
         addListenerOnsleep();
         addListenerOncomeback();
         addListenerOncall();
-
+        Intent intent=getIntent();
+        id_senior=intent.getStringExtra("ID_senior");
+        id_student=intent.getStringExtra("ID_student");
+        Toast.makeText(getApplicationContext(),id_senior,Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),id_student,Toast.LENGTH_LONG).show();
         final RadioGroup noise = findViewById(R.id.noise);
         final RadioGroup laundry = findViewById(R.id.laundry);
         final RadioGroup bf = findViewById(R.id.bf);

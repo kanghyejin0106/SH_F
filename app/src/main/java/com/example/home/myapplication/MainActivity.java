@@ -1,17 +1,11 @@
 package com.example.home.myapplication;
 
-import android.app.Fragment;
-import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,35 +13,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements map.OnFragmentInteractionListener,
         list.OnFragmentInteractionListener,
         NavigationView.OnNavigationItemSelectedListener {
 
-    String id = "";
+    String id_student = "";
     String name = "";
     DatabaseReference table;
     boolean change = false;
     static final int TAKE_PHOTO=2;
-
+    Bundle bundle=new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-        Intent intent = new Intent(this.getIntent());
-        id = intent.getExtras().getString("ID");
+        Intent intent=new Intent(this.getIntent());
+        id_student=intent.getExtras().getString("ID");
+        //Toast.makeText(getApplicationContext(),id_student,Toast.LENGTH_LONG).show();
         FragmentManager manager = getFragmentManager();
         table = FirebaseDatabase.getInstance().getReference("student");
         manager.beginTransaction().replace(R.id.content_main,new map()).commit();
@@ -58,6 +49,11 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
 
                 FragmentManager manager = getFragmentManager();
+                //map m=new map();
+                //Bundle bundle=new Bundle();
+                //bundle.putString("ID",id_student);
+                //Toast.makeText(getApplicationContext(),id_student,Toast.LENGTH_LONG).show();
+                //m.setArguments(bundle);
                 if(change==false){
                     manager.beginTransaction().replace(R.id.content_main,new list()).commit();
                     Snackbar.make(view, "Change to list mode", Snackbar.LENGTH_LONG)
@@ -67,6 +63,18 @@ public class MainActivity extends AppCompatActivity
                     manager.beginTransaction().replace(R.id.content_main,new map()).commit();
                     Snackbar.make(view, "Change to map mode", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                    /*
+                    FragmentTransaction fragmentTransaction = manager.beginTransaction();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("ID",id_student);
+                    m.setArguments(bundle);
+                    manager.beginTransaction().replace(R.id.content_main,m).commit();
+                    Snackbar.make(view, "Change to map mode", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                            */
+                    //fragmentTransaction.replace(R.id.content_main,m);
+                    //fragmentTransaction.commit();
                     change = false;
                 }
 
@@ -85,8 +93,8 @@ public class MainActivity extends AppCompatActivity
         View nav_header_view = navigationView.getHeaderView(0);
         TextView s_name = (TextView)nav_header_view.findViewById(R.id.name);
         TextView s_email = (TextView)nav_header_view.findViewById(R.id.email);
-        s_email.setText(id);
-        name=table.child(id).child("name").getKey().toString();
+        s_email.setText(id_student);
+        name=table.child(id_student).child("name").getKey().toString();
         s_name.setText(name);
 
     }
