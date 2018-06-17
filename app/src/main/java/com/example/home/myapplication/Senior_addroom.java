@@ -318,16 +318,36 @@ public class Senior_addroom extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
                             if(num==1){
-                                img1Path=ref.toString();
+                                ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        img1Path=uri.toString();
+                                    }
+                                });
                             }
                             else if(num==2){
-                                img2Path=ref.toString();
+                                ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        img2Path=uri.toString();
+                                    }
+                                });
                             }
                             else if(num==3){
-                                img3Path=ref.toString();
+                                ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        img3Path=uri.toString();
+                                    }
+                                });
                             }
                             else if(num==4){
-                                img4Path=ref.toString();
+                                ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        img4Path=uri.toString();
+                                    }
+                                });
                             }
                             Toast.makeText(getApplicationContext(), "Uploaded", Toast.LENGTH_SHORT).show();
                         }
