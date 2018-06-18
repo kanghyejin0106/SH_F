@@ -34,6 +34,7 @@ public class Zero extends AppCompatActivity {
     String check;
     Button btn;
     String check_code;
+    int gender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,7 @@ public class Zero extends AppCompatActivity {
                     female.setTextColor(getApplicationContext().getResources().getColor(R.color.White));
                     male.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.Male));
                     male.setTextColor(getApplicationContext().getResources().getColor(R.color.Black));
+                    gender=1;
                 }
             }
         });
@@ -88,6 +90,7 @@ public class Zero extends AppCompatActivity {
                     male.setTextColor(getApplicationContext().getResources().getColor(R.color.White));
                     female.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.Male));
                     female.setTextColor(getApplicationContext().getResources().getColor(R.color.Black));
+                    gender=2;
                 }
             }
         });
@@ -182,13 +185,13 @@ public class Zero extends AppCompatActivity {
         if(check.equals("1")){
             table = FirebaseDatabase.getInstance().getReference("student");
             str=EncodeString(email.getText().toString());
-            User newUser = new User(str,pw_s,name_s,phone_s,status);
+            User newUser = new User(str,pw_s,name_s,phone_s,gender);
             table.child(str).setValue(newUser);
             email.setText("");
 
         }else{
             table = FirebaseDatabase.getInstance().getReference("senior");
-            User newUser = new User(phone_s,pw_s,name_s,status);
+            User newUser = new User(phone_s,pw_s,name_s,gender);
             table.child(phone_s).setValue(newUser);
             Toast.makeText(getApplication(),phone_s,Toast.LENGTH_LONG).show();
         }

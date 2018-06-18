@@ -115,7 +115,7 @@ public class Senior_addroom extends AppCompatActivity {
                 money=editText.getText().toString();
                 regRoom();
                 editText.setText("");
-                Intent intent = new Intent(Senior_addroom.this, Senior_question1.class);
+                Intent intent = new Intent(Senior_addroom.this, Second2.class);
                 intent.putExtra("phone",SeniorID);
                 startActivity(intent);
             }

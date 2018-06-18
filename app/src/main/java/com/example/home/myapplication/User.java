@@ -8,13 +8,13 @@ public class User {
     private String Email;
     private String PW;
     private String Name,Phone;
-    private boolean Gender;//true-> 여자  false ->남자
+    private int Gender;//true-> 여자  false ->남자
 
 
     public User(){
 
     }
-    public User(String id, String pw,String name,String phone, boolean gender){
+    public User(String id, String pw,String name,String phone, int gender){
         this.Name=name;
         this.Phone=phone;
         this.Gender=gender;
@@ -22,8 +22,8 @@ public class User {
         this.PW=pw;
 
     }
-    public User( String phone,String pw,String name, boolean gender){
-       this.Email=null;
+    public User( String phone,String pw,String name, int gender){
+        this.Email=null;
         this.Name=name;
         this.Phone=phone;
         this.Gender=gender;
@@ -38,8 +38,8 @@ public class User {
     public void setName(String name){this.Name=name;}
     public String getPhone(){return Phone;}
     public void setPhone(String phone){this.Phone=phone;}
-    public void setGender(boolean gender){this.Gender=gender;}
-    public boolean getGender(){return  Gender;}
+    public void setGender(int gender){this.Gender=gender;}
+    public int getGender(){return  Gender;}
 
 
 }
