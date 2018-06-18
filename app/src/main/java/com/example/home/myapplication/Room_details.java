@@ -51,7 +51,6 @@ public class Room_details extends Activity implements View.OnTouchListener {
     String weed2="" ;
 
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_details);
         owner = (TextView)findViewById(R.id.owner);
@@ -170,8 +169,6 @@ public class Room_details extends Activity implements View.OnTouchListener {
         }else {
             religion.setImageResource(R.drawable.mosque);
         }
-
-
     }
 
     public void initDB() {
