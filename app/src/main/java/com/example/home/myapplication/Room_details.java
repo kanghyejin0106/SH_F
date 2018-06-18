@@ -44,12 +44,11 @@ public class Room_details extends Activity implements View.OnTouchListener {
     Button applyBtn;
     ImageView flipper1, flipper2, flipper3, flipper4;
     String img1,img2,img3,img4;
-    private List<String> imageUrls;
-    String alcohol;
-    String pet2;
-    String religion2 ;
-    String smoke ;
-    String weed2 ;
+    String alcohol="";
+    String pet2="";
+    String religion2="" ;
+    String smoke="" ;
+    String weed2="" ;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -182,10 +181,10 @@ public class Room_details extends Activity implements View.OnTouchListener {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     if (data.getKey().toString().equals(id_senior)) {
-                        Toast.makeText(getApplicationContext(), id_senior, Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), id_student, Toast.LENGTH_LONG).show();
-                        if (data.hasChild("roommoney")) {
-                            String text = "Monthly Rent : " + data.child("roommoney").getValue().toString();
+                       // Toast.makeText(getApplicationContext(), id_senior, Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), id_student, Toast.LENGTH_LONG).show();
+                        if (data.hasChild("roomMoney")) {
+                            String text = "Monthly Rent : " + data.child("roomMoney").getValue().toString();
                             money.setText(text);
                         }
                     }
@@ -209,11 +208,11 @@ public class Room_details extends Activity implements View.OnTouchListener {
                             religion2 = (data.child("seniorQ").child("q_religion").getValue().toString());
                             smoke = (data.child("seniorQ").child("smoke").getValue().toString());
                             weed2 = (data.child("seniorQ").child("weed").getValue().toString());
-                            Toast.makeText(getApplicationContext(), alcohol, Toast.LENGTH_LONG).show();
-                            Toast.makeText(getApplicationContext(), smoke, Toast.LENGTH_LONG).show();
-                            Toast.makeText(getApplicationContext(), weed2, Toast.LENGTH_LONG).show();
-                            Toast.makeText(getApplicationContext(), pet2, Toast.LENGTH_LONG).show();
-                            Toast.makeText(getApplicationContext(), religion2, Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getApplicationContext(), alcohol, Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getApplicationContext(), smoke, Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getApplicationContext(), weed2, Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getApplicationContext(), pet2, Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getApplicationContext(), religion2, Toast.LENGTH_LONG).show();
 
                         }
                     }

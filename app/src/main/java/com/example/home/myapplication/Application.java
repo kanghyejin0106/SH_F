@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -64,7 +63,7 @@ public class Application extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data : dataSnapshot.getChildren()){
                     if(data.hasChild("img1FilePath")){
-                        Toast.makeText(getApplicationContext(),data.child("roomMoney").getValue().toString(),Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(),data.child("roomMoney").getValue().toString(),Toast.LENGTH_LONG).show();
                         Room room = new Room(data.child("roomname").getValue().toString(),data.child("roomlocate").getValue().toString(),
                                 data.child("roomMoney").getValue().toString(),
                                 data.child("img1FilePath").getValue().toString(),data.child("img2FilePath").getValue().toString(),
@@ -75,7 +74,7 @@ public class Application extends AppCompatActivity {
                         listView.setAdapter(adapter);
                     }
                     else{
-                        Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_LONG).show();
                     }
 
                 }

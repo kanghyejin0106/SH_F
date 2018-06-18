@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -111,7 +110,7 @@ public class list extends Fragment {
                         listView.setAdapter(adapter);
                     }
                     else{
-                        Toast.makeText(getActivity().getApplicationContext(),"fail",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity().getApplicationContext(),"fail",Toast.LENGTH_LONG).show();
                     }
 
                 }

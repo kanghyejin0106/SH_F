@@ -123,7 +123,7 @@ public class Senior_addroom extends AppCompatActivity {
     }
     public void regRoom(){
         Intent intent=getIntent();
-        Toast.makeText(getApplication(),money,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplication(),money,Toast.LENGTH_SHORT).show();
         table=FirebaseDatabase.getInstance().getReference("Room").child(SeniorID);
         table.child("roomMoney").setValue(money);
         table.child("img1FilePath").setValue(img1Path);
@@ -238,7 +238,7 @@ public class Senior_addroom extends AppCompatActivity {
                             break;
                     }
                     uploadImage(contentURI);
-                    Toast.makeText(Senior_addroom.this,contentURI.toString(),Toast.LENGTH_LONG).show();
+                    //Toast.makeText(Senior_addroom.this,contentURI.toString(),Toast.LENGTH_LONG).show();
 
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -35,8 +35,8 @@ public class Second3 extends AppCompatActivity {
         Intent intent=getIntent();
         id_senior=intent.getStringExtra("ID_senior");
         id_student=intent.getStringExtra("ID_student");
-        Toast.makeText(getApplicationContext(),id_senior,Toast.LENGTH_LONG).show();
-        Toast.makeText(getApplicationContext(),id_student,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),id_senior,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),id_student,Toast.LENGTH_LONG).show();
         final RadioGroup noise = findViewById(R.id.noise);
         final RadioGroup laundry = findViewById(R.id.laundry);
         final RadioGroup bf = findViewById(R.id.bf);
@@ -137,8 +137,8 @@ public class Second3 extends AppCompatActivity {
     private class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            Toast.makeText(parent.getContext(),
-                    "OnItemSelectedListener : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(parent.getContext(),
+            //        "OnItemSelectedListener : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
         }
 
         @Override

@@ -18,7 +18,6 @@ public class SeniorQuestionData {
     int weed;//1.I always do 2.do often 3. i do sometimes 4.Do not
 
 
-
     SeniorQuestionData(int q_religion,int q_pet,int smoke,int alcohol,int weed){
 //        this.studentG=studentG;
 //        this.furniture=furniture;

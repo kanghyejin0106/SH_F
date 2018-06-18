@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -57,7 +56,7 @@ public class map extends Fragment implements OnMapReadyCallback {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         id = getActivity().getIntent().getExtras().getString("ID");
-        Toast.makeText(getActivity().getApplicationContext(),id,Toast.LENGTH_LONG).show();
+     //   Toast.makeText(getActivity().getApplicationContext(),id,Toast.LENGTH_LONG).show();
     }
 
     // TODO: Rename and change types and number of parameters
@@ -137,7 +136,7 @@ public class map extends Fragment implements OnMapReadyCallback {
         mGoogleMap=googleMap;
         geocoder=new Geocoder(view.getContext());
 
-        mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+       /* mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
                 if(exMarker!=null) {
@@ -152,7 +151,7 @@ public class map extends Fragment implements OnMapReadyCallback {
 
                 exMarker=googleMap.addMarker(mOptions);
             }
-        });
+        });*/
         mGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {

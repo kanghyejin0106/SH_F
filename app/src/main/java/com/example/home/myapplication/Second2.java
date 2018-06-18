@@ -156,12 +156,9 @@ public class    Second2 extends AppCompatActivity {
     }
     public void regQData(){
         table= FirebaseDatabase.getInstance().getReference("senior").child(phone).child("seniorQ");
-<<<<<<< HEAD
        SeniorQuestionData seniorQuestionData=new SeniorQuestionData(religionD,petD,smoke,alcohol,weed);
        table.setValue(seniorQuestionData);
-=======
-        SeniorQuestionData sqd=new SeniorQuestionData(religionD,petD,smoke,alcohol,weed);
-        table.setValue(sqd);
->>>>>>> 45bdbfa004b2aa2d07e1565f3d3aa7054406a865
+
+
     }
 }
